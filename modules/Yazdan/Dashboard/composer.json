@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/dashboard",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Dashboard\\" : "src"
+        }
+    },
+    "extra": {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Dashboard\\App\\Providers\\DashboardServiceProvider"
+            ]
+        }
+    }
+}

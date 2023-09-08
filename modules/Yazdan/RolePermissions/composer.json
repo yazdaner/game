@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/role",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\RolePermissions\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\RolePermissions\\App\\Providers\\RoleServiceProvider"
+            ]
+        }
+    }
+}

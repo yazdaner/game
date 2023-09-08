@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/home",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Home\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Home\\App\\Providers\\HomeServiceProvider"
+            ]
+        }
+    }
+}

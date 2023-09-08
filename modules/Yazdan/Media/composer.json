@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/media",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Media\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Media\\App\\Providers\\MediaServiceProvider"
+            ]
+        }
+    }
+}

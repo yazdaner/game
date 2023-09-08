@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/game",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Game\\" : "src"
+        }
+    },
+    "extra": {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Game\\App\\Providers\\GameServiceProvider"
+            ]
+        }
+    }
+}
