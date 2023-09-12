@@ -65,10 +65,7 @@ class RecordController extends Controller
 
         // Level 1
         $level = $game->levels()->where('priority', $priority)->first();
-
-
-
-
+        
 
         if(is_null($level)){
             $level = false;

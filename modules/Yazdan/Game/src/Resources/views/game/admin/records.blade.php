@@ -19,8 +19,9 @@
                             <th>عنوان مرحله</th>
                             <th>رکورد ادعایی</th>
                             <th>حداقل رکورد مرحله</th>
+                            <th>تاریخ</th>
                             <th>وضعیت</th>
-                            <th>عملیات</th>
+                            <th>سند</th>
                             <th>عملیات</th>
                         </tr>
                     </thead>
@@ -32,6 +33,7 @@
                             <td>{{$record->level->title}}</td>
                             <td>{{$record->claimRecord}}</td>
                             <td>{{$record->level->minScore}}</td>
+                            <td>{{$record->created_at->diffForHumans()}}</td>
                             <td class="confirmation_status"><span
                                 class="{{$record->status()}}">{{__($record->status)}}</span></td>
                             <td>

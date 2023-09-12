@@ -22,9 +22,9 @@
                                     <h5 class="mb-0">توضیحات</h5>
                                 </div>
 
-                                <div class="single-match-list p-3">
+                                <div class="single-match-list p-3 text-right">
 
-                                    <span class="mr-2 text-break">{{$game->description}}</span>
+                                    <span class="mr-2 text-right text-break">{{$game->description}}</span>
 
                                 </div>
 
