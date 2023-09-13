@@ -46,7 +46,7 @@
         <x-file-home name="media" type="text" label="فایل سند" />
     </div>
 
-    <div class="col-auto">
+    <div class="col-auto mt-3">
         <button type="submit" class="btn btn-primary">ارسال</button>
     </div>
 </form>

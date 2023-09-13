@@ -16,7 +16,6 @@ class DiscountServiceProvider extends ServiceProvider
         $this->app->register(EventServiceProvider::class);
         Route::middleware('web')
             ->group(__DIR__ . '/../../Routes/discount_routes.php');
-
         $this->loadMigrationsFrom(__DIR__ . '/../../Database/migrations/');
         $this->loadViewsFrom(__DIR__ . '/../../Resources/views', 'Discount');
         $this->loadJsonTranslationsFrom(__DIR__ . '/../../Resources/Lang');
@@ -26,12 +25,12 @@ class DiscountServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        config()->set('sidebar.items.discount', [
-            'icon' => 'i-discounts',
-            'url' => route('admin.discounts.index'),
-            'title' => 'تخفیف',
-            'permission' => PermissionRepository::PERMISSION_MANAGE_DISCOUNT,
-        ]);
+        // config()->set('sidebar.items.discount', [
+        //     'icon' => 'i-discounts',
+        //     'url' => route('admin.discounts.index'),
+        //     'title' => 'تخفیف',
+        //     'permission' => PermissionRepository::PERMISSION_MANAGE_DISCOUNT,
+        // ]);
 
     }
 }

@@ -7,8 +7,6 @@
 
     @include('Front::sections.navbar')
 
-    @include('Front::sections.sidebar')
-
     @include('Front::sections.search')
 
 

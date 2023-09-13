@@ -32,7 +32,7 @@ class GameController extends Controller
         }
         GameRepository::store($request);
 
-        newFeedbackes();
+        newFeedbacks();
         return redirect(route('admin.games.index'));
     }
 
@@ -56,7 +56,7 @@ class GameController extends Controller
     public function update($id, GameRequest $request)
     {
         $game = GameRepository::findById($id);
-
+        
         if ($request->hasFile('media')) {
 
             if ($game->media) {
@@ -70,7 +70,7 @@ class GameController extends Controller
             }
         }
         GameRepository::update($id, $request);
-        newFeedbackes();
+        newFeedbacks();
         return redirect(route('admin.games.index'));
     }
 

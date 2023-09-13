@@ -197,10 +197,14 @@
                         </div>
 
                         <div class="option-item">
-                            <div class="side-menu-btn">
-                                <i class="flaticon-null-2" data-toggle="modal" data-target="#sidebarModal"></i>
+                            <div class="">
+                                <a href="{{route('users.profile')}}">
+                                    <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
+                                </a>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </nav>

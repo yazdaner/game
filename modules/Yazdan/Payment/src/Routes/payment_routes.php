@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use Yazdan\Payment\App\Http\Controllers\PaymentController;
 
 

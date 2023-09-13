@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/panel/css/responsive_991.css" media="(max-width:991px)">
     <link rel="stylesheet" href="/panel/css/responsive_768.css" media="(max-width:768px)">
     <link rel="stylesheet" href="/panel/css/font.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     @yield('style')
 
 </head>

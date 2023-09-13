@@ -15,7 +15,7 @@ class GroupController extends Controller
     {
         $game = GameRepository::findById($gameId);
         GroupRepository::store($request, $game->id);
-        newFeedbackes();
+        newFeedbacks();
         return back();
     }
 
@@ -32,7 +32,7 @@ class GroupController extends Controller
         $this->authorize('edit', $group);
 
         GroupRepository::update($request, $id);
-        newFeedbackes();
+        newFeedbacks();
         return redirect()->route('admin.games.details', $group->game->id);
     }
 
@@ -51,19 +51,19 @@ class GroupController extends Controller
         if(auth()->user()->groups->count() > 0){
             foreach(auth()->user()->groups as $item){
                 if($group->game_id == $item->game_id){
-                   newFeedbackes('نا موفق','شما قبلا در یک گروه از این بازی عضو شده اید','error');
+                   newFeedbacks('نا موفق','شما قبلا در یک گروه از این بازی عضو شده اید','error');
                    return back();
                 }
             }
         }
 
         if($group->capacity == $group->users->count() ){
-            newFeedbackes('نا موفق','ظرفیت گروه پر شده است','error');
+            newFeedbacks('نا موفق','ظرفیت گروه پر شده است','error');
             return back();
         }
 
         $group->users()->attach(auth()->id());
-        newFeedbackes('با موفقعیت','در گروه عضو شدین','success');
+        newFeedbacks('با موفقعیت','در گروه عضو شدین','success');
         return back();
 
     }

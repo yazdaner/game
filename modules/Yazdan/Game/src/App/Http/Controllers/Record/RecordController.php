@@ -65,7 +65,7 @@ class RecordController extends Controller
 
         // Level 1
         $level = $game->levels()->where('priority', $priority)->first();
-        
+
 
         if(is_null($level)){
             $level = false;
@@ -78,7 +78,7 @@ class RecordController extends Controller
     {
 
         if(auth()->user()->records()->where('level_id',$request->level)->where('status',RecordRepository::STATUS_PENDING)->first()){
-            newFeedbackes('نا موفق','شما رکوردی در این مرحله از قبل ارسال کرده اید که هنور تایید یا رد نشده است','error');
+            newFeedbacks('نا موفق','شما رکوردی در این مرحله از قبل ارسال کرده اید که هنور تایید یا رد نشده است','error');
             return back();
         }
 
@@ -97,7 +97,7 @@ class RecordController extends Controller
             'status' => RecordRepository::STATUS_PENDING,
         ]);
 
-        newFeedbackes();
+        newFeedbacks();
         return back();
     }
 }

@@ -9404,3 +9404,9 @@ Sidebar Modal CSS
 .text-error {
     color: #e73368 !important;
 }
+
+.profile_sm{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}

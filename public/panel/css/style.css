@@ -659,6 +659,12 @@ textarea {
     content: "\E136";
 }
 
+
+.sidebar__nav .i-coin a::before {
+    content: "\E137";
+}
+
+
 .i-users a::before {
     content: "\E136";
 }

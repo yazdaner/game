@@ -1,5 +1,5 @@
 <!-- My Account Tab Menu Start -->
-<div class="col-lg-3 col-md-4">
+<div class="col-lg-3 col-md-4 my-5 my-md-1">
     <div class="myaccount-tab-menu nav" role="tablist">
 
 

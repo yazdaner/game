@@ -4,5 +4,6 @@ return [
     'items' => [
         'profile' => [],
         'games' => [],
+        'coins' => [],
     ]
 ];

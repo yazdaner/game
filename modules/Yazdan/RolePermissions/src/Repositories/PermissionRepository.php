@@ -11,6 +11,7 @@ class PermissionRepository
     const PERMISSION_MANAGE_CATEGORIES = 'manage categories';
     const PERMISSION_MANAGE_USERS = 'manage users';
     const PERMISSION_MANAGE_COURSES = 'manage courses';
+    const PERMISSION_MANAGE_COIN = 'manage coin';
     const PERMISSION_MANAGE_GAMES = 'manage games';
     const PERMISSION_MANAGE_OWN_COURSES = 'manage own courses';
     const PERMISSION_MANAGE_ROLE_PERMISSIONS = 'manage role permissions';
@@ -40,7 +41,8 @@ class PermissionRepository
         self::PERMISSION_MANAGE_TICKETS,
         self::PERMISSION_MANAGE_COMMENTS,
         self::PERMISSION_MANAGE_SLIDES,
-        self::PERMISSION_MANAGE_DASHBOARD
+        self::PERMISSION_MANAGE_DASHBOARD,
+        self::PERMISSION_MANAGE_COIN,
     ];
 
     const PERMISSION_SUPER_ADMIN = 'super admin';

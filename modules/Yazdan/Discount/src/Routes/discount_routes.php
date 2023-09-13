@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use Yazdan\Discount\App\Http\Controllers\DiscountController;
 
 Route::prefix('admin-panel')->name('admin.')->middleware([

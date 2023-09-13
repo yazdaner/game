@@ -1,4 +1,4 @@
- <!-- Sidebar Modal -->
+ {{-- <!-- Sidebar Modal -->
  <div
  class="sidebarModal modal right fade"
  id="sidebarModal"
@@ -94,7 +94,6 @@
          </li>
        </ul>
      </div>
-   </div>
- </div>
+   </div> </div>
 </div>
-<!-- End Sidebar Modal -->
+<!-- End Sidebar Modal --> --}}

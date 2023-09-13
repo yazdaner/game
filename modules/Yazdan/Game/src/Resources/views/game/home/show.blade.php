@@ -89,8 +89,8 @@ background: #978e8e0f;
 
                                             @foreach ($group->users as $user)
                                             <div class="single-match-list">
-                                                <img src="{{$user->getAvatar(60)}}" class="team-1 p-2" alt="image">
-                                                <span class="mr-5 text-danger">1#</span>
+                                                <img src="{{$user->getAvatar(60)}}" class="team-1 profile_sm mr-3" alt="image">
+                                                <span class="mr-5 text-danger">{{++$loop->index}}#</span>
                                                 <span class="mr-2">{{$user->name}}</span>
 
                                             </div>

@@ -21,7 +21,7 @@ class LevelController extends Controller
         $game = GameRepository::findById($gameId);
         LevelRepository::store($request, $game->id);
 
-        newFeedbackes();
+        newFeedbacks();
         return redirect()->route('admin.games.details', $gameId);
     }
 
@@ -49,7 +49,7 @@ class LevelController extends Controller
 
         LevelRepository::update($request, $id);
 
-        newFeedbackes();
+        newFeedbacks();
         return redirect()->route('admin.games.details', $level->game->id);
     }
 }

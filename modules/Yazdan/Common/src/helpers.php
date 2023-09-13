@@ -3,7 +3,7 @@
 use Morilog\Jalali\Jalalian;
 use Illuminate\Support\Facades\Route;
 
-function newFeedbackes($title = 'با موفقعیت',$body = 'عملیات انجام شد',$type = 'success')
+function newFeedbacks($title = 'با موفقعیت',$body = 'عملیات انجام شد',$type = 'success')
 {
     $session = session()->has('feedbacks') ? session()->get('feedbacks') : [] ;
     $session[] = ['title' => $title, 'body' => $body, 'type' => $type];
