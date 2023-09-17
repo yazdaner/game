@@ -45,48 +45,42 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    // public function update(Request $request)
-    // {
-    //     $request->validate([
-    //         'qtybutton' => 'required'
-    //     ]);
+    public function update(Request $request)
+    {
+        $request->validate([
+            'qtybutton' => 'required'
+        ]);
 
-    //     foreach ($request->qtybutton as $rowId => $quantity) {
+        foreach ($request->qtybutton as $rowId => $quantity) {
 
-    //         $item = Cart::get($rowId);
+            $item = Cart::get($rowId);
 
-    //         if ($quantity > $item->attributes->quantity) {
-    //             alert()->error('تعداد وارد شده از محصول درست نمی باشد', 'دقت کنید');
-    //             return redirect()->back();
-    //         }
+            Cart::update($rowId, array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $quantity
+                ),
+            ));
+        }
 
-    //         Cart::update($rowId, array(
-    //             'quantity' => array(
-    //                 'relative' => false,
-    //                 'value' => $quantity
-    //             ),
-    //         ));
-    //     }
+        newFeedbacks('با موفقیت','سبد خرید شما ویرایش شد','success');
+        return back();
+    }
 
-    //     alert()->success('سبد خرید شما ویرایش شد', 'باتشکر');
-    //     return redirect()->back();
-    // }
+    public function remove($rowId)
+    {
+        Cart::remove($rowId);
 
-    // public function remove($rowId)
-    // {
-    //     Cart::remove($rowId);
+        newFeedbacks('با موفقیت','محصول مورد نظر از سبد خرید شما حذف شد','success');
+        return back();
+    }
 
-    //     alert()->success('محصول مورد نظر از سبد خرید شما حذف شد', 'باتشکر');
-    //     return redirect()->back();
-    // }
-
-    // public function clear()
-    // {
-    //     Cart::clear();
-
-    //     alert()->warning('سبد خرید شما پاک شد', 'باتشکر');
-    //     return redirect()->back();
-    // }
+    public function clear()
+    {
+        Cart::clear();
+        newFeedbacks('با موفقیت','سبد خرید شما پاک شد','success');
+        return back();
+    }
 
     // public function checkCoupon(Request $request)
     // {

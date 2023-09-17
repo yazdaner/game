@@ -15,7 +15,9 @@
                 </div>
             </div>
         @else
-        <form>
+        <form action="{{ route('users.cart.update') }}" method="POST">
+            @csrf
+            @method('PUT')
             <div class="cart-table table-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -31,33 +33,33 @@
                     <tbody>
 
                         @foreach (\Cart::getContent() as $item)
-                        @dd($item)
+
                             <tr>
                                 <td class="product-thumbnail">
                                     <a href="#">
-                                        <img src="assets/img/products-img1.jpg" alt="item">
+                                        <img src="{{ $item->associatedModel->getAvatar()}}" alt="item">
                                     </a>
                                 </td>
 
                                 <td class="product-name">
-                                    <a href="#">هدفون بازی</a>
+                                    <a href="#">{{$item->name}}</a>
                                 </td>
 
                                 <td class="product-price">
-                                    <span class="unit-amount">99000 تومان</span>
+                                    <span class="unit-amount">{{$item->price}} تومان</span>
                                 </td>
 
                                 <td class="product-quantity">
                                     <div class="input-counter">
                                         <span class="minus-btn"><i class='bx bx-minus'></i></span>
-                                        <input type="text" min="1" value="1">
+                                        <input type="text" min="1" value="{{$item->quantity}}" name="qtybutton[{{ $item->id }}]">
                                         <span class="plus-btn"><i class='bx bx-plus'></i></span>
                                     </div>
                                 </td>
 
                                 <td class="product-subtotal">
-                                    <span class="subtotal-amount">99000 تومان</span>
-                                    <a href="#" class="remove"><i class='bx bx-trash'></i></a>
+                                    <span class="subtotal-amount">{{$item->price * $item->quantity}} تومان</span>
+                                    <a href="{{ route('users.cart.remove' , ['rowId' => $item->id]) }}" class="remove"><i class='bx bx-trash'></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -67,15 +69,16 @@
 
             <div class="cart-buttons">
                 <div class="row align-items-center">
-                    <div class="col-lg-7 col-sm-7 col-md-7">
+                    <div class="col-lg-6 col-sm-6 col-md-6">
                         <div class="shopping-coupon-code">
                             <input type="text" class="form-control" placeholder="کد تخفیف" name="coupon-code" id="coupon-code">
                             <button type="submit">اعمال کد</button>
                         </div>
                     </div>
 
-                    <div class="col-lg-5 col-sm-5 col-md-5 text-right">
-                        <a href="#" class="default-btn">بروزرسانی سبد خرید</a>
+                    <div class="col-lg-6 col-sm-6 col-md-6 text-right d-flex align-items-center">
+                        <button type="submit" class="default-btn ml-4"> به روز رسانی سبد خرید </button>
+                        <a href="{{ route('users.cart.clear') }}" class="default-btn">پاک کردن سبد خرید</a>
                     </div>
                 </div>
             </div>
@@ -85,7 +88,7 @@
                 <ul>
                     <li>زیرمجموعه خرید <span>800000 تومان</span></li>
                     <li>کرایه حمل <span>30000 تومان</span></li>
-                    <li>مجموع خرید <span>830000 تومان</span></li>
+                    <li>مجموع خرید <span>{{\Cart::getTotal()}} تومان</span></li>
                 </ul>
                 <a href="#" class="default-btn">ادامه خرید</a>
             </div>
