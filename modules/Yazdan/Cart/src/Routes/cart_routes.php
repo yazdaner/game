@@ -8,7 +8,7 @@ Route::prefix('users')->name('users.')->middleware(['auth', 'verified'])->group(
 
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-    Route::post('/add-to-cart/{productModel}/{productId}', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/add-to-cart', [CartController::class, 'add'])->name('cart.add');
     Route::get('/removeFromCart/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
     Route::put('/cart', [CartController::class, 'update'])->name('cart.update');
     Route::get('/clearCart', [CartController::class, 'clear'])->name('cart.clear');

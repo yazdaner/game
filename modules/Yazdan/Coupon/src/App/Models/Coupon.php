@@ -3,6 +3,7 @@
 namespace Yazdan\Coupon\App\Models;
 
 use Yazdan\Media\App\Models\Media;
+use Yazdan\Payment\App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
 
 class Coupon extends Model
@@ -24,5 +25,10 @@ class Coupon extends Model
         } else {
             return asset('img/coupon.png');
         }
+    }
+
+    public function payments()
+    {
+        return $this->morphMany(Payment::class, "paymentable");
     }
 }

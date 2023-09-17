@@ -3,6 +3,7 @@
 namespace Yazdan\Coin\App\Models;
 
 use Yazdan\Media\App\Models\Media;
+use Yazdan\Payment\App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
 
 class Coin extends Model
@@ -24,5 +25,10 @@ class Coin extends Model
         } else {
             return asset('img/coin.png');
         }
+    }
+
+    public function payments()
+    {
+        return $this->morphMany(Payment::class, "paymentable");
     }
 }

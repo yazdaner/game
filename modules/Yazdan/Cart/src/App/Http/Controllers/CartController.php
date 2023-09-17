@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yazdan\Coin\App\Models\Coin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Yazdan\Cart\App\Http\Requests\CartRequest;
 
 class CartController extends Controller
 {
@@ -15,13 +16,16 @@ class CartController extends Controller
         return view('Cart::index');
     }
 
-    public function add(Request $request,$productModel,$productId)
+    public function add(CartRequest $request)
     {
         $count = is_null($request->count) ? 1 : $request->count;
 
+        $productModel =  \Crypt::decrypt($request->productable_type);
+        $productId = $request->productable_id;
+
         $product = $productModel::find($productId);
 
-        $rowId = auth()->id() . '-' . $productModel .'-'.  $productId;
+        $rowId = auth()->id() . '-' . $productModel . '-' .  $productId;
 
         if (\Cart::get($rowId) == null) {
             \Cart::add(array(
@@ -33,12 +37,12 @@ class CartController extends Controller
                 'associatedModel' => $product
             ));
         } else {
-            newFeedbacks('دقت کنید','محصول مورد نظر به سبد خرید شما اضافه شده است','error');
-            return redirect()->back();
+            newFeedbacks('دقت کنید', 'محصول مورد نظر به سبد خرید شما اضافه شده است', 'error');
+            return redirect(route('users.cart.index'));
         }
 
         newFeedbacks();
-        return redirect()->back();
+        return redirect(route('users.cart.index'));
     }
 
     public function update(Request $request)
@@ -59,7 +63,7 @@ class CartController extends Controller
             ));
         }
 
-        newFeedbacks('با موفقیت','سبد خرید شما ویرایش شد','success');
+        newFeedbacks('با موفقیت', 'سبد خرید شما ویرایش شد', 'success');
         return back();
     }
 
@@ -67,14 +71,14 @@ class CartController extends Controller
     {
         Cart::remove($rowId);
 
-        newFeedbacks('با موفقیت','محصول مورد نظر از سبد خرید شما حذف شد','success');
+        newFeedbacks('با موفقیت', 'محصول مورد نظر از سبد خرید شما حذف شد', 'success');
         return back();
     }
 
     public function clear()
     {
         Cart::clear();
-        newFeedbacks('با موفقیت','سبد خرید شما پاک شد','success');
+        newFeedbacks('با موفقیت', 'سبد خرید شما پاک شد', 'success');
         return back();
     }
 
@@ -117,4 +121,25 @@ class CartController extends Controller
     //     $orders = Order::where('user_id' , auth()->id())->get();
     //     return view('home.users_profile.orders' , compact('orders'));
     // }
+
+    public function buy($courseId)
+    {
+        $course = CourseRepository::findById($courseId);
+        if (!$this->courseCanBePurchased($course)) {
+            return back();
+        }
+        if (!$this->authUserCanPurchaseCourse($course)) {
+            return back();
+        }
+
+        $user = auth()->user();
+        [$amount, $discounts] = $course->finalPrice(request()->code, true);
+        if($amount <= 0){
+            resolve(CourseRepository::class)->addStudentToCourse($course,$user);
+            newFeedbacks();
+            return redirect($course->path());
+        }
+        PaymentService::generate($course, $user, $amount,$discounts);
+        resolve(Gateway::class)->redirect();
+    }
 }

@@ -7,8 +7,12 @@
     </h3>
     <img src="{{$coin->getAvatar(300)}}" width="100" alt="">
 </div>
-<form action="{{ route('users.cart.add',['productModel' => get_class($coin),'productId' => $coin->id]) }}" method="POST" class="row g-3 align-items-center mt-3">
-    @csrf
+<form class="row g-3 align-items-center mt-3"
+action="{{ route('users.cart.add')}}"
+method="POST">
+@csrf
+<input type="hidden" name="productable_type" value="{{ \Crypt::encrypt(get_class($coin)) }}">
+<input type="hidden" name="productable_id" value="{{ $coin->id }}">
 
         <div class="col-auto">
             <x-inputHome name="count" id="count" type="number" min="1" value="1" onchange="setTotalPrice()" label="تعداد سکه" />

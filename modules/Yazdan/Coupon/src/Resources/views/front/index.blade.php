@@ -7,15 +7,19 @@
             @foreach ($coupons as $coupon)
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <form
-                    action="{{ route('users.cart.add',['productModel' => get_class($coupon),'productId' => $coupon->id]) }}"
+                    action="{{ route('users.cart.add')}}"
                     method="POST">
                     @csrf
+                    <input type="hidden" name="productable_type" value="{{ \Crypt::encrypt(get_class($coupon)) }}">
+
+                    <input type="hidden" name="productable_id" value="{{ $coupon->id }}">
+
                     <div class="single-products-box">
                         <div class="products-image">
                             <a href="single-products.html" class="d-block"><img src="{{$coupon->getAvatar()}}"
                                     alt="image"></a>
 
-                            <button type="submit"class="add-to-cart-btn">افزودن سبد خرید</button>
+                            <button type="submit" class="add-to-cart-btn">افزودن سبد خرید</button>
                         </div>
 
                         <div class="products-content">
