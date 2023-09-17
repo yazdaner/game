@@ -19,6 +19,9 @@
         @endif
         @endforeach
 
+        <a href="{{route('logout')}}">
+            خروج
+        </a>
 
 
     </div>

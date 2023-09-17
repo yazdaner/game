@@ -70,6 +70,7 @@ Route::get('/u', function () {
 });
 Route::get('/logout', function () {
     auth()->logout();
+    return back();
 });
 Route::get('/ad', function () {
     $user = User::factory()->create();

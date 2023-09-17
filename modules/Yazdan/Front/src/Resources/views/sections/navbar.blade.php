@@ -116,7 +116,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="cart.html" class="nav-link">سبد خرید</a>
+                                    <a href="{{route('users.cart.index')}}" class="nav-link">سبد خرید</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -183,9 +183,11 @@
                     <div class="others-option d-flex align-items-center">
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="cart.html">
+                                <a href="{{route('users.cart.index')}}">
                                     <i class="flaticon-null-5"></i>
-                                    <span>1</span>
+                                    @if (! \Cart::isEmpty())
+                                        <span>{{ \Cart::getContent()->count() }}</span>
+                                    @endif
                                 </a>
                             </div>
                         </div>
@@ -196,14 +198,28 @@
                             </div>
                         </div>
 
-                        <div class="option-item">
+                        @auth
+                            <div class="option-item">
+                                <div class="d-flex align-items-center">
+                                    <a href="{{route('users.profile')}}">
+                                        <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
+                                    </a>
+                                    <div class="mr-3">
+                                        <a href="{{route('logout')}}">خروج</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        @else
+                        <div class="option-item d-flex">
+                            <div class="ml-3">
+                                <a href="{{route('login')}}">ورود</a>
+                            </div>
                             <div class="">
-                                <a href="{{route('users.profile')}}">
-                                    <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
-                                </a>
+                                <a href="{{route('register')}}">ثبت نام</a>
                             </div>
                         </div>
-
+                        @endauth
 
                     </div>
                 </div>

@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "darryldecode/cart": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "hekmatinasser/verta": "^8",
@@ -19,6 +20,7 @@
         "laravel/ui": "3.x",
         "morilog/jalali": "3.*",
         "spatie/laravel-permission": "^5.10",
+        "yazdan/cart": "dev-master",
         "yazdan/coin": "dev-master",
         "yazdan/common": "dev-master",
         "yazdan/dashboard": "dev-master",
@@ -95,6 +97,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/Coin"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/Cart"
         }
     ],
     "scripts": {
