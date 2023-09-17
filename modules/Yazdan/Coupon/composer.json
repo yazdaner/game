@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/coupon",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Coupon\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Coupon\\App\\Providers\\CouponServiceProvider"
+            ]
+        }
+    }
+}

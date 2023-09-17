@@ -23,6 +23,7 @@
         "yazdan/cart": "dev-master",
         "yazdan/coin": "dev-master",
         "yazdan/common": "dev-master",
+        "yazdan/coupon": "dev-master",
         "yazdan/dashboard": "dev-master",
         "yazdan/discount": "dev-master",
         "yazdan/front": "dev-master",
@@ -101,6 +102,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/Cart"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/Coupon"
         }
     ],
     "scripts": {

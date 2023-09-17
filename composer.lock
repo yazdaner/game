@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfc91fc398c07414355b8686651f1f76",
+    "content-hash": "c8e16f137561079c155fe29dd35f2d52",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6009,6 +6009,31 @@
             }
         },
         {
+            "name": "yazdan/coupon",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Coupon",
+                "reference": "441e920ab8bd99b6628425dbe2cace94042bbc8d"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Coupon\\App\\Providers\\CouponServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Coupon\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/dashboard",
             "version": "dev-master",
             "dist": {
@@ -8598,6 +8623,7 @@
         "yazdan/cart": 20,
         "yazdan/coin": 20,
         "yazdan/common": 20,
+        "yazdan/coupon": 20,
         "yazdan/dashboard": 20,
         "yazdan/discount": 20,
         "yazdan/front": 20,
