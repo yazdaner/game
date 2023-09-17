@@ -9,7 +9,7 @@
         <form action="{{ route("admin.coin.update", $coin->id) }}" method="post" class="padding-30" enctype="multipart/form-data">
             @csrf
             @method("put")
-            <x-input type="text" placeholder="نام" name="name" value="{{ $coin->name }}"/>
+            <x-input type="text" placeholder="نام" name="title" value="{{ $coin->title }}"/>
             <x-input type="number" placeholder="قیمت" name="price" value="{{ $coin->price }}"/>
 
             <br>

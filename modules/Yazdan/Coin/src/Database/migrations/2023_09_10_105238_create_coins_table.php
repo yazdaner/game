@@ -11,7 +11,7 @@ class CreateCoinsTable extends Migration
     {
         Schema::create('coins', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('coin');
+            $table->string('title')->default('coin');
             $table->foreignId('media_id')->nullable();
             $table->foreign('media_id')->references('id')->on('media')->onDelete('set null');
             $table->unsignedBigInteger('price')->default(10000);

@@ -17,22 +17,18 @@ class CartController extends Controller
 
     public function add(Request $request,$productModel,$productId)
     {
-        $request->validate([
-            'count' => 'required',
-        ]);
+        $count = is_null($request->count) ? 1 : $request->count;
 
         $product = $productModel::find($productId);
 
-
         $rowId = auth()->id() . '-' . $productModel .'-'.  $productId;
-
 
         if (\Cart::get($rowId) == null) {
             \Cart::add(array(
                 'id' => $rowId,
-                'name' => $product->name,
+                'name' => $product->title,
                 'price' => $product->price,
-                'quantity' => $request->count,
+                'quantity' => $count,
                 'attributes' => $product->toArray(),
                 'associatedModel' => $product
             ));

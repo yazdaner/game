@@ -12,9 +12,9 @@ class CoinSeeder extends Seeder
 
     public function run()
     {
-        Coin::firstOrCreate(['name' => CoinRepository::$defaultCoin['name']],
+        Coin::firstOrCreate(['title' => CoinRepository::$defaultCoin['title']],
         [
-            'name' => CoinRepository::$defaultCoin['name'],
+            'title' => CoinRepository::$defaultCoin['title'],
             'price' => CoinRepository::$defaultCoin['price'],
         ]);
     }

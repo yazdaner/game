@@ -24,7 +24,7 @@ class CoinRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'title' => 'required',
             'price' => 'required|integer',
             'media' => 'nullable|mimes:png,jpg|max:2048',
         ];
@@ -34,7 +34,7 @@ class CoinRequest extends FormRequest
     public function attributes()
     {
         return [
-            "name" => "نام سکه",
+            "title" => "نام سکه",
             "price" => "قیمت هر سکه",
             "media" => "تصویر سکه",
         ];

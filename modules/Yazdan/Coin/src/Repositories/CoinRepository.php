@@ -11,7 +11,7 @@ class CoinRepository
     }
 
     static $defaultCoin = [
-        'name' => 'coin',
+        'title' => 'coin',
         'price' => '10000'
     ];
 
@@ -20,7 +20,7 @@ class CoinRepository
         $coin = static::findById($id);
 
         return $coin->update([
-            'name' => $data['name'],
+            'title' => $data['title'],
             'price' => $data['price'],
             'media_id' => $data['media_id'],
         ]);

@@ -3,7 +3,7 @@
 <div class="d-flex mb-5 align-items-center">
     <h3 class="mb-0">
         خرید
-        {{$coin->name}}
+        {{$coin->title}}
     </h3>
     <img src="{{$coin->getAvatar(300)}}" width="100" alt="">
 </div>
