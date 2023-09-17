@@ -16,12 +16,6 @@ function providerGetRoute($path,$controller,$method,$name){
 }
 
 
-function unixToGregorian($unix){
-
-    date_default_timezone_set('Asia/Tehran');
-    return date("Y-m-d h:m:s", $unix / 1000);
-}
-
 function dateFromJalali($date, $format = 'Y/m/d')
 {
     return $date ? Jalalian::fromFormat($format, $date)->toCarbon() : null;

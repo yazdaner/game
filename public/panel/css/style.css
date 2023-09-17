@@ -665,6 +665,11 @@ textarea {
 }
 
 
+.sidebar__nav .i-coupon a::before {
+    content: "\E126";
+}
+
+
 .i-users a::before {
     content: "\E136";
 }

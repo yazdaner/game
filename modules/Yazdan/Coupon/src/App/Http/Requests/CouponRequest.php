@@ -25,9 +25,8 @@ class CouponRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required',
-            'description' => 'required',
             'price' => 'required|integer',
+            'coefficient' => 'required',
             'media' => 'nullable|mimes:png,jpg|max:2048',
         ];
 

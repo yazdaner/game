@@ -1,23 +1,26 @@
-@extends("Dashboard::master")
+@extends('Dashboard::master')
 @section('breadcrumb')
-<li><a href="#" title="ویرایش سکه">ویرایش سکه</a></li>
+    <li><a href="{{route('admin.coupons.index')}}" title="کوپن">کوپن</a></li>
+    <li><a href="#" title="ویرایش">ویرایش</a></li>
 @endsection
-@section("content")
-  <div class="main-content">
-    <div class="col-12 bg-white">
-        <p class="box__title">ویرایش سکه</p>
-        <form action="{{ route("admin.coin.update", $coin->id) }}" method="post" class="padding-30" enctype="multipart/form-data">
+@section('content')
+<div class="main-content users">
+    <div class="row no-gutters bg-white">
+        <div class="col-12">
+        <p class="box__title">ویرایش کوپن</p>
+        <form action="{{route('admin.coupons.update',$coupon->id)}}" method="post" class="padding-30" enctype="multipart/form-data">
             @csrf
-            @method("put")
-            <x-input type="text" placeholder="نام" name="name" value="{{ $coin->name }}"/>
-            <x-input type="number" placeholder="قیمت" name="price" value="{{ $coin->price }}"/>
+            @method('put')
 
-            <br>
+            <x-input type="text" name="title" placeholder="عنوان" value="{{$coupon->title}}" />
+            <x-input type="number" name="price" placeholder="قیمت"  value="{{$coupon->price}}"/>
+            <x-input type="text" name="coefficient" placeholder="ضریب (1.3)" value="{{$coupon->coefficient}}"/>
+            <x-text-area name="description" placeholder="توضیحات" value="{{$coupon->description}}"/>
+            <x-file-upload name="media" placeholder="تصویر کوپن" :value="$coupon->media"/>
 
-            <x-file-upload name="media" placeholder="تصویر سکه" :value="$coin->media" />
-
-            <button type="submit" class="btn btn-webamooz_net">بروزرسانی</button>
+            <button type="submit" class="btn btn-yazdan">ویرایش</button>
         </form>
     </div>
-  </div>
+    </div>
+</div>
 @endsection

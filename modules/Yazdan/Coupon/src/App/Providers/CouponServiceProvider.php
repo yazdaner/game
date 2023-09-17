@@ -27,15 +27,9 @@ class CouponServiceProvider extends ServiceProvider
     {
         config()->set('sidebar.items.coupon', [
             'icon' => 'i-coupon',
-            'url' => route('admin.coupon.edit'),
+            'url' => route('admin.coupons.index'),
             'title' => 'کوپن ها',
             'permission' => PermissionRepository::PERMISSION_MANAGE_COUPON,
-        ]);
-
-        config()->set('sidebarHome.items.coupons', [
-            'icon' => 'i-coupon',
-            'url' =>  route('user.coupon.index'),
-            'title' => 'کوپن ها'
         ]);
     }
 }

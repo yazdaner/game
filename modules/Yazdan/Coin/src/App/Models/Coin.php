@@ -22,7 +22,7 @@ class Coin extends Model
         if (isset($this->media_id)) {
             return $this->media->thumb($size);
         } else {
-            return asset('img/profile.jpg');
+            return asset('img/coin.png');
         }
     }
 }

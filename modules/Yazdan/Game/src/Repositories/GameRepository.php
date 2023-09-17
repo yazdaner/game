@@ -24,7 +24,8 @@ class GameRepository
             'title' => $values->title,
             'description' => $values->description,
             'media_id' => $values->media_id,
-            'deadline' => unixToGregorian($values->deadline),
+            //todo bug unix time
+            'deadline' => $values->deadline,
         ]);
     }
 
@@ -36,7 +37,8 @@ class GameRepository
             'title' => $values->title,
             'description' => $values->description,
             'media_id' => $values->media_id,
-            'deadline' => $values->deadline ? unixToGregorian($values->deadline) : $game->deadline,
+            //todo bug unix time
+            'deadline' => $values->deadline ? ($values->deadline) : $game->deadline,
         ]);
     }
 }

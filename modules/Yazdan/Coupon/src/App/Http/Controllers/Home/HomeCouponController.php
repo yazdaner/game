@@ -10,7 +10,7 @@ class HomeCouponController extends Controller
 {
     public function index()
     {
-        $coupon = Coupon::first();
-        return view('Coupon::home.index',compact('coupon'));
+        $coupons = Coupon::latest()->paginate();
+        return view('Coupon::front.index',compact('coupons'));
     }
 }

@@ -2,6 +2,7 @@
 namespace Yazdan\Coupon\Repositories;
 
 use Yazdan\Coupon\App\Models\Coupon;
+use Yazdan\Common\Responses\AjaxResponses;
 
 class CouponRepository
 {
@@ -48,11 +49,24 @@ class CouponRepository
     public static function update($id, $data)
     {
         $coin = static::findById($id);
-
         return $coin->update([
-            'name' => $data['name'],
-            'price' => $data['price'],
+            'title' => $data['title'],
+            'description' => $data['description'],
             'media_id' => $data['media_id'],
+            'price' => $data['price'],
+            'coefficient' => $data['coefficient'],
         ]);
     }
+
+    public static function store($data)
+    {
+        return Coupon::create([
+            'title' => $data->title,
+            'description' => $data->description,
+            'media_id' => $data->media_id,
+            'price' => $data->price,
+            'coefficient' => $data->coefficient,
+        ]);
+    }
+
 }
