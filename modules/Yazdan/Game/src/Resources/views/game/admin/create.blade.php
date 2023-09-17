@@ -14,16 +14,7 @@
 
                 <x-input name="title" type="text" placeholder="عنوان" />
 
-                <div class="w-100 ml-15">
-
-                    <input type="text" placeholder="تاریخ پایان بازی" class="text deadline">
-                    @error('deadline')
-                    <div class="invalidFeedback">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-                <input name="deadline" type="hidden" class="deadline2" />
+                <x-input type="text" placeholder="تاریخ پایان بازی" name="deadline" class="expireAt"/>
 
                 <x-text-area name="description" placeholder="توضیحات بازی (اختیاری)" />
 
@@ -45,19 +36,21 @@
 <script src="/panel/js/persian-datepicker.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-      $('.deadline').persianDatepicker({
+      $('.expireAt').persianDatepicker({
         initialValue: false,
         observer: true,
-        format: 'hh:mm:ss YYYY-MM-DD',
-        altField: '.deadline2',
+        format: 'YYYY/MM/DD hh:mm',
         timePicker: {
         enabled: true,
         meridiem: {
             enabled: true
         }
-    }
-      });
+    },
+    onSelect: function (params) {
+            valOf = $(this.model.inputElement).val();
+            $(this.model.inputElement).val(valOf.toEnglishDigits());
+        }
+    });
 });
-
 </script>
 @endsection

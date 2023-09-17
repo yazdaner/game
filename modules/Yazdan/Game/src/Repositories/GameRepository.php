@@ -2,6 +2,7 @@
 
 namespace Yazdan\Game\Repositories;
 
+use Morilog\Jalali\Jalalian;
 use Yazdan\Game\App\Models\Game;
 
 
@@ -18,27 +19,25 @@ class GameRepository
         return Game::latest()->paginate(20);
     }
 
-    public static function store($values)
+    public static function store($data)
     {
         return Game::create([
-            'title' => $values->title,
-            'description' => $values->description,
-            'media_id' => $values->media_id,
-            //todo bug unix time
-            'deadline' => $values->deadline,
+            'title' => $data->title,
+            'description' => $data->description,
+            'media_id' => $data->media_id,
+            "deadline" => $data->deadline ? Jalalian::fromFormat("Y/m/d H:i", $data->deadline)->toCarbon() : null,
         ]);
     }
 
-    public static function update($id, $values)
+    public static function update($id, $data)
     {
         $game = static::findById($id);
 
         return $game->update([
-            'title' => $values->title,
-            'description' => $values->description,
-            'media_id' => $values->media_id,
-            //todo bug unix time
-            'deadline' => $values->deadline ? ($values->deadline) : $game->deadline,
+            'title' => $data->title,
+            'description' => $data->description,
+            'media_id' => $data->media_id,
+            "deadline" => $data->deadline ? Jalalian::fromFormat("Y/m/d H:i", $data->deadline)->toCarbon() : null,
         ]);
     }
 }
