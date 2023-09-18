@@ -24,9 +24,9 @@
             <label for="discounts-field-2">آیتم خاص</label>
         </div>
         <div id="selectCourseContainer" class="d-none">
-            <select name="courses[]" class="mySelect2" multiple>
-                @foreach($courses as $course)
-                <option value="{{ $course->id }}">{{ $course->title }}</option>
+            <select name="coupons[]" class="mySelect2" multiple>
+                @foreach($coupons as $coupon)
+                <option value="{{ $coupon->id }}">{{ $coupon->title }}</option>
                 @endforeach
             </select>
         </div>

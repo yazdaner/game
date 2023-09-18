@@ -3,10 +3,12 @@
 namespace Yazdan\Discount\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Course\App\Models\Course;
 use Yazdan\Discount\App\Models\Discount;
 use Yazdan\Common\Responses\AjaxResponses;
 use Yazdan\Discount\Services\DiscountService;
+use Yazdan\Coupon\Repositories\CouponRepository;
 use Yazdan\Course\Repositories\CourseRepository;
 use Yazdan\Discount\Repositories\DiscountRepository;
 use Yazdan\Discount\App\Http\Requests\DiscountRequest;
@@ -17,8 +19,9 @@ class DiscountController extends Controller
     {
         $this->authorize('manage',Discount::class);
         $discounts = DiscountRepository::paginateAll();
-        $courses = CourseRepository::getAll(CourseRepository::CONFIRMATION_STATUS_ACCEPTED);
-        return view('Discount::admin.index',compact('courses','discounts'));
+        // $courses = CourseRepository::getAll(CourseRepository::CONFIRMATION_STATUS_ACCEPTED);
+        $coupons = Coupon::all();
+        return view('Discount::admin.index',compact('coupons','discounts'));
     }
 
     public function store(DiscountRequest $request)

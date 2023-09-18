@@ -25,12 +25,12 @@ class DiscountServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        // config()->set('sidebar.items.discount', [
-        //     'icon' => 'i-discounts',
-        //     'url' => route('admin.discounts.index'),
-        //     'title' => 'تخفیف',
-        //     'permission' => PermissionRepository::PERMISSION_MANAGE_DISCOUNT,
-        // ]);
+        config()->set('sidebar.items.discount', [
+            'icon' => 'i-discounts',
+            'url' => route('admin.discounts.index'),
+            'title' => 'تخفیف',
+            'permission' => PermissionRepository::PERMISSION_MANAGE_DISCOUNT,
+        ]);
 
     }
 }
