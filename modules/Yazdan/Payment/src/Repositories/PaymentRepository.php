@@ -34,7 +34,6 @@ class PaymentRepository
             'site_share' => $data['site_share'],
 
         ]);
-
         foreach ($discounts as $discount) $discountIds[] = $discount->id;
 
         if (isset($discountIds))

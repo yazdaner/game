@@ -2,10 +2,10 @@
 
 namespace Yazdan\Payment\App\Models;
 
-use Yazdan\User\App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Yazdan\Discount\App\Models\Discount;
 use Yazdan\Payment\Repositories\PaymentRepository;
+use Yazdan\User\App\Models\User;
 
 class Payment extends Model
 {
@@ -20,6 +20,11 @@ class Payment extends Model
     public function user()
     {
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function discounts()
+    {
+        return $this->belongsToMany(Discount::class, "discount_payment");
     }
 
     public function getConfirmStatusAttribute()
@@ -37,8 +42,4 @@ class Payment extends Model
         }
     }
 
-    public function discounts()
-    {
-        return $this->belongsToMany(Discount::class, "discount_payment");
-    }
 }
