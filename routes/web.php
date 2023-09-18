@@ -5,6 +5,7 @@ use Yazdan\User\App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Yazdan\Cart\App\Http\Controllers\CartController;
 use Yazdan\RolePermissions\Repositories\RoleRepository;
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,8 @@ Route::get('/ad', function () {
     auth()->loginUsingId($user->id);
     return back();
 });
+
+Route::get('/buy', function () {
+    resolve(CartController::class)->buy();
+});
+

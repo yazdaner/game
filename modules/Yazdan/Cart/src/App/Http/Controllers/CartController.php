@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yazdan\Coin\App\Models\Coin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Yazdan\Payment\Services\PaymentService;
 use Yazdan\Cart\App\Http\Requests\CartRequest;
 
 class CartController extends Controller
@@ -122,8 +123,13 @@ class CartController extends Controller
     //     return view('home.users_profile.orders' , compact('orders'));
     // }
 
-    public function buy($courseId)
+    public function buy()
     {
+        foreach (\Cart::getContent() as $item){
+            // dd($item->quantity);
+            dd($item->associatedModel);
+        }
+
         $course = CourseRepository::findById($courseId);
         if (!$this->courseCanBePurchased($course)) {
             return back();
@@ -139,6 +145,8 @@ class CartController extends Controller
             newFeedbacks();
             return redirect($course->path());
         }
+
+
         PaymentService::generate($course, $user, $amount,$discounts);
         resolve(Gateway::class)->redirect();
     }
