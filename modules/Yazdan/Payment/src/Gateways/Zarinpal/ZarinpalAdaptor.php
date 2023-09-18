@@ -38,11 +38,11 @@ class ZarinpalAdaptor implements GatewayContract
         }
     }
 
-    public function verify(Payment $payment)
+    public function verify($amount)
     {
 
         $MerchantID     = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-        $Amount         = $payment->amount;
+        $Amount         = $amount;
         $SandBox         = true;
         $ZarinGate         = false;
 

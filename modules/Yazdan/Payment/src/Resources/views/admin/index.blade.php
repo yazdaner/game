@@ -75,6 +75,8 @@
                             <th>ایمیل کاربر</th>
                             <th>نام محصول</th>
                             <th>مبلغ (تومان)</th>
+                            <th>تعداد</th>
+                            <th>مبلغ کل (تومان)</th>
                             <th>شناسه تراکنش</th>
                             <th>تاریخ</th>
                             <th>وضعیت تراکنش</th>
@@ -90,6 +92,8 @@
                             <td>{{$payment->user->email}}</td>
                             <td>{{$payment->paymentable->title}}</td>
                             <td>{{number_format($payment->amount)}}</td>
+                            <td>{{$payment->quantity}}</td>
+                            <td>{{number_format($payment->totalAmount)}}</td>
                             <td>{{$payment->invoice_id}}</td>
                             <td>{{$payment->created_at}}</td>
                             <td class="{{$payment->confirmStatus}}">{{__($payment->status)}}</td>

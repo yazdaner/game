@@ -16,17 +16,16 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            
+
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->morphs('paymentable');
             $table->string('amount',10);
+            $table->unsignedBigInteger('quantity');
+            $table->unsignedBigInteger('totalAmount');
             $table->string('invoice_id');
             $table->string('gateway');
             $table->enum('status',PaymentRepository::$confirmationStatuses);
-            $table->unsignedTinyInteger('seller_percent');
-            $table->string('seller_share',10);
-            $table->string('site_share',10);
 
             $table->timestamps();
         });

@@ -17,28 +17,36 @@ class PaymentController extends Controller
     {
         $gateway = resolve(Gateway::class);
         $repository = resolve(PaymentRepository::class);
-        $payment = $repository->findByInvoiceId($request->Authority);
+        $payments = $repository->findByInvoiceId($request->Authority);
 
         // Error
-        if (is_null($payment)) {
+        if (is_null($payments)) {
             newFeedbacks('نا موفق', 'تراکنش یافت نشد', 'error');
             return redirect('/');
         };
-
-        $result = $gateway->verify($payment);
+        $amount =0;
+        foreach($payments as $payment){
+            $amount += $payment->amount * $payment->quantity;
+        }
+        $result = $gateway->verify($amount);
 
         if (is_array($result)) {
             // Error
-            $repository->changeStatus($payment->id, $repository::CONFIRMATION_STATUS_FAIL);
+            foreach($payments as $payment){
+                $repository->changeStatus($payment->id, $repository::CONFIRMATION_STATUS_FAIL);
+            }
             newFeedbacks('نا موفق', $result['message'], 'error');
         } else {
             // Success
-            event(new PaymentWasSuccessful($payment));
-            $repository->changeStatus($payment->id, $repository::CONFIRMATION_STATUS_SUCCESS);
+            foreach($payments as $payment){
+                // event(new PaymentWasSuccessful($payment));
+                \Cart::clear();
+                $repository->changeStatus($payment->id, $repository::CONFIRMATION_STATUS_SUCCESS);
+            }
             newFeedbacks('عملیات موفق', 'پرداخت با موفقیت انجام شد', 'success');
         }
 
-        return redirect()->to($payment->paymentable->path());
+        return redirect('/');
     }
 
     public function index(PaymentRepository $paymentRepository, Request $request)

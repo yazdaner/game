@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yazdan\Coin\App\Models\Coin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Yazdan\Payment\Gateways\Gateway;
 use Yazdan\Payment\Services\PaymentService;
 use Yazdan\Cart\App\Http\Requests\CartRequest;
 
@@ -125,29 +126,36 @@ class CartController extends Controller
 
     public function buy()
     {
+        if(\Cart::isEmpty()){
+            newFeedbacks('نا موفق','سبد خرید شمل خالی است','error');
+            return back();
+        }
+        $items = [];
         foreach (\Cart::getContent() as $item){
-            // dd($item->quantity);
-            dd($item->associatedModel);
+            $model = get_class($item->associatedModel);
+            $id = $item->associatedModel->id;
+            $items[] = [
+                'model' => $model::find($id),
+                'quantity' => $item->quantity
+            ];
         }
-
-        $course = CourseRepository::findById($courseId);
-        if (!$this->courseCanBePurchased($course)) {
-            return back();
-        }
-        if (!$this->authUserCanPurchaseCourse($course)) {
-            return back();
-        }
-
         $user = auth()->user();
-        [$amount, $discounts] = $course->finalPrice(request()->code, true);
-        if($amount <= 0){
-            resolve(CourseRepository::class)->addStudentToCourse($course,$user);
-            newFeedbacks();
-            return redirect($course->path());
+        $amounts = [];
+        foreach($items as $item){
+            $amounts[] = $item['model']->finalPrice($item['quantity'],request()->code, true);
+            // [$amount, $discounts] = $item['model']->finalPrice($item['quantity'],request()->code, true);
         }
+        // [$amount, $discounts] = $course->finalPrice(request()->code, true);
 
-
-        PaymentService::generate($course, $user, $amount,$discounts);
+        $totalAmount = array_sum($amounts);
+        // if($amount <= 0){
+        //     resolve(CourseRepository::class)->addStudentToCourse($course,$user);
+        //     newFeedbacks();
+        //     return redirect($course->path());
+        // }
+        PaymentService::generate($items, $user, $totalAmount,[]);
         resolve(Gateway::class)->redirect();
     }
+
+
 }

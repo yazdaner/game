@@ -80,7 +80,7 @@ Route::get('/ad', function () {
     return back();
 });
 
-Route::get('/buy', function () {
-    resolve(CartController::class)->buy();
-});
+// Route::get('/buy', function () {
+//     resolve(CartController::class)->buy();
+// });
 

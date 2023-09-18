@@ -7,6 +7,12 @@ use Yazdan\Discount\App\Models\Discount;
 
 class DiscountRepository
 {
+    private $model;
+    public function __construct($model)
+    {
+        $this->model = $model;
+    }
+
     const TYPE_ALL = "all";
     const TYPE_SPECIAL = "special";
     public static $types = [
@@ -89,7 +95,7 @@ class DiscountRepository
             ->first();
     }
 
-    public function getCourseBiggerDiscount($id)
+    public function getBiggerDiscount($id)
     {
         return $this->getValidDiscountsQuery(DiscountRepository::TYPE_SPECIAL, $id)->first();
     }

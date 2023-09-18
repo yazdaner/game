@@ -5,9 +5,12 @@ namespace Yazdan\Coupon\App\Models;
 use Yazdan\Media\App\Models\Media;
 use Yazdan\Payment\App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
+use Yazdan\Payment\Traits\PaymentTrait;
 
 class Coupon extends Model
 {
+    use PaymentTrait;
+    
     protected $table = 'coupons';
 
     protected $guarded = [];

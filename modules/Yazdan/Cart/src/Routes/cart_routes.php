@@ -15,5 +15,7 @@ Route::prefix('users')->name('users.')->middleware(['auth', 'verified'])->group(
     // Route::post('/check-coupon', [CartController::class, 'checkCoupon'])->name('coupons.check');
     // Route::get('/checkout', [CartController::class, 'checkout'])->name('orders.checkout');
 
+    Route::get('/buy', [CartController::class, 'buy'])->name('cart.buy');
+
 
 });

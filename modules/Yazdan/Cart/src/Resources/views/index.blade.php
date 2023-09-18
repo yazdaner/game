@@ -10,7 +10,7 @@
                         <i class="sli sli-basket"></i>
                         <h2 class="font-weight-bold my-4">سبد خرید خالی است.</h2>
                         <p class="mb-40">شما هیچ کالایی در سبد خرید خود ندارید.</p>
-                        <a class="btn mt-3 btn-lg btn-danger" href="/"> صفحه اصلی </a>
+                        <a class="btn mt-3 btn-lg btn-danger" href="{{route('coupons.index')}}"> ادامه خرید </a>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                     <li>کرایه حمل <span>30000 تومان</span></li>
                     <li>مجموع خرید <span>{{\Cart::getTotal()}} تومان</span></li>
                 </ul>
-                <a href="#" class="default-btn">ادامه خرید</a>
+                <a href="{{route('users.cart.buy')}}" class="default-btn">ادامه خرید</a>
             </div>
         </form>
         @endif

@@ -26,13 +26,11 @@ class PaymentRepository
             'paymentable_id' => $data['paymentable_id'],
             'paymentable_type' => $data['paymentable_type'],
             'amount' => $data['amount'],
+            'quantity' => $data['quantity'],
+            'totalAmount' => $data['totalAmount'],
             'invoice_id' => $data['invoice_id'],
             'gateway' => $data['gateway'],
             'status' => $data['status'],
-            'seller_percent' => $data['seller_percent'],
-            'seller_share' => $data['seller_share'],
-            'site_share' => $data['site_share'],
-
         ]);
         foreach ($discounts as $discount) $discountIds[] = $discount->id;
 
@@ -44,7 +42,7 @@ class PaymentRepository
 
     public function findByInvoiceId($invoiceId)
     {
-        return Payment::where('invoice_id',$invoiceId)->first();
+        return Payment::where('invoice_id',$invoiceId)->get();
     }
 
     public function changeStatus($paymentId,string $status)
@@ -71,7 +69,7 @@ class PaymentRepository
     public function searchAmount($amount)
     {
         if (!is_null($amount)) {
-            $this->query->where("amount",  $amount);
+            $this->query->where("totalAmount",  $amount);
         }
 
         return $this;
@@ -133,7 +131,7 @@ class PaymentRepository
 
     public function lastNDaysSuccessTotal($days = null)
     {
-        return $this->lastNDaysSuccessPayments($days)->sum('amount');
+        return $this->lastNDaysSuccessPayments($days)->sum('totalAmount');
     }
 
     public function getDayPayments($day,string $status)
@@ -153,23 +151,23 @@ class PaymentRepository
 
     public function getDaySuccessPaymentsTotal($day)
     {
-        return $this->getDaySuccessPayments($day)->sum('amount');
+        return $this->getDaySuccessPayments($day)->sum('totalAmount');
     }
 
     public function getDayFailPaymentsTotal($day)
     {
-        return $this->getDayFailPayments($day)->sum('amount');
+        return $this->getDayFailPayments($day)->sum('totalAmount');
     }
 
 
     public function getAllSuccessTotal($days = null)
     {
-        return $this->lastNDaysSuccessPayments($days)->sum("amount");
+        return $this->lastNDaysSuccessPayments($days)->sum('totalAmount');
     }
 
     public function getAllFailTotal($days = null)
     {
-        return $this->lastNDaysFailPayments($days)->sum("amount");
+        return $this->lastNDaysFailPayments($days)->sum('totalAmount');
     }
 
 
@@ -180,7 +178,7 @@ class PaymentRepository
         ->orderBy("date")
         ->get([
             DB::raw("DATE(created_at) as date"),
-            DB::raw("SUM(amount) as totalAmount"),
+            DB::raw("SUM(totalAmount) as totalAmount"),
         ]);
     }
 
@@ -191,7 +189,7 @@ class PaymentRepository
         ->orderBy("date")
         ->get([
             DB::raw("DATE(created_at) as date"),
-            DB::raw("SUM(amount) as totalAmount"),
+            DB::raw("SUM(totalAmount) as totalAmount"),
         ]);
     }
 
