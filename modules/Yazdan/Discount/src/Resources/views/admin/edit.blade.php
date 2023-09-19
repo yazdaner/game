@@ -30,9 +30,9 @@
             </div>
 
             <div id="selectCourseContainer" class="{{ $discount->type == \Yazdan\Discount\Repositories\DiscountRepository::TYPE_ALL ? "d-none" : "" }}">
-                <select name="courses[]" class="mySelect2" multiple>
-                    @foreach($courses as $course)
-                        <option value="{{ $course->id }}" {{ $discount->courses->contains($course->id) ? "selected" : "" }}>{{ $course->title }}</option>
+                <select name="coupons[]" class="mySelect2" multiple>
+                    @foreach($coupons as $coupon)
+                        <option value="{{ $coupon->id }}" {{ $discount->coupons->contains($coupon->id) ? "selected" : "" }}>{{ $coupon->title }}</option>
                     @endforeach
                 </select>
             </div>
@@ -78,7 +78,7 @@
 <script>
     $('.mySelect2').select2({
         placeholder: "یک یا چند آیتم را انتخاب کنید...",
-        dir: "rtl"
+        dir: "rtl",
     });
 </script>
 @endsection

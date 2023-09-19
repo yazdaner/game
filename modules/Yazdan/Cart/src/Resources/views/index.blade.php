@@ -33,7 +33,6 @@
                     <tbody>
 
                         @foreach (\Cart::getContent() as $item)
-
                             <tr>
                                 <td class="product-thumbnail">
                                     <a href="#">
@@ -47,6 +46,12 @@
 
                                 <td class="product-price">
                                     <span class="unit-amount">{{$item->price}} تومان</span>
+                                    @if($item->associatedModel->hasDiscount())
+                                    <p class="text-error">
+                                        {{ $item->associatedModel->getDiscountPercent() }}%
+                                        تخفیف
+                                    </p>
+                                    @endif
                                 </td>
 
                                 <td class="product-quantity">
@@ -72,7 +77,7 @@
                     <div class="col-lg-6 col-sm-6 col-md-6">
                         <div class="shopping-coupon-code">
                             <input type="text" class="form-control" placeholder="کد تخفیف" name="coupon-code" id="coupon-code">
-                            <button type="submit">اعمال کد</button>
+                            <button onclick="checkDiscountCode(event)">اعمال کد</button>
                         </div>
                     </div>
 
@@ -96,7 +101,43 @@
         @endif
     </div>
 </section>
+{{-- <form action="{{route('discounts.check')}}" id="form-check">
+    <input type="hidden" name="code" id="codeInput">
+</form> --}}
 <!-- End Cart Area -->
 
 @endsection
 @section('script')
+<script>
+    // function checkDiscountCode(event){
+    //     event.preventDefault();
+    //     let value = $("#coupon-code").val();
+    //     $("#codeInput").val(value);
+    //     $("#form-check").submit();
+    // }
+
+        function checkDiscountCode(event){
+        event.preventDefault();
+
+        const code =  $("#coupon-code").val();
+        const url = "{{ route("discounts.check","code") }}";
+        // $("#loading").addClass("d-none")
+        // $("#response").text("")
+        $.get(url.replace("code", code))
+            .done(function (data) {
+                console.log('success');
+                //     $("#discountPercent").text( parseInt($("#discountPercent").attr("data-value")) +  data.discountPercent)
+                //     $("#discountAmount").text(parseInt($("#discountAmount").attr("data-value")) + data.discountAmount)
+                //     $("#payableAmount").text(parseInt($("#payableAmount").attr("data-value")) - data.discountAmount)
+                // $("#response").text("کد تخفیف با موفقیت اعمال شد.").removeClass("text-red").addClass("text-green")
+            })
+            .fail(function (data) {
+                console.log('error');
+                // $("#response").text("کد وارده شده برای این آیتم معتبر نیست.").removeClass("text-green").addClass("text-red")
+            })
+            .always(function () {
+                // $("#loading").addClass("d-none")
+            });
+    }
+</script>
+@endsection

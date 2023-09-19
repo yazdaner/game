@@ -13,15 +13,7 @@ class Discount extends Model
     protected $casts = [
         "expire_at" => "datetime"
     ];
-    // public function courses()
-    // {
-    //     return $this->morphedByMany(Course::class, "discountable");
-    // }
 
-    public function coins()
-    {
-        return $this->morphedByMany(Coin::class, "discountable");
-    }
 
     public function coupons()
     {

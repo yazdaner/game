@@ -22,9 +22,22 @@
                             <button type="submit" class="add-to-cart-btn">افزودن سبد خرید</button>
                         </div>
 
-                        <div class="products-content">
+                        @if ($coupon->hasDiscount())
+                            <span class="hot">%{{$coupon->getDiscountPercent()}}</span>
+                        @endif
+                        <div class="products-content price">
                             <h3><a href="single-products.html">{{$coupon->title}}</a></h3>
-                            <span class="price">{{number_format($coupon->price)}} تومان</span>
+                            <div class="products-details-desc">
+                            <div class="price">
+                                @if (! $coupon->hasDiscount())
+                                <span class="d-block">{{number_format($coupon->price)}} تومان</span>
+                                @else
+                                <span class="old-price d-block">{{number_format($coupon->price)}} تومان</span>
+                                <span class="new-price d-block">{{number_format($coupon->finalPrice())}} تومان</span>
+                                @endif
+
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </form>

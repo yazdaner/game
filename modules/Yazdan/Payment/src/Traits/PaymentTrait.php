@@ -8,8 +8,7 @@ trait PaymentTrait
 {
     public function getDiscount()
     {
-        $model = get_class($this) ;
-        $discountRepo = new DiscountRepository($model);
+        $discountRepo = new DiscountRepository();
         $discount = $discountRepo->getBiggerDiscount($this->id);
         $globalDiscount = $discountRepo->getGlobalBiggerDiscount();
         if ($discount == null && $globalDiscount == null) return null;
@@ -28,6 +27,12 @@ trait PaymentTrait
         return $percent;
     }
 
+    public function hasDiscount()
+    {
+        $discount = $this->getDiscountPercent();
+        return $discount == 0 ? false : true;
+    }
+
 
     public function getDiscountAmount($percent = null)
     {
@@ -41,27 +46,28 @@ trait PaymentTrait
 
     public function finalPrice($quantity = 1,$code = null ,$withDiscounts = false)
     {
-        // $discount = $this->getDiscount();
+        $discounts = [];
+        $discount = $this->getDiscount();
         $amount = $this->price;
-        // $discounts = [];
-        // if ($discount) {
-        //     $discounts [] = $discount;
-        //     $amount = $this->price - $this->getDiscountAmount($discount->percent);
-        // }
 
-        // if ($code) {
-        //     $repo = new DiscountRepository();
-        //     $discountFromCode = $repo->getValidDiscountByCode($code, $this->id);
-        //     if ($discountFromCode) {
-        //         $discounts [] = $discountFromCode;
-        //         $amount = $amount - DiscountService::calculateDiscountAmount($amount, $discountFromCode->percent);
-        //     }
-        // }
+        if ($discount) {
+            $discounts [] = $discount;
+            $amount = $this->price - $this->getDiscountAmount($discount->percent);
+        }
+
+        if ($code) {
+            $repo = new DiscountRepository();
+            $discountFromCode = $repo->getValidDiscountByCode($code, $this->id);
+            if ($discountFromCode) {
+                $discounts [] = $discountFromCode;
+                $amount = $amount - DiscountService::calculateDiscountAmount($amount, $discountFromCode->percent);
+            }
+        }
 
         $amount = $amount * $quantity;
 
-        // if ($withDiscounts)
-        // return [$amount, $discounts];
+        if ($withDiscounts)
+        return [$amount, $discounts];
 
         return $amount;
     }

@@ -6,11 +6,12 @@ use Yazdan\Media\App\Models\Media;
 use Yazdan\Payment\App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
 use Yazdan\Payment\Traits\PaymentTrait;
+use Yazdan\Discount\App\Models\Discount;
 
 class Coupon extends Model
 {
     use PaymentTrait;
-    
+
     protected $table = 'coupons';
 
     protected $guarded = [];
@@ -33,5 +34,9 @@ class Coupon extends Model
     public function payments()
     {
         return $this->morphMany(Payment::class, "paymentable");
+    }
+    public function discounts()
+    {
+        return $this->morphToMany(Discount::class, "discountable");
     }
 }

@@ -8,6 +8,7 @@ use Yazdan\Coin\App\Models\Coin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Yazdan\Payment\Gateways\Gateway;
+use Illuminate\Support\Facades\Session;
 use Yazdan\Payment\Services\PaymentService;
 use Yazdan\Cart\App\Http\Requests\CartRequest;
 
@@ -33,7 +34,7 @@ class CartController extends Controller
             \Cart::add(array(
                 'id' => $rowId,
                 'name' => $product->title,
-                'price' => $product->price,
+                'price' => $product->finalPrice(),
                 'quantity' => $count,
                 'attributes' => $product->toArray(),
                 'associatedModel' => $product
@@ -141,19 +142,24 @@ class CartController extends Controller
         }
         $user = auth()->user();
         $amounts = [];
+        $products = [];
+
+
         foreach($items as $item){
-            $amounts[] = $item['model']->finalPrice($item['quantity'],request()->code, true);
-            // [$amount, $discounts] = $item['model']->finalPrice($item['quantity'],request()->code, true);
+            [$amounts[], $discounts] = $item['model']->finalPrice($item['quantity'],Session::get('code'), true);
+            $item['discounts'] = $discounts;
+            $products[] = $item;
         }
-        // [$amount, $discounts] = $course->finalPrice(request()->code, true);
+        session()->forget('code');
 
         $totalAmount = array_sum($amounts);
+        // todo
         // if($amount <= 0){
         //     resolve(CourseRepository::class)->addStudentToCourse($course,$user);
         //     newFeedbacks();
         //     return redirect($course->path());
         // }
-        PaymentService::generate($items, $user, $totalAmount,[]);
+        PaymentService::generate($products, $user, $totalAmount);
         resolve(Gateway::class)->redirect();
     }
 

@@ -12,38 +12,27 @@ class PaymentService {
     {
         if($amount <= 0 || is_null($paymentable) || is_null($user->id) ) return false;
         $gateway = resolve(Gateway::class);
-
-        // $invoice_id = $gateway->request($amount,$paymentable->title);
-        $invoice_id = $gateway->request($amount,'خرید از سایت گیم');
+        $title = env('APP_NAME') . ' خرید از سایت';
+        $invoice_id = $gateway->request($amount,$title);
 
         if(is_array($invoice_id)){
             newFeedbacks('ناموفق',$invoice_id['message'],'error');
             return back();
         }
-
         foreach($paymentable as $item){
             resolve(PaymentRepository::class)->store([
                 'user_id' => $user->id,
                 'paymentable_id' => $item['model']->id,
                 'paymentable_type' => get_class($item['model']),
-                'amount' => $item['model']->price,
+                'amount' => $item['model']->finalPrice(),
                 'quantity' => $item['quantity'],
-                'totalAmount' => $item['model']->price * $item['quantity'],
+                'totalAmount' => $item['model']->finalPrice() * $item['quantity'],
                 'invoice_id' => $invoice_id,
                 'gateway' => $gateway->getName(),
                 'status' => PaymentRepository::CONFIRMATION_STATUS_PENDING,
-            ], $discounts);
+            ], $item['discounts']);
         }
 
-        // return resolve(PaymentRepository::class)->store([
-        //     'user_id' => $user->id,
-        //     'paymentable_id' => $paymentable->id,
-        //     'paymentable_type' => get_class($paymentable),
-        //     'amount' => $amount,
-        //     'invoice_id' => $invoice_id,
-        //     'gateway' => $gateway->getName(),
-        //     'status' => PaymentRepository::CONFIRMATION_STATUS_PENDING,
-        // ], $discounts);
     }
 
 }

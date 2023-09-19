@@ -4,6 +4,8 @@ use Carbon\Carbon;
 use Yazdan\User\App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Yazdan\Cart\App\Http\Controllers\CartController;
 use Yazdan\RolePermissions\Repositories\RoleRepository;
@@ -83,4 +85,6 @@ Route::get('/ad', function () {
 // Route::get('/buy', function () {
 //     resolve(CartController::class)->buy();
 // });
-
+Route::get('/ww', function () {
+    session()->forget('code');
+});

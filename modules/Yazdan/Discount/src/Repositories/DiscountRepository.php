@@ -7,11 +7,11 @@ use Yazdan\Discount\App\Models\Discount;
 
 class DiscountRepository
 {
-    private $model;
-    public function __construct($model)
-    {
-        $this->model = $model;
-    }
+    // private $model;
+    // public function __construct($model)
+    // {
+    //     $this->model = $model;
+    // }
 
     const TYPE_ALL = "all";
     const TYPE_SPECIAL = "special";
@@ -23,6 +23,18 @@ class DiscountRepository
     {
         return Discount::query()->find($id);
     }
+
+    public static function findByCode($code)
+    {
+        return Discount::query()->where('code',$code)->first();
+    }
+
+
+    public static function paginateAll()
+    {
+        return Discount::query()->latest()->paginate();
+    }
+
     public static function store($data)
     {
         $discount = Discount::query()->create([
@@ -38,13 +50,8 @@ class DiscountRepository
         ]);
 
         if ($discount->type == self::TYPE_SPECIAL) {
-            $discount->courses()->sync($data["courses"]);
+            $discount->coupons()->sync($data["coupons"]);
         }
-    }
-
-    public static function paginateAll()
-    {
-        return Discount::query()->latest()->paginate();
     }
 
     public static function update($id, array $data)
@@ -61,12 +68,11 @@ class DiscountRepository
 
         $discount = self::find($id);
         if ($discount->type == self::TYPE_SPECIAL) {
-            $discount->courses()->sync($data["courses"]);
+            $discount->coupons()->sync($data["coupons"]);
         } else {
-            $discount->courses()->sync([]);
+            $discount->coupons()->sync([]);
         }
     }
-
 
     public function getValidDiscountsQuery($type = "all", $id = null)
     {
@@ -75,7 +81,7 @@ class DiscountRepository
             ->where("type", $type)
             ->whereNull("code");
         if (!is_null($id)) {
-            $query->whereHas("courses", function ($query) use ($id) {
+            $query->whereHas("coupons", function ($query) use ($id) {
                 $query->where("id", $id);
             });
         }
@@ -105,9 +111,9 @@ class DiscountRepository
         return Discount::query()
             ->where("code", $code)
             ->where(function ($query) use ($id) {
-                return $query->whereHas("courses", function ($query) use ($id) {
+                return $query->whereHas("coupons", function ($query) use ($id) {
                     return $query->where("id", $id);
-                })->orWhereDoesntHave("courses");
+                })->orWhereDoesntHave("coupons");
             })
             ->first();
     }

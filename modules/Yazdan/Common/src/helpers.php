@@ -24,3 +24,8 @@ function dateFromJalali($date, $format = 'Y/m/d')
 function getJalaliFromFormat($date, $format = "Y/m/d" ){
     return Jalalian::fromCarbon(\Carbon\Carbon::createFromFormat($format, $date))->format($format);
 }
+
+function fromCarbon($date, $format = 'Y/m/d H:i')
+{
+    return Jalalian::fromCarbon($date)->format($format);
+}
