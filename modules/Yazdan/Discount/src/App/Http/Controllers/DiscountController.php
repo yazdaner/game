@@ -19,15 +19,15 @@ class DiscountController extends Controller
 {
     public function index()
     {
-        $this->authorize('manage',Discount::class);
+        $this->authorize('manage', Discount::class);
         $discounts = DiscountRepository::paginateAll();
         $coupons = Coupon::all();
-        return view('Discount::admin.index',compact('coupons','discounts'));
+        return view('Discount::admin.index', compact('coupons', 'discounts'));
     }
 
     public function store(DiscountRequest $request)
     {
-        $this->authorize('manage',Discount::class);
+        $this->authorize('manage', Discount::class);
 
         DiscountRepository::store($request->all());
 
@@ -38,24 +38,22 @@ class DiscountController extends Controller
 
     public function edit(Discount $discount)
     {
-        $this->authorize('manage',Discount::class);
+        $this->authorize('manage', Discount::class);
         $coupons = Coupon::all();
         return view("Discount::admin.edit", compact("discount", "coupons"));
     }
 
     public function update(Discount $discount, DiscountRequest $request)
     {
-        $this->authorize('manage',Discount::class);
+        $this->authorize('manage', Discount::class);
         DiscountRepository::update($discount->id, $request->all());
         newFeedbacks();
         return redirect()->route("admin.discounts.index");
-
-
     }
 
     public function destroy(Discount $discount)
     {
-        $this->authorize('manage',Discount::class);
+        $this->authorize('manage', Discount::class);
 
         $discount->delete();
         return AjaxResponses::SuccessResponses();
@@ -63,47 +61,44 @@ class DiscountController extends Controller
 
     public function check($code)
     {
-
         $coupons = [];
-        foreach (\Cart::getContent() as $item){
+        foreach (\Cart::getContent() as $item) {
 
             $model = get_class($item->associatedModel);
             $id = $item->associatedModel->id;
-            if($model == "Yazdan\Coupon\App\Models\Coupon"){
+            if ($model == "Yazdan\Coupon\App\Models\Coupon") {
                 $coupons[] = $model::find($id);
             }
         }
 
-
         $couponsWithDiscount = [];
-        foreach($coupons as $coupon){
+        foreach ($coupons as $coupon) {
             $discount = DiscountRepository::getValidDiscountByCode($code, $coupon->id);
 
-            if(! is_null($discount)){
+            if (!is_null($discount)) {
                 $couponsWithDiscount[] = [
                     'coupon' => $coupon,
                     'discountPercent' => $discount->percent
                 ];
-
-            Session::put('code', $code);
-            // dd(Session::get('code', $code));
             }
-
         }
 
-
-
-        if($couponsWithDiscount == []){
+        if ($couponsWithDiscount == []) {
             return response()->json([
                 "status" => "invalid"
             ])->setStatusCode(422);
         }
 
+        if (session()->has('code')) {
+            session()->forget('code');
+        }
+        session()->put('code', $code);
+
         $responses = [];
-        foreach ($couponsWithDiscount as $item){
+        foreach ($couponsWithDiscount as $item) {
             $discountPercent = $item['discountPercent'];
             $discountAmount = DiscountService::calculateDiscountAmount($item['coupon']->finalPrice(), $discountPercent);
-             $responses[]= [
+            $responses[] = [
                 "status" => "valid",
                 "coupon" => $item['coupon']->id,
                 "payableAmount" => $item['coupon']->finalPrice() - $discountAmount,
@@ -112,7 +107,5 @@ class DiscountController extends Controller
             ];
         }
         return response()->json($responses);
-
-
     }
 }
