@@ -22,17 +22,20 @@ trait PaymentTrait
 
     public function getDiscountWithCode()
     {
-        if (session()->has('code')) {
-            $discountId = DiscountRepository::findByCode(session()->get('code'))->id;
-            if ($discountId && $this->discounts) {
-                foreach ($this->discounts as $discount) {
-                    if ($discount->id == $discountId) {
-                        return $discount;
-                    }
-                }
+        if (!session()->has('code') && !$this->discounts) return null;
+
+        $discount = DiscountRepository::findByCode(session()->get('code'));
+
+        if (!$discount) return null;
+
+        // return discount type all
+        if ($discount->type == 'all') return $discount;
+
+        // return special discount of this product who has code
+        foreach ($this->discounts as $item) {
+            if ($item->id == $discount->id) {
+                return $item;
             }
-        }else{
-            return 0;
         }
     }
 
@@ -44,8 +47,7 @@ trait PaymentTrait
         if ($discount == null && $getDiscountWithCode == null) return 0;
         if ($discount != null && $getDiscountWithCode == null) return $discount->percent;
         if ($discount != null && $getDiscountWithCode != null) return
-        $discount->percent + $getDiscountWithCode->percent >= 100 ? 100 : $discount->percent + $getDiscountWithCode->percent ;
-
+            $discount->percent + $getDiscountWithCode->percent >= 100 ? 100 : $discount->percent + $getDiscountWithCode->percent;
     }
 
     public function hasDiscount()
