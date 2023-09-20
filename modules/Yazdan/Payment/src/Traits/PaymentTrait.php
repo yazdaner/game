@@ -22,7 +22,7 @@ trait PaymentTrait
 
     public function getDiscountWithCode()
     {
-        if (!session()->has('code') && !$this->discounts) return null;
+        if (session()->has('code') == null || !$this->discounts) return null;
 
         $discount = DiscountRepository::findByCode(session()->get('code'));
 
