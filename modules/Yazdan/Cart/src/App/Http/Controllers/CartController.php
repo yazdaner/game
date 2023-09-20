@@ -154,13 +154,13 @@ class CartController extends Controller
             $products[] = $item;
         }
         $totalAmount = array_sum($amounts);
-        if($totalAmount <= 0){
-            //todo
-            dd('free');
-            // resolve(CourseRepository::class)->addStudentToCourse($course,$user);
-            // newFeedbacks();
-            // return redirect($course->path());
-        }
+        // if($totalAmount <= 0){
+        //     //todo
+        //     // dd('free');
+        //     // resolve(CourseRepository::class)->addStudentToCourse($course,$user);
+        //     // newFeedbacks();
+        //     // return redirect($course->path());
+        // }
         PaymentService::generate($products, $user, $totalAmount);
         resolve(Gateway::class)->redirect();
     }

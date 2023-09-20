@@ -41,13 +41,15 @@ trait PaymentTrait
 
     public function getDiscountPercent()
     {
-        $discount = $this->getDiscount();
-        $getDiscountWithCode = $this->getDiscountWithCode();
+        $discount = $this->getDiscount() ? $this->getDiscount()->percent : null;
+        $getDiscountWithCode = $this->getDiscountWithCode() ? $this->getDiscountWithCode()->percent : null;
 
         if ($discount == null && $getDiscountWithCode == null) return 0;
-        if ($discount != null && $getDiscountWithCode == null) return $discount->percent;
+        if ($discount != null && $getDiscountWithCode == null) return $discount;
+        if ($discount == null && $getDiscountWithCode != null) return $getDiscountWithCode;
+
         if ($discount != null && $getDiscountWithCode != null) return
-            $discount->percent + $getDiscountWithCode->percent >= 100 ? 100 : $discount->percent + $getDiscountWithCode->percent;
+            $discount + $getDiscountWithCode >= 100 ? 100 : $discount + $getDiscountWithCode;
     }
 
     public function hasDiscount()
