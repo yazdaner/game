@@ -75,7 +75,7 @@ trait PaymentTrait
 
         if ($discount) {
             $discounts[] = $discount;
-            $amount = $this->price - $this->getDiscountAmount($discount->percent);
+            $amount = $this->price - $this->getDiscountAmount($this->getDiscountPercent());
         }
 
         if ($code) {
@@ -90,7 +90,6 @@ trait PaymentTrait
         }
 
         $amount = $amount * $quantity;
-
         if ($withDiscounts)
             return [$amount, $discounts];
         return $amount;
