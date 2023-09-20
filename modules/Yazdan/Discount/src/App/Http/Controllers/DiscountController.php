@@ -12,6 +12,7 @@ use Yazdan\Common\Responses\AjaxResponses;
 use Yazdan\Discount\Services\DiscountService;
 use Yazdan\Coupon\Repositories\CouponRepository;
 use Yazdan\Course\Repositories\CourseRepository;
+use Yazdan\Discount\App\Http\Requests\CodeRequest;
 use Yazdan\Discount\Repositories\DiscountRepository;
 use Yazdan\Discount\App\Http\Requests\DiscountRequest;
 
@@ -59,9 +60,10 @@ class DiscountController extends Controller
         return AjaxResponses::SuccessResponses();
     }
 
-    public function check($code)
+    public function check(CodeRequest $request)
     {
         $coupons = [];
+
         foreach (\Cart::getContent() as $item) {
 
             $model = get_class($item->associatedModel);
@@ -73,7 +75,7 @@ class DiscountController extends Controller
 
         $couponsWithDiscount = [];
         foreach ($coupons as $coupon) {
-            $discount = DiscountRepository::getValidDiscountByCode($code, $coupon->id);
+            $discount = DiscountRepository::getValidDiscountByCode($request->code, $coupon->id);
 
             if (!is_null($discount)) {
                 $couponsWithDiscount[] = [
@@ -84,28 +86,25 @@ class DiscountController extends Controller
         }
 
         if ($couponsWithDiscount == []) {
-            return response()->json([
-                "status" => "invalid"
-            ])->setStatusCode(422);
+            newFeedbacks('ناموفق', 'کد تخفیف وارد شده نامعتبر می باشد', 'error');
+            return back();
         }
 
         if (session()->has('code')) {
             session()->forget('code');
         }
-        session()->put('code', $code);
 
-        $responses = [];
+        session()->put('code', $request->code);
+
         foreach ($couponsWithDiscount as $item) {
-            $discountPercent = $item['discountPercent'];
-            $discountAmount = DiscountService::calculateDiscountAmount($item['coupon']->finalPrice(), $discountPercent);
-            $responses[] = [
-                "status" => "valid",
-                "coupon" => $item['coupon']->id,
-                "payableAmount" => $item['coupon']->finalPrice() - $discountAmount,
-                "discountAmount" => $discountAmount,
-                "discountPercent" => $discountPercent
-            ];
+            $discountAmount = DiscountService::calculateDiscountAmount($item['coupon']->finalPrice(), $item['discountPercent']);
+            \Cart::update("Yazdan\Coupon\App\Models\Coupon" . '-' .  $item['coupon']->id, [
+                'price' => $item['coupon']->finalPrice() - $discountAmount
+            ]);
         }
-        return response()->json($responses);
+
+        newFeedbacks();
+        return back();
+
     }
 }

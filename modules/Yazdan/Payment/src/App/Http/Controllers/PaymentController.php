@@ -40,6 +40,8 @@ class PaymentController extends Controller
             // Success
             foreach($payments as $payment){
                 // event(new PaymentWasSuccessful($payment));
+
+                session()->forget('code');
                 \Cart::clear();
                 $repository->changeStatus($payment->id, $repository::CONFIRMATION_STATUS_SUCCESS);
             }

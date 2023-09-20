@@ -28,7 +28,7 @@ class CartController extends Controller
 
         $product = $productModel::find($productId);
 
-        $rowId = auth()->id() . '-' . $productModel . '-' .  $productId;
+        $rowId = $productModel . '-' .  $productId;
 
         if (\Cart::get($rowId) == null) {
             \Cart::add(array(
@@ -56,8 +56,6 @@ class CartController extends Controller
 
         foreach ($request->qtybutton as $rowId => $quantity) {
 
-            $item = Cart::get($rowId);
-
             Cart::update($rowId, array(
                 'quantity' => array(
                     'relative' => false,
@@ -70,6 +68,9 @@ class CartController extends Controller
         return back();
     }
 
+
+
+
     public function remove($rowId)
     {
         Cart::remove($rowId);
@@ -81,6 +82,7 @@ class CartController extends Controller
     public function clear()
     {
         Cart::clear();
+        session()->forget('code');
         newFeedbacks('با موفقیت', 'سبد خرید شما پاک شد', 'success');
         return back();
     }
@@ -143,22 +145,22 @@ class CartController extends Controller
         $user = auth()->user();
         $amounts = [];
         $products = [];
-
-
+        $code = session()->get('code');
         foreach($items as $item){
-            [$amounts[], $discounts] = $item['model']->finalPrice($item['quantity'],Session::get('code'), true);
+            [$amount, $discounts] = $item['model']->finalPrice($item['quantity'],$code, true);
+            $amounts[] = $amount;
             $item['discounts'] = $discounts;
+            $item['amount'] = $amount / $item['quantity'];
             $products[] = $item;
         }
-        session()->forget('code');
-
         $totalAmount = array_sum($amounts);
-        // todo
-        // if($amount <= 0){
-        //     resolve(CourseRepository::class)->addStudentToCourse($course,$user);
-        //     newFeedbacks();
-        //     return redirect($course->path());
-        // }
+        if($totalAmount <= 0){
+            //todo
+            dd('free');
+            // resolve(CourseRepository::class)->addStudentToCourse($course,$user);
+            // newFeedbacks();
+            // return redirect($course->path());
+        }
         PaymentService::generate($products, $user, $totalAmount);
         resolve(Gateway::class)->redirect();
     }

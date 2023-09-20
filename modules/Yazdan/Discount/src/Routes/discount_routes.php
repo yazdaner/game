@@ -27,7 +27,7 @@ Route::group([
     ]
 ], function () {
 
-    Route::get("/discounts/{code}/check", [DiscountController::class,'check'])->name("discounts.check");
+    Route::post("/discounts/check", [DiscountController::class,'check'])->name("discounts.check");
 
 });
 

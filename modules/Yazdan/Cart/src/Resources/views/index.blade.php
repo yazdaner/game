@@ -48,7 +48,7 @@
                                 <span class="unit-amount">{{$item->price}} تومان</span>
                                 @if($item->associatedModel->hasDiscount())
                                 <p class="text-error">
-                                    <span id="discountPercent" data-value="{{ $item->associatedModel->getDiscountPercent() }}">{{ $item->associatedModel->getDiscountPercent() }}</span>
+                                    <span>{{ $item->associatedModel->getDiscountPercent() }}</span>
                                     %
                                     تخفیف
                                 </p>
@@ -81,6 +81,12 @@
                         <div class="shopping-coupon-code">
                             <input type="text" class="form-control" placeholder="کد تخفیف" name="coupon-code"
                                 id="coupon-code">
+                                @error('code')
+                                <div class="invalidFeedback">
+                                    {{$message}}
+                                </div>
+                                @enderror
+
                             <button onclick="checkDiscountCode(event)">اعمال کد</button>
                         </div>
                     </div>
@@ -105,49 +111,21 @@
         @endif
     </div>
 </section>
-{{-- <form action="{{route('discounts.check')}}" id="form-check">
+<form action="{{route('discounts.check')}}" id="form-check" method="post">
+    @csrf
     <input type="hidden" name="code" id="codeInput">
-</form> --}}
+</form>
 <!-- End Cart Area -->
 
 @endsection
 @section('script')
 <script>
-    // function checkDiscountCode(event){
-    //     event.preventDefault();
-    //     let value = $("#coupon-code").val();
-    //     $("#codeInput").val(value);
-    //     $("#form-check").submit();
-    // }
-
-        function checkDiscountCode(event){
-        event.preventDefault();
-
-        const code =  $("#coupon-code").val();
-        if(code){
-            const url = "{{ route("discounts.check","code") }}";
-            // $("#loading").addClass("d-none")
-            // $("#response").text("")
-            $.get(url.replace("code", code))
-                .done(function (data) {
-                    console.log('success');
-                    console.log(data);
-                    data.forEach(item => {
-                        $("#coupon-"+item.coupon + " #discountPercent").text( parseInt($("#discountPercent").attr("data-value")) +  item.discountPercent)
-                        $("#payableAmount").text(parseInt($("#payableAmount").attr("data-value")))
-
-                    });
-                    //     $("#discountAmount").text(parseInt($("#discountAmount").attr("data-value")) + data.discountAmount)
-                    // $("#response").text("کد تخفیف با موفقیت اعمال شد.").removeClass("text-red").addClass("text-green")
-                })
-                .fail(function (data) {
-                    console.log('error');
-                    // $("#response").text("کد وارده شده برای این آیتم معتبر نیست.").removeClass("text-green").addClass("text-red")
-                })
-                .always(function () {
-                    // $("#loading").addClass("d-none")
-                });
-            }
+        function checkDiscountCode(event)
+        {
+            event.preventDefault();
+            let code = $("#coupon-code").val();
+            $("#codeInput").val(code);
+            $("#form-check").submit();
         }
 </script>
 @endsection
