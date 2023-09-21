@@ -51,8 +51,8 @@ class DiscountRepository
         ]);
 
         if ($discount->type == self::TYPE_SPECIAL) {
-            $discount->coupons()->sync($data["coupons"]);
-            $discount->coins()->sync($data["coins"]);
+            if(isset($data['coupons'])) $discount->coupons()->sync($data["coupons"]);
+            if(isset($data['coins'])) $discount->coins()->sync($data["coins"]);
         }
     }
 
@@ -70,8 +70,8 @@ class DiscountRepository
 
         $discount = self::find($id);
         if ($discount->type == self::TYPE_SPECIAL) {
-            $discount->coupons()->sync($data["coupons"]);
-            $discount->coins()->sync($data["coins"]);
+            isset($data['coupons']) ? $discount->coupons()->sync($data["coupons"]) : $discount->coupons()->sync([]);;
+            isset($data['coins']) ? $discount->coins()->sync($data["coins"]) : $discount->coins()->sync([]);
         } else {
             $discount->coupons()->sync([]);
             $discount->coins()->sync([]);
@@ -119,7 +119,7 @@ class DiscountRepository
             ->where(function ($query) use ($id,$table) {
                 return $query->whereHas($table, function ($query) use ($id) {
                     return $query->where("id", $id);
-                })->orWhereDoesntHave($table);
+                })->orWhereDoesntHave('coins')->whereDoesntHave('coupons');
             })
             ->first();
     }
