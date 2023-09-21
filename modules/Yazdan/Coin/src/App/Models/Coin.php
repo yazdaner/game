@@ -20,7 +20,6 @@ class Coin extends Model
         return $this->belongsTo(Media::class, 'media_id');
     }
 
-
     public function getAvatar($size = 'original')
     {
         if (isset($this->media_id)) {
@@ -28,10 +27,5 @@ class Coin extends Model
         } else {
             return asset('img/coin.png');
         }
-    }
-
-    public function payments()
-    {
-        return $this->morphMany(Payment::class, "paymentable");
     }
 }

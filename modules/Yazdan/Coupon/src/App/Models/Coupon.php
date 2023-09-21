@@ -21,7 +21,6 @@ class Coupon extends Model
         return $this->belongsTo(Media::class, 'media_id');
     }
 
-
     public function getAvatar($size = 'original')
     {
         if (isset($this->media_id)) {
@@ -31,12 +30,4 @@ class Coupon extends Model
         }
     }
 
-    public function payments()
-    {
-        return $this->morphMany(Payment::class, "paymentable");
-    }
-    public function discounts()
-    {
-        return $this->morphToMany(Discount::class, "discountable");
-    }
 }

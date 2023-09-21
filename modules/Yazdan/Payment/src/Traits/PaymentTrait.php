@@ -2,11 +2,24 @@
 
 namespace Yazdan\Payment\Traits;
 
+use Yazdan\Payment\App\Models\Payment;
+use Yazdan\Discount\App\Models\Discount;
 use Yazdan\Discount\Services\DiscountService;
 use Yazdan\Discount\Repositories\DiscountRepository;
 
 trait PaymentTrait
 {
+
+    public function discounts()
+    {
+        return $this->morphToMany(Discount::class, "discountable");
+    }
+
+    public function payments()
+    {
+        return $this->morphMany(Payment::class, "paymentable");
+    }
+
     public function getDiscount()
     {
         $discountRepo = new DiscountRepository();
@@ -24,7 +37,6 @@ trait PaymentTrait
         if (session()->has('code') == null || !$this->discounts) return null;
 
         $discount = DiscountRepository::findByCode(session()->get('code'));
-
         if (!$discount) return null;
 
         // return discount type all
