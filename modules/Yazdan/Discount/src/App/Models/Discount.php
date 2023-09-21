@@ -20,6 +20,12 @@ class Discount extends Model
         return $this->morphedByMany(Coupon::class, "discountable");
     }
 
+
+    public function coins()
+    {
+        return $this->morphedByMany(Coin::class, "discountable");
+    }
+
     public function payments()
     {
         return $this->belongsToMany(Payment::class, "discount_payment");

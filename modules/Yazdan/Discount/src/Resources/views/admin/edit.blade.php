@@ -28,15 +28,20 @@
                 <input id="discounts-field-2" class="discounts-field-pn" name="type" value="special" type="radio" {{ $discount->type == \Yazdan\Discount\Repositories\DiscountRepository::TYPE_SPECIAL ? "checked" : "" }}/>
                 <label for="discounts-field-2">دوره خاص</label>
             </div>
-
-            <div id="selectCourseContainer" class="{{ $discount->type == \Yazdan\Discount\Repositories\DiscountRepository::TYPE_ALL ? "d-none" : "" }}">
+            <span>کوپن</span>
+            <div class="selectCourseContainer {{ $discount->type == \Yazdan\Discount\Repositories\DiscountRepository::TYPE_ALL ? "d-none" : "" }}">
                 <select name="coupons[]" class="mySelect2" multiple>
                     @foreach($coupons as $coupon)
                         <option value="{{ $coupon->id }}" {{ $discount->coupons->contains($coupon->id) ? "selected" : "" }}>{{ $coupon->title }}</option>
                     @endforeach
                 </select>
             </div>
-
+            <span>سکه</span>
+            <div class="selectCourseContainer {{ $discount->type == \Yazdan\Discount\Repositories\DiscountRepository::TYPE_ALL ? "d-none" : "" }}">
+                <select name="coins[]" class="mySelect2" multiple>
+                    <option value="{{ $coin->id }}" {{ $discount->coins->contains($coin->id) ? "selected" : "" }}>{{ $coin->title }}</option>
+                </select>
+            </div>
             <x-input type="text" name="link" placeholder="لینک اطلاعات بیشتر" value="{{ $discount->link }}" />
             <x-input type="text" name="description" placeholder="توضیحات" class="margin-bottom-15" value="{{ $discount->description }}"/>
 

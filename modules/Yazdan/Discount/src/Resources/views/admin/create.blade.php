@@ -23,11 +23,18 @@
             <input id="discounts-field-2" class="discounts-field-pn" name="type" value="special" type="radio" />
             <label for="discounts-field-2">آیتم خاص</label>
         </div>
-        <div id="selectCourseContainer" class="d-none">
+        <span>کوپن</span>
+        <div class="selectCourseContainer d-none">
             <select name="coupons[]" class="mySelect2" multiple>
                 @foreach($coupons as $coupon)
                 <option value="{{ $coupon->id }}">{{ $coupon->title }}</option>
                 @endforeach
+            </select>
+        </div>
+        <span>سکه</span>
+        <div class="selectCourseContainer d-none">
+            <select name="coins[]" class="mySelect2" multiple>
+                <option value="{{ $coin->id }}">{{ $coin->title }}</option>
             </select>
         </div>
 

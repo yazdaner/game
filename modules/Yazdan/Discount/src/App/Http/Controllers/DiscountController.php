@@ -3,6 +3,7 @@
 namespace Yazdan\Discount\App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yazdan\Coin\App\Models\Coin;
 use App\Http\Controllers\Controller;
 use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Course\App\Models\Course;
@@ -23,7 +24,8 @@ class DiscountController extends Controller
         $this->authorize('manage', Discount::class);
         $discounts = DiscountRepository::paginateAll();
         $coupons = Coupon::all();
-        return view('Discount::admin.index', compact('coupons', 'discounts'));
+        $coin = Coin::first();
+        return view('Discount::admin.index', compact('coupons', 'discounts','coin'));
     }
 
     public function store(DiscountRequest $request)
@@ -41,7 +43,8 @@ class DiscountController extends Controller
     {
         $this->authorize('manage', Discount::class);
         $coupons = Coupon::all();
-        return view("Discount::admin.edit", compact("discount", "coupons"));
+        $coin = Coin::first();
+        return view("Discount::admin.edit", compact("discount", "coupons","coin"));
     }
 
     public function update(Discount $discount, DiscountRequest $request)
@@ -62,49 +65,31 @@ class DiscountController extends Controller
 
     public function check(CodeRequest $request)
     {
-        $coupons = [];
-
+        $ProductWithDiscount = [];
         foreach (\Cart::getContent() as $item) {
-
-            $model = get_class($item->associatedModel);
-            $id = $item->associatedModel->id;
-            if ($model == "Yazdan\Coupon\App\Models\Coupon") {
-                $coupons[] = $model::find($id);
-            }
-        }
-
-        $couponsWithDiscount = [];
-        foreach ($coupons as $coupon) {
-            $discount = DiscountRepository::getValidDiscountByCode($request->code, $coupon->id);
-
+            $discount = DiscountRepository::getValidDiscountByCode($request->code, $item->associatedModel);
             if (!is_null($discount)) {
-                $couponsWithDiscount[] = [
-                    'coupon' => $coupon,
+                $ProductWithDiscount[] = [
+                    'product' => $item->associatedModel,
                     'discountPercent' => $discount->percent
                 ];
             }
         }
-
-        if ($couponsWithDiscount == []) {
+        if ($ProductWithDiscount == []) {
             newFeedbacks('ناموفق', 'کد تخفیف وارد شده نامعتبر می باشد', 'error');
             return back();
         }
-
         if (session()->has('code')) {
             session()->forget('code');
         }
-
         session()->put('code', $request->code);
-
-        foreach ($couponsWithDiscount as $item) {
-            $discountAmount = DiscountService::calculateDiscountAmount($item['coupon']->finalPrice(), $item['discountPercent']);
-            \Cart::update("Yazdan\Coupon\App\Models\Coupon" . '-' .  $item['coupon']->id, [
-                'price' => $item['coupon']->finalPrice() - $discountAmount
+        foreach ($ProductWithDiscount as $item) {
+            $discountAmount = DiscountService::calculateDiscountAmount($item['product']->finalPrice(), $item['discountPercent']);
+            \Cart::update(get_class($item['product']) . '-' .  $item['product']->id, [
+                'price' => $item['product']->finalPrice() - $discountAmount
             ]);
         }
-
         newFeedbacks();
         return back();
-
     }
 }

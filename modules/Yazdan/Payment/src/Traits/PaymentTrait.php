@@ -2,7 +2,6 @@
 
 namespace Yazdan\Payment\Traits;
 
-use Yazdan\Discount\App\Models\Discount;
 use Yazdan\Discount\Services\DiscountService;
 use Yazdan\Discount\Repositories\DiscountRepository;
 

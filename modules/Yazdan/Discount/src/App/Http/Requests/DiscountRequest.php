@@ -21,6 +21,7 @@ class DiscountRequest extends FormRequest
             "usage_limitation" => "nullable|numeric|min:1|max:1000000000",
             "expire_at" => ["nullable",new ValidJalaliDate()],
             "coupons" => "nullable|array",
+            "coins" => "nullable|array",
             "type" => "required"
         ];
 
@@ -38,7 +39,8 @@ class DiscountRequest extends FormRequest
             "code" => "کد تخفیف",
             "percent" => "درصد تخفیف",
             "usage_limitation" => "محدودیت افراد",
-            "coupons" => "آیتم",
+            "coupons" => "کوپن",
+            "coins" => "سکه",
             "type" => "نوع تخفیف",
         ];
     }

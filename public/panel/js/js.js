@@ -391,8 +391,8 @@ String.prototype.toEnglishDigits = function() {
 };
 
 $('#discounts-field-2').on('click', function (e) {
-    $('#selectCourseContainer').removeClass('d-none')
+    $('.selectCourseContainer').removeClass('d-none')
 });
 $('#discounts-field-1').on('click', function (e) {
-    $('#selectCourseContainer').addClass('d-none')
+    $('.selectCourseContainer').addClass('d-none')
 });
