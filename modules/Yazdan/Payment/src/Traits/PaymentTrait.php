@@ -9,17 +9,17 @@ use Yazdan\Discount\Repositories\DiscountRepository;
 
 trait PaymentTrait
 {
-
+    // relation discounts
     public function discounts()
     {
         return $this->morphToMany(Discount::class, "discountable");
     }
-
+    // relation payments
     public function payments()
     {
         return $this->morphMany(Payment::class, "paymentable");
     }
-
+    // dicount functions
     public function getDiscount()
     {
         $discountRepo = new DiscountRepository();
@@ -76,8 +76,8 @@ trait PaymentTrait
         }
         return DiscountService::calculateDiscountAmount($this->price, $percent);
     }
-
-
+    
+    // get final price with dicounts
     public function finalPrice($quantity = 1, $code = null, $withDiscounts = false)
     {
         $discounts = [];
@@ -91,7 +91,7 @@ trait PaymentTrait
 
         if ($code) {
             $repo = new DiscountRepository();
-            $discountFromCode = $repo->getValidDiscountByCode($code, $this->id);
+            $discountFromCode = $repo->getValidDiscountByCode($code, $this);
 
             if ($discountFromCode) {
                 $discounts[] = $discountFromCode;

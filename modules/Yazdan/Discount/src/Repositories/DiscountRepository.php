@@ -8,11 +8,6 @@ use Yazdan\Discount\App\Models\Discount;
 
 class DiscountRepository
 {
-    // private $model;
-    // public function __construct($model)
-    // {
-    //     $this->model = $model;
-    // }
 
     const TYPE_ALL = "all";
     const TYPE_SPECIAL = "special";
@@ -20,6 +15,8 @@ class DiscountRepository
         self::TYPE_ALL,
         self::TYPE_SPECIAL
     ];
+
+    // get discounts functions
     public static function find($id)
     {
         return Discount::query()->find($id);
@@ -30,12 +27,12 @@ class DiscountRepository
         return Discount::query()->where('code',$code)->first();
     }
 
-
     public static function paginateAll()
     {
         return Discount::query()->latest()->paginate();
     }
 
+    // DB functions
     public static function store($data)
     {
         $discount = Discount::query()->create([
@@ -78,6 +75,7 @@ class DiscountRepository
         }
     }
 
+    // dicount functions
     public function getValidDiscountsQuery($type = "all", $id = null)
     {
         $query = Discount::query()
