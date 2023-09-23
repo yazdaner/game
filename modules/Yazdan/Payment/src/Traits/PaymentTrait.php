@@ -69,14 +69,14 @@ trait PaymentTrait
         return $discount == 0 ? false : true;
     }
 
-    public function getDiscountAmount($percent = null)
+    public function getDiscountAmount($discount = null)
     {
-        if ($percent == null) {
-            $percent = $this->getDiscountPercent();
+        if ($discount == null) {
+            $discount = $this->getDiscount();
         }
-        return DiscountService::calculateDiscountAmount($this->price, $percent);
+        return DiscountService::calculateDiscountAmount($this, $discount);
     }
-    
+
     // get final price with dicounts
     public function finalPrice($quantity = 1, $code = null, $withDiscounts = false)
     {
@@ -96,13 +96,12 @@ trait PaymentTrait
             if ($discountFromCode) {
                 $discounts[] = $discountFromCode;
 
-                $amount = $amount - DiscountService::calculateDiscountAmount($amount, $discountFromCode->percent);
+                $amount = DiscountService::calculateDiscountAmount($this, $discountFromCode,$quantity);
             }
         }
-
-        $amount = $amount * $quantity;
         if ($withDiscounts)
             return [$amount, $discounts];
         return $amount;
     }
+
 }

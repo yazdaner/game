@@ -28,6 +28,10 @@ class CreateDiscountsTable extends Migration
 
             $table->unsignedTinyInteger("percent");
             $table->unsignedBigInteger("usage_limitation")->nullable(); // null means unlimited
+
+            $table->unsignedBigInteger("max_amount")->nullable(); // null means unlimited
+            $table->unsignedBigInteger("quantity_limitation")->nullable(); // null means unlimited
+
             $table->timestamp("expire_at")->nullable();
             $table->string("link", 300)->nullable();
             $table->string("description")->nullable();

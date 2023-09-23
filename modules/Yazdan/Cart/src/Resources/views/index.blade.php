@@ -45,7 +45,7 @@
                             </td>
 
                             <td class="product-price">
-                                <span class="unit-amount">{{$item->price}} تومان</span>
+                                <span class="unit-amount">{{$item->associatedModel->price}} تومان</span>
                                 @if($item->associatedModel->hasDiscount())
                                 <p class="text-error">
                                     <span>{{ $item->associatedModel->getDiscountPercent() }}</span>

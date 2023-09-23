@@ -14,7 +14,11 @@
             <x-input type="number" placeholder="درصد تخفیف" name="percent" required value="{{ $discount->percent }}" />
             <x-input type="number" placeholder="محدودیت افراد" name="usage_limitation" value="{{ $discount->usage_limitation }}" />
 
-            <x-input type="text" class="expireAt" id="expire_at" placeholder="محدودیت زمانی به ساعت" name="expire_at"
+            <x-input type="number" placeholder="سقف قیمت تخفیف" name="max_amount" value="{{ $discount->max_amount }}"/>
+            <x-input type="number" placeholder="محدودیت تعداد" name="quantity_limitation" value="{{ $discount->quantity_limitation }}" />
+
+
+            <x-input type="text" class="expireAt" id="expire_at" placeholder="محدودیت زمانی" name="expire_at"
                 value="{{ $discount->expire_at ? fromCarbon($discount->expire_at) : '' }}" />
 
            <p class="box__title">این تخفیف برای</p>
@@ -28,16 +32,17 @@
                 <input id="discounts-field-2" class="discounts-field-pn" name="type" value="special" type="radio" {{ $discount->type == \Yazdan\Discount\Repositories\DiscountRepository::TYPE_SPECIAL ? "checked" : "" }}/>
                 <label for="discounts-field-2">دوره خاص</label>
             </div>
-            <span>کوپن</span>
             <div class="selectCourseContainer {{ $discount->type == \Yazdan\Discount\Repositories\DiscountRepository::TYPE_ALL ? "d-none" : "" }}">
+            <span>کوپن</span>
+
                 <select name="coupons[]" class="mySelect2" multiple>
                     @foreach($coupons as $coupon)
                         <option value="{{ $coupon->id }}" {{ $discount->coupons->contains($coupon->id) ? "selected" : "" }}>{{ $coupon->title }}</option>
                     @endforeach
                 </select>
             </div>
-            <span>سکه</span>
             <div class="selectCourseContainer {{ $discount->type == \Yazdan\Discount\Repositories\DiscountRepository::TYPE_ALL ? "d-none" : "" }}">
+            <span>سکه</span>
                 <select name="coins[]" class="mySelect2" multiple>
                     <option value="{{ $coin->id }}" {{ $discount->coins->contains($coin->id) ? "selected" : "" }}>{{ $coin->title }}</option>
                 </select>

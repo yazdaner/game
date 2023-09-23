@@ -61,8 +61,10 @@ class CartController extends Controller
                     'relative' => false,
                     'value' => $quantity
                 ),
+                'price' => \Cart::getContent()[$rowId]->associatedModel->finalPrice()
             ));
         }
+        session()->forget('code');
 
         newFeedbacks('با موفقیت', 'سبد خرید شما ویرایش شد', 'success');
         return back();
@@ -108,19 +110,18 @@ class CartController extends Controller
         $code = session()->get('code');
         foreach($items as $item){
             [$amount, $discounts] = $item['model']->finalPrice($item['quantity'],$code, true);
-            $amounts[] = $amount;
+            $amounts[] = $amount * $item['quantity'];
             $item['discounts'] = $discounts;
-            $item['amount'] = $amount / $item['quantity'];
+            $item['amount'] = $amount;
             $products[] = $item;
         }
         $totalAmount = array_sum($amounts);
         if($totalAmount <= 0){
             // todo
             dd('free');
-            // resolve(CourseRepository::class)->addStudentToCourse($course,$user);
-            // newFeedbacks();
-            // return redirect($course->path());
         }
+
+        // dd($products);
         PaymentService::generate($products, $user, $totalAmount);
         resolve(Gateway::class)->redirect();
     }

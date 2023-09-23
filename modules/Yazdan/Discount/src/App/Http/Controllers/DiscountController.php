@@ -2,17 +2,12 @@
 
 namespace Yazdan\Discount\App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Yazdan\Coin\App\Models\Coin;
 use App\Http\Controllers\Controller;
 use Yazdan\Coupon\App\Models\Coupon;
-use Yazdan\Course\App\Models\Course;
-use Illuminate\Support\Facades\Session;
 use Yazdan\Discount\App\Models\Discount;
 use Yazdan\Common\Responses\AjaxResponses;
 use Yazdan\Discount\Services\DiscountService;
-use Yazdan\Coupon\Repositories\CouponRepository;
-use Yazdan\Course\Repositories\CourseRepository;
 use Yazdan\Discount\App\Http\Requests\CodeRequest;
 use Yazdan\Discount\Repositories\DiscountRepository;
 use Yazdan\Discount\App\Http\Requests\DiscountRequest;
@@ -71,10 +66,12 @@ class DiscountController extends Controller
             if (!is_null($discount)) {
                 $ProductWithDiscount[] = [
                     'product' => $item->associatedModel,
-                    'discountPercent' => $discount->percent
+                    'discount' => $discount,
+                    'quantity' => $item->quantity,
                 ];
             }
         }
+
         if ($ProductWithDiscount == []) {
             newFeedbacks('ناموفق', 'کد تخفیف وارد شده نامعتبر می باشد', 'error');
             return back();
@@ -83,12 +80,13 @@ class DiscountController extends Controller
             session()->forget('code');
         }
         session()->put('code', $request->code);
+
         foreach ($ProductWithDiscount as $item) {
-            $discountAmount = DiscountService::calculateDiscountAmount($item['product']->finalPrice(), $item['discountPercent']);
-            \Cart::update(get_class($item['product']) . '-' .  $item['product']->id, [
-                'price' => $item['product']->finalPrice() - $discountAmount
-            ]);
+            $discountAmount = DiscountService::calculateDiscountAmount($item['product'], $item['discount'],$item['quantity']);
+            \Cart::update(get_class($item['product']) . '-' .  $item['product']->id,
+                ['price' => $discountAmount]);
         }
+
         newFeedbacks();
         return back();
     }
