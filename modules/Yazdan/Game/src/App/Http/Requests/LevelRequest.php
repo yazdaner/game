@@ -26,6 +26,8 @@ class LevelRequest extends FormRequest
         $rules = [
             'title' => 'required|string',
             'priority' => 'required|integer|max:255',
+            "coin" => "nullable|integer",
+            "coupons" => "nullable|array",
             'minScore' => 'required|integer',
         ];
 
@@ -38,6 +40,8 @@ class LevelRequest extends FormRequest
         return [
             "priority" => "سطح مرحله",
             "minScore" => "حداقل امتیاز",
+            "coin" => "سکه",
+            "coupons" => "کوپن",
         ];
     }
 }

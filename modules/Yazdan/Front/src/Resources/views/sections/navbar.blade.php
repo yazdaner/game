@@ -133,47 +133,6 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">وبلاگ <i class="flaticon-down-arrow"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="blog-1.html" class="nav-link">شبکه ای (2 ردیفی)</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="blog-2.html" class="nav-link">شبکه ای (3 ردیفی)</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="blog-3.html" class="nav-link">ماسونری (3 ردیفی)</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="blog-4.html" class="nav-link">سایدبار 1</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="blog-5.html" class="nav-link">سایدبار 2</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">پست جداگانه <i class="bx bx-plus"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="single-blog-1.html" class="nav-link">پیشفرض</a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="single-blog-2.html" class="nav-link">همراه ویدئو</a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="single-blog-3.html" class="nav-link">همراه اسلایدر</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
 
                         <li class="nav-item">
                             <a href="contact.html" class="nav-link">تماس با ما</a>
@@ -207,9 +166,18 @@
                                     <div class="mr-3">
                                         <a href="{{route('logout')}}">خروج</a>
                                     </div>
-                                </div>
 
+                                    <a href="{{route('user.coin.index')}}">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{$coin->getAvatar(60)}}" width="40" alt="">
+                                            <p class="mb-0">
+                                                {{auth()->user()->coin}}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
+                           
                         @else
                         <div class="option-item d-flex">
                             <div class="ml-3">

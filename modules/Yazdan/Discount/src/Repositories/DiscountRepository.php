@@ -122,6 +122,9 @@ class DiscountRepository
                 return $query->whereHas($table, function ($query) use ($id) {
                     return $query->where("id", $id);
                 })->orWhereDoesntHave('coins')->whereDoesntHave('coupons');
+            })->where(function ($query) {
+                $query->where("usage_limitation", ">", "0")
+                    ->orWhereNull("usage_limitation");
             })
             ->first();
     }

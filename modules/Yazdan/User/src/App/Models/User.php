@@ -6,6 +6,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Yazdan\Game\App\Models\Group;
 use Yazdan\Game\App\Models\Record;
 use Yazdan\Media\App\Models\Media;
+use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Course\App\Models\Course;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -95,5 +96,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function groups()
     {
         return $this->belongsToMany(Group::class, 'group_user', 'user_id', 'group_id');
+    }
+
+    public function coupons()
+    {
+        return $this->belongsToMany(Coupon::class,'coupon_user')->withPivot('count');
     }
 }

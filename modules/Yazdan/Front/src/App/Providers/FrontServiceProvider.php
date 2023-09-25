@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Yazdan\Course\Repositories\CourseRepository;
 use Yazdan\Category\Repositories\CategoryRepository;
+use Yazdan\Coin\App\Models\Coin;
 
 class FrontServiceProvider extends ServiceProvider
 {
@@ -22,5 +23,10 @@ class FrontServiceProvider extends ServiceProvider
         //     $categories = CategoryRepository::tree();
         //     $view->with(compact('categories'));
         // });
+
+          view()->composer('Front::sections.navbar', function ($view) {
+            $coin = Coin::first();
+            $view->with(compact('coin'));
+        });
     }
 }

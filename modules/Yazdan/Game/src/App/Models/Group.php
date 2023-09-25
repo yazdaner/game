@@ -9,11 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     protected $table = 'groups';
-    protected $fillable = [
-        'title',
-        'capacity',
-        'game_id',
-    ];
+
+    protected $guarded = [];
 
     public function game()
     {

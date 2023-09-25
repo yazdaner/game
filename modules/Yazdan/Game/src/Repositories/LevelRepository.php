@@ -20,23 +20,27 @@ class LevelRepository
     }
     public static function store($data, $gameId)
     {
-        return Level::create([
+        $level = Level::create([
             'title' => $data->title,
             'priority' => $data->priority,
             'minScore' => $data->minScore,
+            'coin' => $data->coin,
             'game_id' => $gameId,
         ]);
+
+        if(isset($data['coupons'])) $level->coupons()->sync($data["coupons"]);
     }
 
     public static function update($data,$id)
     {
         $level = static::findById($id);
-
-        return $level->update([
+        $level->update([
             'title' => $data->title,
             'priority' => $data->priority,
             'minScore' => $data->minScore,
+            'coin' => $data->coin,
         ]);
+        $level->coupons()->sync($data["coupons"]);
     }
 
 

@@ -18,6 +18,7 @@ class CreateLevelsTable extends Migration
             $table->string('title');
             $table->unsignedTinyInteger('priority');
             $table->unsignedBigInteger('minScore');
+            $table->unsignedBigInteger('coin')->nullable();
             $table->foreignId('game_id')->nullable();
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->timestamps();;

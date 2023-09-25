@@ -11,13 +11,8 @@ use Yazdan\Game\Repositories\RecordRepository;
 class Record extends Model
 {
     protected $table = 'records';
-    protected $fillable = [
-        'claimRecord',
-        'media_id',
-        'status',
-        'level_id',
-        'user_id',
-    ];
+
+    protected $guarded = [];
 
     public function level()
     {

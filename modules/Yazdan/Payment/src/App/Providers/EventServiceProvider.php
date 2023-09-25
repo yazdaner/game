@@ -2,16 +2,17 @@
 
 namespace Yazdan\Payment\App\Providers;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Yazdan\Course\App\Listeners\RegisterUserInTheCourse;
+use Yazdan\Coin\App\Listeners\GiveCoinToUser;
 use Yazdan\Payment\App\Events\PaymentWasSuccessful;
+use Yazdan\Course\App\Listeners\RegisterUserInTheCourse;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
 {
 
     protected $listen = [
         PaymentWasSuccessful::class => [
-            RegisterUserInTheCourse::class,
+            GiveCoinToUser::class,
         ]
     ];
 

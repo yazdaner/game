@@ -1,11 +1,19 @@
 @extends('Home::master')
 @section('content')
-<div class="d-flex mb-5 align-items-center">
+<div class="d-flex mb-5 align-items-center justify-content-between mb-0">
+  <div>
     <h3 class="mb-0">
         خرید
         {{$coin->title}}
     </h3>
-    <img src="{{$coin->getAvatar(300)}}" width="100" alt="">
+  </div>
+    <div class="d-flex align-items-center">
+        <h3 class="mb-0">
+            {{$coin->title}} های موجود :
+            {{auth()->user()->coin}}
+        </h3>
+        <img src="{{$coin->getAvatar(300)}}" width="100" alt="">
+    </div>
 </div>
 <form class="row g-3 align-items-center mt-3"
 action="{{ route('users.cart.add')}}"

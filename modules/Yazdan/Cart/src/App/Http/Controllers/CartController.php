@@ -11,6 +11,8 @@ use Yazdan\Payment\Gateways\Gateway;
 use Illuminate\Support\Facades\Session;
 use Yazdan\Payment\Services\PaymentService;
 use Yazdan\Cart\App\Http\Requests\CartRequest;
+use Yazdan\Payment\Repositories\PaymentRepository;
+use Yazdan\Payment\App\Events\PaymentWasSuccessful;
 
 class CartController extends Controller
 {
@@ -91,12 +93,12 @@ class CartController extends Controller
 
     public function buy()
     {
-        if(\Cart::isEmpty()){
-            newFeedbacks('نا موفق','سبد خرید شمل خالی است','error');
+        if (\Cart::isEmpty()) {
+            newFeedbacks('نا موفق', 'سبد خرید شمل خالی است', 'error');
             return back();
         }
         $items = [];
-        foreach (\Cart::getContent() as $item){
+        foreach (\Cart::getContent() as $item) {
             $model = get_class($item->associatedModel);
             $id = $item->associatedModel->id;
             $items[] = [
@@ -108,23 +110,45 @@ class CartController extends Controller
         $amounts = [];
         $products = [];
         $code = session()->get('code');
-        foreach($items as $item){
-            [$amount, $discounts] = $item['model']->finalPrice($item['quantity'],$code, true);
+        foreach ($items as $item) {
+            [$amount, $discounts] = $item['model']->finalPrice($item['quantity'], $code, true);
             $amounts[] = $amount * $item['quantity'];
             $item['discounts'] = $discounts;
             $item['amount'] = $amount;
             $products[] = $item;
         }
         $totalAmount = array_sum($amounts);
-        if($totalAmount <= 0){
-            // todo
-            dd('free');
+
+        //free
+        if ($totalAmount <= 0) {
+            $invoice_id = uniqid();
+            foreach ($products as $item) {
+                resolve(PaymentRepository::class)->store([
+                    'user_id' => $user->id,
+                    'paymentable_id' => $item['model']->id,
+                    'paymentable_type' => get_class($item['model']),
+                    'amount' => $item['amount'],
+                    'quantity' => $item['quantity'],
+                    'totalAmount' => $item['amount'] * $item['quantity'],
+                    'invoice_id' => $invoice_id,
+                    'gateway' => 'free',
+                    'status' => PaymentRepository::CONFIRMATION_STATUS_SUCCESS,
+                ], $item['discounts']);
+            }
+
+            $repository = resolve(PaymentRepository::class);
+            $payments = $repository->findByInvoiceId($invoice_id);
+
+            foreach ($payments as $payment) {
+                event(new PaymentWasSuccessful($payment));
+                session()->forget('code');
+                \Cart::clear();
+            }
+            newFeedbacks('عملیات موفق', 'پرداخت با موفقیت انجام شد', 'success');
+            return redirect('/');
         }
 
-        // dd($products);
         PaymentService::generate($products, $user, $totalAmount);
         resolve(Gateway::class)->redirect();
     }
-
-
 }

@@ -31,5 +31,11 @@ class CouponServiceProvider extends ServiceProvider
             'title' => 'کوپن ها',
             'permission' => PermissionRepository::PERMISSION_MANAGE_COUPON,
         ]);
+
+        config()->set('sidebarHome.items.coupon', [
+            'icon' => 'i-coupon',
+            'url' => route('user.coupons.index'),
+            'title' => 'کوپن ها',
+        ]);
     }
 }

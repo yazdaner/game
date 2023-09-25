@@ -49,12 +49,14 @@ class RecordController extends Controller
 
     public function index($gameId)
     {
-        // todo
+
         $game = Game::where('id',$gameId)->first();
 
+        if(! auth()->user()->groups()->where('game_id',$gameId)->first()){
+            abort(403);
+        }
+
         $records = $game->records->where('user_id',auth()->id());
-
-
 
         $query = $game->records()->where('user_id',auth()->id())->where('status',RecordRepository::STATUS_ACCEPTED);
         if($query->first()){

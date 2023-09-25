@@ -4,6 +4,7 @@ namespace Yazdan\Game\App\Http\Controllers\Level;
 
 use App\Http\Controllers\Controller;
 use Yazdan\Common\Responses\AjaxResponses;
+use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Game\Repositories\GameRepository;
 use Yazdan\Game\Repositories\LevelRepository;
 use Yazdan\Game\App\Http\Requests\LevelRequest;
@@ -13,8 +14,9 @@ class LevelController extends Controller
 
     public function create($gameId)
     {
+        $coupons = Coupon::all();
         $game = GameRepository::findById($gameId);
-        return view('Level::admin.create', compact('game'));
+        return view('Level::admin.create', compact('game','coupons'));
     }
     public function store(LevelRequest $request, $gameId)
     {
@@ -37,9 +39,10 @@ class LevelController extends Controller
 
     public function edit($id)
     {
+        $coupons = Coupon::all();
         $level = LevelRepository::findById($id);
 
-        return view('Level::admin.edit', compact('level'));
+        return view('Level::admin.edit', compact('level','coupons'));
     }
 
     public function update($id, LevelRequest $request)
