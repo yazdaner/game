@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/category",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Category\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Category\\App\\Providers\\CategoryServiceProvider"
+            ]
+        }
+    }
+}

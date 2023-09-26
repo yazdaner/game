@@ -21,6 +21,7 @@
         "morilog/jalali": "3.*",
         "spatie/laravel-permission": "^5.10",
         "yazdan/cart": "dev-master",
+        "yazdan/category": "dev-master",
         "yazdan/coin": "dev-master",
         "yazdan/common": "dev-master",
         "yazdan/coupon": "dev-master",
@@ -106,6 +107,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/Cart"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/Category"
         }
     ],
     "scripts": {

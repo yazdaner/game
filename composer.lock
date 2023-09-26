@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8e16f137561079c155fe29dd35f2d52",
+    "content-hash": "3932f0040f18c2f320d2f4f9d325a390",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5956,6 +5956,31 @@
             }
         },
         {
+            "name": "yazdan/category",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Category",
+                "reference": "9eb71a4bacaca0ff1d40810db2a2264dc1e899d3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Category\\App\\Providers\\CategoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Category\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/coin",
             "version": "dev-master",
             "dist": {
@@ -8640,5 +8665,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.6.0"
 }
