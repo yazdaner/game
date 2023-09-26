@@ -11,7 +11,7 @@ class CoinRepository
     }
 
     static $defaultCoin = [
-        'title' => 'coin',
+        'title' => 'سکه',
         'price' => '10000'
     ];
 
@@ -22,7 +22,7 @@ class CoinRepository
         return $coin->update([
             'title' => $data['title'],
             'price' => $data['price'],
-            'media_id' => $data['media_id'],
+            'media_id' => $data['media_id'] ?? null,
         ]);
     }
 }

@@ -32,7 +32,7 @@ class CoinController extends Controller
             $images = MediaFileService::publicUpload($request->media);
             $request->request->add(['media_id' => $images->id]);
         } else {
-            if ($coin->media) {
+            if ($coin->media && $coin->media->id) {
                 $request->request->add(['media_id' => $coin->media->id]);
             }
         }
