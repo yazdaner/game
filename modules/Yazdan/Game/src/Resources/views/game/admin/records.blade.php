@@ -31,13 +31,17 @@
                             <td>{{$records->firstItem() + $key}}</td>
                             <td>{{$record->user->name}}</td>
                             <td>{{$record->level->title}}</td>
-                            <td>{{$record->claimRecord}}</td>
+                            @if (isset($record->coupon_id))
+                            <td>{{$record->claimRecord / $record->coupon->coefficient}} * {{$record->coupon->coefficient}}</td>
+                            @else
+                            <td>{{$record->claimRecord ?? 'سکه : ' .$record->coin }}</td>
+                            @endif
                             <td>{{$record->level->minScore}}</td>
                             <td>{{$record->created_at->diffForHumans()}}</td>
                             <td class="confirmation_status"><span
                                 class="{{$record->status()}}">{{__($record->status)}}</span></td>
                             <td>
-                                <a class="btn btn-yazdan" href="{{$record->media->thumb()}}" target="_blank">فایل ضمیمه</a>
+                                <a class="btn btn-yazdan" href="{{$record->getAvatar()}}" target="_blank">فایل ضمیمه</a>
                             </td>
                             <td>
                                 @can(\Yazdan\RolePermissions\Repositories\PermissionRepository::PERMISSION_MANAGE_RECORD)

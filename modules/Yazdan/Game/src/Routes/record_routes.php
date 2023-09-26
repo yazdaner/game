@@ -21,5 +21,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('users/game/{game}/level',[RecordController::class,'index'])->name('home.records.index');
     Route::post('users/game/record',[RecordController::class,'sendRecord'])->name('home.records.send');
+    Route::post('users/game/coinRecord/{level}',[RecordController::class,'coinRecord'])->name('home.records.coinRecord');
 
 });

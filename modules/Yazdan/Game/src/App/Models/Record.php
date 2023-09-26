@@ -6,6 +6,7 @@ use Yazdan\User\App\Models\User;
 use Yazdan\Game\App\Models\Level;
 use Yazdan\Media\App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
+use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Game\Repositories\RecordRepository;
 
 class Record extends Model
@@ -29,6 +30,11 @@ class Record extends Model
         return $this->belongsTo(Media::class, 'media_id');
     }
 
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class, 'coupon_id');
+    }
+
     public function status()
     {
         switch ($this->status) {
@@ -41,6 +47,15 @@ class Record extends Model
             default:
                 return '';
                 break;
+        }
+    }
+
+    public function getAvatar($size = 'original')
+    {
+        if (isset($this->avatar_id)) {
+            return $this->avatar->thumb($size);
+        } else {
+            return asset('img/coin.png');
         }
     }
 }

@@ -7,6 +7,7 @@ use Yazdan\Payment\App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
 use Yazdan\Payment\Traits\PaymentTrait;
 use Yazdan\Discount\App\Models\Discount;
+use Yazdan\User\App\Models\User;
 
 class Coupon extends Model
 {
@@ -30,4 +31,9 @@ class Coupon extends Model
         }
     }
 
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'coupon_user')->withPivot('count');
+    }
 }

@@ -81,16 +81,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
-
     public function records()
     {
         return $this->hasMany(Record::class, 'user_id');
-    }
-
-    public function studentsCount()
-    {
-        //todo
-        return 0;
     }
 
     public function groups()

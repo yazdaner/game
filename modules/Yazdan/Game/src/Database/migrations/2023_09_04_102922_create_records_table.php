@@ -16,7 +16,7 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('claimRecord');
+            $table->unsignedBigInteger('claimRecord')->nullable();
 
             $table->foreignId('media_id')->nullable();
             $table->foreign('media_id')->references('id')->on('media')->onDelete('SET NULL');
@@ -27,9 +27,12 @@ class CreateRecordsTable extends Migration
             $table->foreignId('level_id')->nullable();
             $table->foreign('level_id')->references('id')->on('levels')->onDelete('SET NULL');
 
+            $table->boolean('coin')->default(false);
+
+            $table->foreignId('coupon_id')->nullable();
+            $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('SET NULL');
 
             $table->enum('status', RecordRepository::$statuses);
-
 
             $table->timestamps();
         });

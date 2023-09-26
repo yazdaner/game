@@ -85,6 +85,10 @@
         },
         {
             "type": "path",
+            "url": "./modules/Yazdan/Coupon"
+        },
+        {
+            "type": "path",
             "url": "./modules/Yazdan/Game"
         },
         {
@@ -102,10 +106,6 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/Cart"
-        },
-        {
-            "type": "path",
-            "url": "./modules/Yazdan/Coupon"
         }
     ],
     "scripts": {

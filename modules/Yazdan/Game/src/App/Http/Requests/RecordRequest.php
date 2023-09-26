@@ -27,8 +27,9 @@ class RecordRequest extends FormRequest
 
         $rules = [
             'level' => 'required|exists:levels,id',
-            'claimRecord' => 'required|integer|min:'.Level::where('id',$this->level)->first()->minScore,
+            'claimRecord' => 'required|integer',
             'media' => 'required|mimes:png,jpg|max:2048',
+            'coupon' => 'nullable|exists:coupons,id',
         ];
 
         return $rules;
@@ -40,6 +41,7 @@ class RecordRequest extends FormRequest
         return [
             "claimRecord" => "رکورد",
             "media" => "فایل سند",
+            "coupon" => "کوپن",
         ];
     }
 }
