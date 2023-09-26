@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,7 +23,7 @@ class CreateCategoriesTable extends Migration
             $table->longText('content');
             $table->text('preview');
 
-            $table->foreignId('media_id')->constrained()->onDelete('SET NULL')->onUpdate('SET NULL');
+            $table->foreignId('media_id')->nullable()->constrained()->onDelete('SET NULL')->onUpdate('SET NULL');
             $table->foreignId('category_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
 

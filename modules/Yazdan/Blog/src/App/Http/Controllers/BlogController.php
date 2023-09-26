@@ -16,7 +16,7 @@ class BlogController extends Controller
         $this->authorize('manage', Blog::class);
 
         $blogs = BlogRepository::getAllPaginate(10);
-        return view('Blog::index', compact('blogs'));
+        return view('Blog::admin.index', compact('blogs'));
     }
 
 
@@ -34,7 +34,7 @@ class BlogController extends Controller
 
         $blog = BlogRepository::findById($blogId);
         $parentCategories = BlogRepository::getAllExceptById($blogId);
-        return view('Blog::edit', compact('blog', 'parentCategories'));
+        return view('Blog::admin.edit', compact('blog', 'parentCategories'));
     }
 
     public function update($blogId, BlogRequest $request)

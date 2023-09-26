@@ -1,6 +1,6 @@
 <div class="col-4 bg-white">
     <p class="box__title">ایجاد دسته بندی جدید</p>
-    <form action="{{route('admin.categories.store')}}" method="post" class="padding-30">
+    <form action="{{route('admin.blogs.store')}}" method="post" class="padding-30">
         @csrf
         <input name="title" type="text" placeholder="نام دسته بندی" class="text">
         @error('title')
@@ -17,8 +17,8 @@
         <p class="box__title margin-bottom-15">انتخاب دسته پدر</p>
         <select name="parent_id" id="parent_id">
             <option value="">ندارد</option>
-            @foreach ($categories as $category)
-            <option value="{{$category->id}}">{{$category->title}}</option>
+            @foreach ($blogs as $blog)
+            <option value="{{$blog->id}}">{{$blog->title}}</option>
             @endforeach
         </select>
 
