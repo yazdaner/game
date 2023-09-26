@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use Yazdan\Blog\App\Http\Controllers\BlogController;
 
 Route::prefix('admin-panel')->name('admin.')->middleware([
@@ -7,11 +8,6 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
     'verified'
 ])->group(function () {
 
-    Route::resource('blogs', BlogController::class)->except([
-        'create', 'show'
-    ]);
+    Route::resource('blogs', BlogController::class);
+
 });
-
-
-// todo
-Route::get('/blogs/{blog}', [LoginController::class, 'showLoginForm'])->name('blogs.show');

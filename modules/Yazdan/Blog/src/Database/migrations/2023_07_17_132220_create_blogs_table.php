@@ -16,11 +16,20 @@ class CreateCategoriesTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('parent_id')->nullable();
-            $table->foreign('parent_id')->on('blogs')->references('id')->onDelete('SET NULL');
-
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique()->nullable();
+
+
+            $table->longText('content');
+            $table->text('preview');
+
+            $table->foreignId('media_id')->constrained()->onDelete('SET NULL')->onUpdate('SET NULL');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+
+
+            $table->bigInteger('views')->unsigned()->default(0)->index();
+
             $table->timestamps();
         });
     }
