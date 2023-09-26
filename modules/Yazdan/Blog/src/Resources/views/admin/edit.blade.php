@@ -1,15 +1,15 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{route('admin.blogs.index')}}" title="دسته بندی ها">دسته بندی ها</a></li>
+    <li><a href="{{route('admin.blogs.index')}}" title="بلاگ ها">بلاگ ها</a></li>
     <li><a href="#" title="ویرایش">ویرایش</a></li>
 @endsection
 @section('content')
     <div class="col-4 bg-white margin-top-30 margin-auto">
-        <p class="box__title">ویرایش دسته بندی</p>
+        <p class="box__title">ویرایش بلاگ</p>
         <form action="{{route('admin.blogs.update',$blog->id)}}" method="post" class="padding-30">
             @csrf
             @method('put')
-            <input value="{{$blog->title}}" name="title" type="text" placeholder="نام دسته بندی" class="text">
+            <input value="{{$blog->title}}" name="title" type="text" placeholder="نام بلاگ" class="text">
 
             @error('title')
             <div class="invalid-feedback">
@@ -17,7 +17,7 @@
             </div>
             @enderror
 
-            <input value="{{$blog->slug}}" name="slug" type="text" placeholder="نام انگلیسی دسته بندی" class="text">
+            <input value="{{$blog->slug}}" name="slug" type="text" placeholder="نام انگلیسی بلاگ" class="text">
 
             @error('slug')
             <div class="invalid-feedback">

@@ -9,5 +9,6 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
 ])->group(function () {
 
     Route::resource('blogs', BlogController::class);
+    Route::post('/editor/upload', [BlogController::class, 'postImagesUpload'])->name('editor-upload');
 
 });

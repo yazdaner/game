@@ -1,19 +1,22 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="#" title="دسته بندی ها">دسته بندی ها</a></li>
+    <li><a href="#" title="بلاگ ها">بلاگ ها</a></li>
 @endsection
 @section('content')
-<div class="main-content padding-0 blogs">
-    <div class="row no-gutters  ">
-        <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
-            <p class="box__title">دسته بندی ها</p>
+<div class="main-content padding-0">
+    <div class="row no-gutters">
+        <div class="col-12 margin-left-10 margin-bottom-15 border-radius-3">
+            <div class="justify-content-between box__title pb-4">
+                <h3 class="btn">بلاگ ها</h3>
+                <a class="btn btn-yazdan" href="{{route('admin.blogs.create')}}">ایجاد بلاگ</a>
+            </div>
             <div class="table__box">
                 <table class="table">
                     <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>شناسه</th>
-                            <th>نام دسته بندی</th>
-                            <th>نام انگلیسی دسته بندی</th>
+                            <th>نام بلاگ</th>
+                            <th>نام انگلیسی بلاگ</th>
                             <th>دسته پدر</th>
                             <th>عملیات</th>
                         </tr>

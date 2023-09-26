@@ -18,7 +18,7 @@ class ImageFileService extends DefaultFileService implements FileServiceContract
     {
         self::$ext = strtolower($file->getClientOriginalExtension());
 
-        $fileFullName = $filename . '.' . $file->getClientOriginalExtension();
+        $fileFullName = $filename . '.' . self::$ext;
         Storage::putFileAs($dir, $file, $fileFullName);
         return static::resize($fileFullName, $dir);
     }

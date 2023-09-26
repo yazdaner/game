@@ -2,6 +2,7 @@
 
 namespace Yazdan\Blog\Repositories;
 
+use Illuminate\Support\Str;
 use Yazdan\Blog\App\Models\Blog;
 
 class BlogRepository
@@ -19,9 +20,13 @@ class BlogRepository
     public static function create($value)
     {
         return Blog::create([
+            'user_id' => auth()->id(),
             'title' => $value->title,
-            'slug' => $value->slug,
-            'parent_id' => $value->parent_id,
+            'slug' => Str::slug($value->title),
+            'category_id' => $value->category_id,
+            'media_id' => $value->media_id,
+            'preview' => $value->preview,
+            'content' => $value->content,
         ]);
     }
 
@@ -30,15 +35,14 @@ class BlogRepository
         return Blog::find($id);
     }
 
-
     public static function getAllExceptById($id)
     {
-        return self::getAll()->filter(function($item) use ($id){
+        return self::getAll()->filter(function ($item) use ($id) {
             return $item->id != $id;
         });
     }
 
-    public static function updating($blogId,$value)
+    public static function updating($blogId, $value)
     {
         return Blog::whereId($blogId)->update([
             'title' => $value->title,
@@ -54,6 +58,6 @@ class BlogRepository
 
     public static function tree()
     {
-        return Blog::where('parent_id',null)->with('subBlog')->get();
+        return Blog::where('parent_id', null)->with('subBlog')->get();
     }
 }

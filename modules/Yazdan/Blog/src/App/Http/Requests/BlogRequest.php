@@ -24,9 +24,22 @@ class BlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:200',
-            'slug' => 'required|max:200',
-            'parent_id' => 'nullable|exists:blogs,id',
+            'title' => ['required','string','max:255','unique:blogs,title'],
+            'category_id' => ['required','exists:categories,id'],
+            'preview' => ['required'],
+            'content' => ['required'],
+            'media' => 'required|mimes:png,jpg|max:2048',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            "title" => "عنوان",
+            "category_id" => "دسته بندی",
+            "preview" => "متن پیش نمایش",
+            "content" => "محتوا",
+            "media" => "بنر",
         ];
     }
 }
