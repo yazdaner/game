@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3932f0040f18c2f320d2f4f9d325a390",
+    "content-hash": "9e1832f2b650218f2f8d3f49b3e8ddfa",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5931,6 +5931,31 @@
             "time": "2022-06-03T18:03:27+00:00"
         },
         {
+            "name": "yazdan/blog",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Blog",
+                "reference": "bbcff7c9d2d281c7ef1e98ec78018d8c71510d03"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Blog\\App\\Providers\\BlogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Blog\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/cart",
             "version": "dev-master",
             "dist": {
@@ -8646,6 +8671,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "yazdan/cart": 20,
+        "yazdan/category": 20,
         "yazdan/coin": 20,
         "yazdan/common": 20,
         "yazdan/coupon": 20,
