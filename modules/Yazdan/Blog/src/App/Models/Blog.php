@@ -3,6 +3,7 @@
 namespace Yazdan\Blog\App\Models;
 
 use Yazdan\User\App\Models\User;
+use Yazdan\Media\App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Yazdan\Category\App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,15 +14,6 @@ class Blog extends Model
 
     protected $table = 'blogs';
     protected $guarded = [];
-
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
 
     public function category()
     {
@@ -38,5 +30,19 @@ class Blog extends Model
         return $this->save();
     }
 
+
+    public function media()
+    {
+        return $this->belongsTo(Media::class, 'media_id');
+    }
+
+    public function getAvatar($size = 'original')
+    {
+        if (isset($this->media_id)) {
+            return $this->media->thumb($size);
+        } else {
+            return asset('img/profile.jpg');
+        }
+    }
 }
 

@@ -38,7 +38,7 @@ class BlogController extends Controller
         }
         BlogRepository::create($request);
         newFeedbacks();
-        return redirect()->route('admin.blogs.index');
+        return redirect(route('admin.blogs.index'));
     }
 
     public function edit($blogId)
@@ -46,8 +46,8 @@ class BlogController extends Controller
         $this->authorize('manage', Blog::class);
 
         $blog = BlogRepository::findById($blogId);
-        $parentCategories = BlogRepository::getAllExceptById($blogId);
-        return view('Blog::admin.edit', compact('blog', 'parentCategories'));
+        $categories = CategoryRepository::getAll();
+        return view('Blog::admin.edit', compact('blog', 'categories'));
     }
 
     public function update($blogId, BlogRequest $request)
@@ -55,6 +55,7 @@ class BlogController extends Controller
         $this->authorize('manage', Blog::class);
 
         BlogRepository::updating($blogId, $request);
+        newFeedbacks();
         return redirect(route('admin.blogs.index'));
     }
 

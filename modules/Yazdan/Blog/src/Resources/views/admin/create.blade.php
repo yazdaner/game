@@ -1,6 +1,7 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
 <li><a href="{{route('admin.blogs.index')}}" title="بلاگ ها">بلاگ ها</a></li>
+<li><a href="#" title="ایجاد">ایجاد</a></li>
 @endsection
 @section('content')
 <div class="main-content users">

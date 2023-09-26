@@ -23,13 +23,18 @@ class BlogRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'title' => ['required','string','max:255','unique:blogs,title'],
             'category_id' => ['required','exists:categories,id'],
             'preview' => ['required'],
             'content' => ['required'],
             'media' => 'required|mimes:png,jpg|max:2048',
         ];
+        if (request()->method === 'PUT') {
+            $rules['media'] = 'nullable|mimes:png,jpg|max:2048';
+            $rules['title'] = 'required|min:3|unique:blogs,title,'.request()->route('blog');
+        }
+        return $rules;
     }
 
     public function attributes()

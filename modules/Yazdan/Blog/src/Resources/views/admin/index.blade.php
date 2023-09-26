@@ -15,9 +15,10 @@
                     <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>شناسه</th>
-                            <th>نام بلاگ</th>
-                            <th>نام انگلیسی بلاگ</th>
-                            <th>دسته پدر</th>
+                            <th>بنر</th>
+                            <th>عنوان</th>
+                            <th>اسلاگ</th>
+                            <th>دسته بندی</th>
                             <th>عملیات</th>
                         </tr>
                     </thead>
@@ -25,9 +26,12 @@
                         @foreach ($blogs as $key => $blog)
                             <tr role="row" class="">
                                 <td><a href="">{{$blogs->firstItem() + $key}}</a></td>
+                                <td>
+                                    <a href="{{$blog->getAvatar()}}" target="_blank"><img src="{{$blog->getAvatar(60)}}" class="profile_sm"></a>
+                                </td>
                                 <td><a href="">{{$blog->title}}</a></td>
                                 <td>{{$blog->slug}}</td>
-                                <td>{{$blog->parent}}</td>
+                                <td>{{$blog->category->title}}</td>
                                 <td>
                                     <a href="" onclick="deleteItem(event,'{{route('admin.blogs.destroy',$blog->id)}}')" class="item-delete mlg-15" title="حذف"></a>
                                     <a href="{{route('admin.blogs.edit',$blog->id)}}" class="item-edit" title="ویرایش"></a>

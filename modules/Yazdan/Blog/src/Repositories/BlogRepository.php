@@ -46,8 +46,11 @@ class BlogRepository
     {
         return Blog::whereId($blogId)->update([
             'title' => $value->title,
-            'slug' => $value->slug,
-            'parent_id' => $value->parent_id,
+            'slug' => Str::slug($value->title),
+            'category_id' => $value->category_id,
+            'media_id' => $value->media_id,
+            'preview' => $value->preview,
+            'content' => $value->content,
         ]);
     }
 
@@ -56,8 +59,4 @@ class BlogRepository
         return Blog::whereId($blogId)->delete();
     }
 
-    public static function tree()
-    {
-        return Blog::where('parent_id', null)->with('subBlog')->get();
-    }
 }
