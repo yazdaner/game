@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/blog",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Blog\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Blog\\App\\Providers\\BlogServiceProvider"
+            ]
+        }
+    }
+}
