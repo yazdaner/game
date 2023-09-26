@@ -9,6 +9,7 @@ class PermissionRepository
 {
 
     const PERMISSION_MANAGE_CATEGORIES = 'manage categories';
+    const PERMISSION_MANAGE_BLOG = 'manage blog';
     const PERMISSION_MANAGE_USERS = 'manage users';
     const PERMISSION_MANAGE_COURSES = 'manage courses';
     const PERMISSION_MANAGE_COIN = 'manage coin';
@@ -29,6 +30,7 @@ class PermissionRepository
     static $permissions = [
         self::PERMISSION_SUPER_ADMIN,
         self::PERMISSION_MANAGE_RECORD,
+        self::PERMISSION_MANAGE_BLOG,
         self::PERMISSION_TEACH,
         self::PERMISSION_MANAGE_CATEGORIES,
         self::PERMISSION_MANAGE_ROLE_PERMISSIONS,

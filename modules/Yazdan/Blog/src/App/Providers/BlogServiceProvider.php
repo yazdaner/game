@@ -28,8 +28,8 @@ class BlogServiceProvider extends ServiceProvider
             config()->set('sidebar.items.blogs', [
                 'icon' => 'i-blogs',
                 'url' => route('admin.blogs.index'),
-                'title' => 'دسته بندی',
-                'permission' => PermissionRepository::PERMISSION_MANAGE_CATEGORIES,
+                'title' => 'بلاگ',
+                'permission' => PermissionRepository::PERMISSION_MANAGE_BLOG,
             ]);
         });
     }
