@@ -10,10 +10,6 @@ class RoleRepository
     const ROLE_TEACHER = 'teacher';
     const ROLE_SUPER_ADMIN = 'super admin';
     static $roles = [
-        self::ROLE_TEACHER => [
-            PermissionRepository::PERMISSION_TEACH,
-            PermissionRepository::PERMISSION_MANAGE_OWN_COURSES
-        ],
         self::ROLE_SUPER_ADMIN => [
             PermissionRepository::PERMISSION_SUPER_ADMIN
         ],

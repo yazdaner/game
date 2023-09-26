@@ -21,13 +21,11 @@ class RecordController extends Controller
 {
     public function destroy($id)
     {
-
+        $this->authorize('manage', Record::class);
         $record = RecordRepository::findById($id);
-
         if ($record->media) {
             $record->media->delete();
         }
-
         $record->delete();
         return AjaxResponses::SuccessResponses();
     }
@@ -35,7 +33,7 @@ class RecordController extends Controller
 
     public function accepted($id)
     {
-
+        $this->authorize('manage', Record::class);
         if (RecordRepository::UpdateConfirmationStatus($id, RecordRepository::STATUS_ACCEPTED)) {
             return AjaxResponses::SuccessResponses();
         }
@@ -44,7 +42,7 @@ class RecordController extends Controller
 
     public function rejected($id)
     {
-
+        $this->authorize('manage', Record::class);
         if (RecordRepository::UpdateConfirmationStatus($id, RecordRepository::STATUS_REJECTED)) {
             return AjaxResponses::SuccessResponses();
         }

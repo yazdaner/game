@@ -15,17 +15,20 @@ class GameController extends Controller
 {
     public function index()
     {
+        $this->authorize('manage', Game::class);
         $games = Game::latest()->paginate(10);
         return view('Game::admin.index',compact('games'));
     }
 
     public function create()
     {
+        $this->authorize('manage', Game::class);
         return view('Game::admin.create');
     }
 
     public function store(GameRequest $request)
     {
+        $this->authorize('manage', Game::class);
         if (isset($request->media)) {
             $images = MediaFileService::publicUpload($request->media);
             $request->request->add(['media_id' => $images->id]);
@@ -38,6 +41,7 @@ class GameController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('manage', Game::class);
         $game = GameRepository::findById($id);
         if ($game->media) {
             $game->media->delete();
@@ -48,6 +52,7 @@ class GameController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('manage', Game::class);
         $game = GameRepository::findById($id);
 
         return view('Game::admin.edit', compact('game'));
@@ -55,8 +60,9 @@ class GameController extends Controller
 
     public function update($id, GameRequest $request)
     {
+        $this->authorize('manage', Game::class);
         $game = GameRepository::findById($id);
-        
+
         if ($request->hasFile('media')) {
 
             if ($game->media) {
@@ -76,6 +82,7 @@ class GameController extends Controller
 
     public function details($gameId)
     {
+        $this->authorize('manage', Game::class);
         $game = GameRepository::findById($gameId);
         $levels = LevelRepository::GameLevelPaginate($gameId, 15);
         return view('Game::admin.details',compact('game','levels'));
@@ -85,6 +92,7 @@ class GameController extends Controller
 
     public function records($gameId)
     {
+        $this->authorize('manage', Game::class);
         $game = RecordRepository::GameRecordsPaginate($gameId);
         $records = $game->records()->latest()->paginate(20);
         return view('Game::admin.records',compact('game','records'));

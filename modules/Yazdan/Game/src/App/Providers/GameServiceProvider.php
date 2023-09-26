@@ -2,8 +2,17 @@
 
 namespace Yazdan\Game\App\Providers;
 
+use Yazdan\Game\App\Models\Game;
+use Yazdan\Game\App\Models\Group;
+use Yazdan\Game\App\Models\Level;
+use Yazdan\Game\App\Models\Record;
 use Carbon\Laravel\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
+use Yazdan\Game\App\Policies\GamePolicy;
+use Yazdan\Game\App\Policies\GroupPolicy;
+use Yazdan\Game\App\Policies\LevelPolicy;
+use Yazdan\Game\App\Policies\RecordPolicy;
 use Yazdan\Game\Repositories\GameRepository;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
 
@@ -21,8 +30,13 @@ class GameServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../../Resources/views/group', 'Group');
         $this->loadViewsFrom(__DIR__ . '/../../Resources/views/level', 'Level');
         $this->loadJsonTranslationsFrom(__DIR__ . '/../../Resources/Lang/');
-    }
 
+        Gate::policy(Game::class, GamePolicy::class);
+        Gate::policy(Group::class, GroupPolicy::class);
+        Gate::policy(Level::class, LevelPolicy::class);
+        Gate::policy(Record::class, RecordPolicy::class);
+
+    }
 
 
     public function boot()

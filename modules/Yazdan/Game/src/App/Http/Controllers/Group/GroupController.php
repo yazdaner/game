@@ -2,6 +2,7 @@
 
 namespace Yazdan\Game\App\Http\Controllers\Group;
 
+use Yazdan\Game\App\Models\Group;
 use App\Http\Controllers\Controller;
 use Yazdan\Common\Responses\AjaxResponses;
 use Yazdan\Game\Repositories\GameRepository;
@@ -13,6 +14,7 @@ class GroupController extends Controller
 
     public function store(GroupRequest $request, $gameId)
     {
+        $this->authorize('manage', Group::class);
         $game = GameRepository::findById($gameId);
         GroupRepository::store($request, $game->id);
         newFeedbacks();
@@ -21,13 +23,14 @@ class GroupController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('manage', Group::class);
         $group = GroupRepository::findById($id);
-
         return view('Group::admin.edit', compact('group'));
     }
 
     public function update(GroupRequest $request, $id)
     {
+        $this->authorize('manage', Group::class);
         $group = GroupRepository::findById($id);
         $this->authorize('edit', $group);
 
@@ -38,12 +41,13 @@ class GroupController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('manage', Group::class);
         $game = GroupRepository::findById($id);
         $game->delete();
         return AjaxResponses::SuccessResponses();
     }
 
-
+    // front method
     public function subscribe($groupId)
     {
         $group = GroupRepository::findById($groupId);

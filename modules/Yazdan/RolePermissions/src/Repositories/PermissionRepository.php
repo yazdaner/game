@@ -11,11 +11,8 @@ class PermissionRepository
     const PERMISSION_MANAGE_CATEGORIES = 'manage categories';
     const PERMISSION_MANAGE_BLOG = 'manage blog';
     const PERMISSION_MANAGE_USERS = 'manage users';
-    const PERMISSION_MANAGE_COURSES = 'manage courses';
     const PERMISSION_MANAGE_COIN = 'manage coin';
     const PERMISSION_MANAGE_COUPON = 'manage coupon';
-    const PERMISSION_MANAGE_GAMES = 'manage games';
-    const PERMISSION_MANAGE_OWN_COURSES = 'manage own courses';
     const PERMISSION_MANAGE_ROLE_PERMISSIONS = 'manage role permissions';
     const PERMISSION_MANAGE_PAYMENTS = 'manage payments';
     const PERMISSION_MANAGE_SETTLEMENTS = 'manage settlements';
@@ -23,20 +20,18 @@ class PermissionRepository
     const PERMISSION_MANAGE_TICKETS = "manage tickets";
     const PERMISSION_MANAGE_COMMENTS = "manage comments";
     const PERMISSION_MANAGE_DASHBOARD = "manage dashboard";
-    const PERMISSION_TEACH = 'teach';
+    const PERMISSION_MANAGE_SLIDES = "manage slides";
+    const PERMISSION_MANAGE_GAMES = 'manage games';
+    const PERMISSION_MANAGE_LEVEL = 'manage level';
+    const PERMISSION_MANAGE_GROUP = 'manage group';
     const PERMISSION_MANAGE_RECORD = 'manage record';
 
-    const PERMISSION_MANAGE_SLIDES = "manage slides";
     static $permissions = [
         self::PERMISSION_SUPER_ADMIN,
         self::PERMISSION_MANAGE_RECORD,
         self::PERMISSION_MANAGE_BLOG,
-        self::PERMISSION_TEACH,
         self::PERMISSION_MANAGE_CATEGORIES,
         self::PERMISSION_MANAGE_ROLE_PERMISSIONS,
-        self::PERMISSION_MANAGE_COURSES,
-        self::PERMISSION_MANAGE_GAMES,
-        self::PERMISSION_MANAGE_OWN_COURSES,
         self::PERMISSION_MANAGE_USERS,
         self::PERMISSION_MANAGE_PAYMENTS,
         self::PERMISSION_MANAGE_SETTLEMENTS,
@@ -47,6 +42,10 @@ class PermissionRepository
         self::PERMISSION_MANAGE_DASHBOARD,
         self::PERMISSION_MANAGE_COIN,
         self::PERMISSION_MANAGE_COUPON,
+        self::PERMISSION_MANAGE_GAMES,
+        self::PERMISSION_MANAGE_LEVEL,
+        self::PERMISSION_MANAGE_GROUP,
+        self::PERMISSION_MANAGE_RECORD,
     ];
 
     const PERMISSION_SUPER_ADMIN = 'super admin';
