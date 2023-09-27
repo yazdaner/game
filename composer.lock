@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e1832f2b650218f2f8d3f49b3e8ddfa",
+    "content-hash": "71d5aea28bdae2db0b168b18ac5366cc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6031,6 +6031,31 @@
             }
         },
         {
+            "name": "yazdan/comment",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Comment",
+                "reference": "778f95d03413a4e728e21abb4ae98be363b4c5af"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Comment\\App\\Providers\\CommentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Comment\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/common",
             "version": "dev-master",
             "dist": {
@@ -8670,6 +8695,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "yazdan/blog": 20,
         "yazdan/cart": 20,
         "yazdan/category": 20,
         "yazdan/coin": 20,

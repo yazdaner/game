@@ -1,9 +1,10 @@
 <?php
 
-namespace Yazdan\Comment\Providers;
+namespace Yazdan\Comment\App\Providers;
+
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
-use Yazdan\App\Comment\Models\Comment;
+use Yazdan\Comment\App\Models\Comment;
 use Illuminate\Support\ServiceProvider;
 use Yazdan\Comment\App\Policies\CommentPolicy;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
@@ -17,6 +18,7 @@ class CommentServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../../Database/migrations/');
         $this->loadViewsFrom(__DIR__ . '/../../Resources/views/', 'Comment');
         Gate::policy(Comment::class, CommentPolicy::class);
+        $this->loadJsonTranslationsFrom(__DIR__ . "/../../Resources/Lang");
     }
 
     public function boot()
@@ -24,7 +26,7 @@ class CommentServiceProvider extends ServiceProvider
         config()->set('sidebar.items.comments', [
             "icon" => "i-comments",
             "title" => "نظرات",
-            "url" => route('comments.index'),
+            "url" => route('admin.comments.index'),
             "permission" => PermissionRepository::PERMISSION_MANAGE_COMMENTS
         ]);
     }

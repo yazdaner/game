@@ -1,6 +1,6 @@
 <?php
 
-namespace Yazdan\App\Comment\Models;
+namespace Yazdan\Comment\App\Models;
 
 use Yazdan\User\App\Models\User;
 use Illuminate\Database\Eloquent\Model;

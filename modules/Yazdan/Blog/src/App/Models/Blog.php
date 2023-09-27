@@ -4,13 +4,14 @@ namespace Yazdan\Blog\App\Models;
 
 use Yazdan\User\App\Models\User;
 use Yazdan\Media\App\Models\Media;
+use Yazdan\Comment\Trait\HasComments;
 use Illuminate\Database\Eloquent\Model;
 use Yazdan\Category\App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {
-    use HasFactory;
+    use HasFactory,HasComments;
 
     protected $table = 'blogs';
     protected $guarded = [];
@@ -29,7 +30,6 @@ class Blog extends Model
         $this->views++;
         return $this->save();
     }
-
 
     public function media()
     {

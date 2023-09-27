@@ -6,9 +6,12 @@ use Yazdan\Payment\App\Models\Payment;
 use Yazdan\Discount\App\Models\Discount;
 use Yazdan\Discount\Services\DiscountService;
 use Yazdan\Discount\Repositories\DiscountRepository;
+use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 
 trait PaymentTrait
 {
+    use HasRelationships;
+
     // relation discounts
     public function discounts()
     {
