@@ -12,3 +12,6 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
     Route::post('/editor/upload', [BlogController::class, 'postImagesUpload'])->name('editor-upload');
 
 });
+
+Route::get('/blogs', [BlogController::class, 'blogs'])->name('blogs');
+Route::get('/blogs/{blog:slug}', [BlogController::class, 'blogShow'])->name('blog.show');

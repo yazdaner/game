@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 use Yazdan\Coupon\App\Models\Coupon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Yazdan\Blog\App\Models\Blog;
 use Yazdan\Course\Repositories\CourseRepository;
 use Yazdan\Category\Repositories\CategoryRepository;
 
@@ -35,6 +36,9 @@ class FrontServiceProvider extends ServiceProvider
             $view->with(compact('coupons'));
         });
 
-
+        view()->composer('Front::sections.blog', function ($view) {
+            $blogs = Blog::latest()->get()->take(5);
+            $view->with(compact('blogs'));
+        });
     }
 }
