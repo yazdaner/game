@@ -116,6 +116,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/Blog"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/Comment"
         }
     ],
     "scripts": {

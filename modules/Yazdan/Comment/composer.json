@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/comment",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Comment\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Comment\\App\\Providers\\CommentServiceProvider"
+            ]
+        }
+    }
+}
