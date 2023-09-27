@@ -16,7 +16,7 @@
 
                     <div class="single-products-box">
                         <div class="products-image">
-                            <a href="single-products.html" class="d-block"><img src="{{$coupon->getAvatar()}}"
+                            <a href="" class="d-block"><img src="{{$coupon->getAvatar()}}"
                                     alt="image"></a>
 
                             <button type="submit" class="add-to-cart-btn">افزودن سبد خرید</button>
@@ -26,7 +26,7 @@
                             <span class="hot">%{{$coupon->getDiscountPercent()}}</span>
                         @endif
                         <div class="products-content price">
-                            <h3><a href="single-products.html">{{$coupon->title}}</a></h3>
+                            <h3><a href="">{{$coupon->title}}</a></h3>
                             <div class="products-details-desc">
                             <div class="price">
                                 @if (! $coupon->hasDiscount())

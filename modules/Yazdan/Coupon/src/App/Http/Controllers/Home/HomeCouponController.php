@@ -16,7 +16,6 @@ class HomeCouponController extends Controller
 
     public function assetCoupon()
     {
-        // $coupons = auth()->user()->coupons()->first()->pivot->count;
         $coupons = auth()->user()->coupons()->get();
         return view('Coupon::home.index',compact('coupons'));
     }
