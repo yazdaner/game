@@ -21,7 +21,7 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
 // Home Routes
 Route::prefix('users')->name('user.')->middleware(['auth', 'verified'])->group(function () {
 
-    providerGetRoute('/users/coupons/',HomeCouponController::class,'assetCoupon','coupons.index');
+    providerGetRoute('/coupons',HomeCouponController::class,'assetCoupon','coupons.index');
 
 });
 

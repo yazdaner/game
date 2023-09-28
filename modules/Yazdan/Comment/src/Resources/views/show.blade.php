@@ -1,27 +1,27 @@
-{{-- @extends('Dashboard::master')
+@extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{ route('comments.index') }}" title="نظرات">نظرات</a></li>
+    <li><a href="{{ route('admin.comments.index') }}" title="نظرات">نظرات</a></li>
 @endsection
 @section('content')
     <div class="main-content">
-        <div class="show-comment">
+        {{-- <div class="show-comment"> --}}
             <div class="ct__header">
                 <div class="comment-info">
-                    <a class="back" href="{{ route("comments.index") }}"></a>
+                    <a class="back" href="{{ route("admin.comments.index") }}"></a>
                     <div>
                         <p class="comment-name"><a href="">{{ $comment->commentable->title }}</a></p>
                     </div>
                 </div>
             </div>
-            @include("Comments::comment", ["comment" => $comment, "isAnswer" => false])
+            @include("Comment::comment", ["comment" => $comment, "isAnswer" => false])
             @foreach($comment->comments as $reply)
-                @include("Comments::comment", ["comment" => $reply, "isAnswer" => true])
+                @include("Comment::comment", ["comment" => $reply, "isAnswer" => true])
             @endforeach
         </div>
         <div class="answer-comment">
             <p class="p-answer-comment">ارسال پاسخ</p>
-            @if($comment->status == \Cyaxaress\Comment\Models\Comment::STATUS_APPROVED)
-            <form action="{{ route("comments.store") }}" method="post">
+            @if($comment->status == \Yazdan\Comment\Repositories\CommentRepository::STATUS_APPROVED)
+            <form action="{{ route("admin.comments.store") }}" method="post">
                 @csrf
                 <input type="hidden" name="comment_id" value="{{ $comment->id }}">
                 <input type="hidden" name="commentable_type" value="{{ get_class($comment->commentable) }}">
@@ -34,4 +34,4 @@
             @endif
         </div>
     </div>
-@endsection --}}
+@endsection

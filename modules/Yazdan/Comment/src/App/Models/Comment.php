@@ -36,12 +36,11 @@ class Comment extends Model
         return $this->hasMany(Comment::class)->where("status", CommentRepository::STATUS_NEW);
     }
 
-    // public function getStatusCssClass()
-    // {
-    //     if ($this->status == self::STATUS_APPROVED) return "text-success";
-    //     elseif ($this->status == self::STATUS_REJECTED) return "text-error";
-
-    //     return "text-warning";
-    // }
+    public function getStatusCssClass()
+    {
+        if ($this->status == CommentRepository::STATUS_APPROVED) return "text-success";
+        elseif ($this->status == CommentRepository::STATUS_REJECTED) return "text-error";
+        return "text-warning";
+    }
 
 }

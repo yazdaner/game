@@ -3,7 +3,7 @@
 
 	// Header Sticky
 	$(window).on('scroll',function() {
-		if ($(this).scrollTop() > 120){  
+		if ($(this).scrollTop() > 120){
 			$('.navbar-area').addClass("is-sticky");
 		}
 		else{
@@ -91,14 +91,14 @@
 		fixedContentPos: false
 	});
 
-	// Count Time 
+	// Count Time
 	function makeTimer() {
-		var endTime = new Date("September 20, 2021 17:00:00 PDT");			
+		var endTime = new Date("September 20, 2021 17:00:00 PDT");
 		var endTime = (Date.parse(endTime)) / 1000;
 		var now = new Date();
 		var now = (Date.parse(now) / 1000);
 		var timeLeft = endTime - now;
-		var days = Math.floor(timeLeft / 86400); 
+		var days = Math.floor(timeLeft / 86400);
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
 		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
 		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
@@ -127,7 +127,7 @@
 			// Hide The Other Panels
 			$('.accordion-content').not($(this).next()).slideUp('fast');
 			// Removes Active Class From Other Titles
-			$('.accordion-title').not($(this)).removeClass('active');		
+			$('.accordion-title').not($(this)).removeClass('active');
 		});
 	});
 
@@ -135,7 +135,7 @@
 	(function ($) {
 		$('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
 		$('.tab ul.tabs li a').on('click', function (g) {
-			var tab = $(this).closest('.tab'), 
+			var tab = $(this).closest('.tab'),
 			index = $(this).closest('li').index();
 			tab.find('ul.tabs > li').removeClass('current');
 			$(this).closest('li').addClass('current');
@@ -364,7 +364,7 @@
 		btnDown = spinner.find('.minus-btn'),
 		min = input.attr('min'),
 		max = input.attr('max');
-		
+
 		btnUp.on('click', function() {
 			var oldValue = parseFloat(input.val());
 			if (oldValue >= max) {
@@ -450,7 +450,7 @@
 			var scrolled = $(window).scrollTop();
 			if (scrolled > 600) $('.go-top').addClass('active');
 			if (scrolled < 600) $('.go-top').removeClass('active');
-		});  
+		});
 		// Click Event
 		$('.go-top').on('click', function() {
 			$("html, body").animate({ scrollTop: "0" },  500);
@@ -458,3 +458,4 @@
 	});
 
 }(jQuery));
+

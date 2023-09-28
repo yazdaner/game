@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/responsive.css" />
     <link rel="stylesheet" href="/assets/css/rtl.css" />
+    <link rel="stylesheet" href="/assets/css/modal.css" />
 
     <title>
         Zelda - قالب HTML زلدا , پوسته سایت سرگرمی بازی و مسابقات الکترونیکی

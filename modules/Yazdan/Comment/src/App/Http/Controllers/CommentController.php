@@ -14,7 +14,7 @@ class CommentController extends Controller
 
     public function index(CommentRepository $repo)
     {
-        $this->authorize('index', Comment::class);
+        $this->authorize('manage', Comment::class);
         $comments = $repo
             ->searchBody(request("body"))
             ->searchEmail(request("email"))
@@ -30,13 +30,6 @@ class CommentController extends Controller
         $comments = $comments->paginateParents();
 
         return view("Comment::index", compact("comments"));
-    }
-
-    public function show($comment)
-    {
-        $comment = Comment::query()->where("id", $comment)->with("commentable", "user", "comments")->firstOrFail();
-        $this->authorize('view', $comment);
-        return view("Comment::show", compact("comment"));
     }
 
     public function store(CommentRequest $request, CommentRepository $repo)

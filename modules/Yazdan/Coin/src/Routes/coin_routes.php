@@ -17,6 +17,6 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
 // Home Routes
 Route::prefix('users')->name('user.')->middleware(['auth', 'verified'])->group(function () {
 
-    providerGetRoute('/users/coin/',HomeCoinController::class,'index','coin.index');
+    providerGetRoute('/coin',HomeCoinController::class,'index','coin.index');
 
 });

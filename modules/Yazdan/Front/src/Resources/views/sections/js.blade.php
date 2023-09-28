@@ -17,4 +17,5 @@
 <script src="/assets/js/contact-form-script.js"></script>
 <script src="/assets/js/ajaxchimp.min.js"></script>
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/modal.js"></script>
 @yield('script')

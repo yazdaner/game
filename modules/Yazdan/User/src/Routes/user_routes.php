@@ -40,12 +40,8 @@ Route::group([
     providerGetRoute('/users/profile',UserController::class,'profile','users.profile');
     Route::patch('/users/profile', [UserController::class, 'updateProfile'])->name('users.profile');
 
-    //todo
-    Route::get('/users/profile/{username}', [UserController::class, 'showProfile'])->name('users.showProfile');
-
 
 });
-
 
 
 // Verification
@@ -63,11 +59,6 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 // logout
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// Confirm Password
-
-// Route::get('/password/confirm',[ConfirmPasswordController::class,'showConfirmForm'])->name('password.confirm');
-// Route::post('/password/confirm',[ConfirmPasswordController::class,'confirm']);
 
 // Register
 

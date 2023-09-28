@@ -396,3 +396,4 @@ $('#discounts-field-2').on('click', function (e) {
 $('#discounts-field-1').on('click', function (e) {
     $('.selectCourseContainer').addClass('d-none')
 });
+

@@ -2082,3 +2082,7 @@ span.tagRemove:hover {
 .select2-search__field{
     height: 18px !important;
 }
+.comment-actions{
+    float: left;
+    margin-top: 25px;
+}

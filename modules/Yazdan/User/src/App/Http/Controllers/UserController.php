@@ -106,9 +106,5 @@ class UserController extends Controller
         return back();
     }
 
-    // public function showProfile(User $user)
-    // {
-    //     dd($user->username);
-    // }
 }
 
