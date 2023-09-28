@@ -10,23 +10,18 @@
             <div class="row m-0 align-items-center">
                 <div class="col-lg-7 col-md-12 p-0">
                     <div class="featured-games-image text-center">
-                        <img src="/assets/img/featured-games-img.jpg" alt="image" />
+                        <img class="w-100" src="{{$cta->getAvatar(300)}}" alt="image" />
                     </div>
                 </div>
 
                 <div class="col-lg-5 col-md-12 p-0">
                     <div class="featured-games-content">
                         <div class="content">
-                            <span class="sub-title">اکنون موجود است</span>
                             <h2>
-                                <a href="#">سکیرو: سایه ها دو بار می میرند! زمینه های بازیکن
-                                    ناشناخته</a>
+                                <a class="text-break" href="{{$cta->link}}">{{$cta->title}}</a>
                             </h2>
-                            <p>
-                                لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم
-                                استاندارد صنعت بوده است.
-                            </p>
-                            <a href="single-tournament.html" class="read-more-btn">ادامه خواندن <i
+                            <p class="text-break">{{$cta->description}}</p>
+                            <a href="{{$cta->link}}" class="read-more-btn">مشاهده <i
                                     class="flaticon-left"></i></a>
                         </div>
                     </div>

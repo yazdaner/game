@@ -1,8 +1,6 @@
 <div class="comments-area">
     @include('Comment::front.create', ["commentable" => $blog])
-    @auth()
     @include("Comment::front.reply", ["commentable" => $blog])
-    @endauth
     @foreach($blog->approvedComments()->latest()->get() as $comment)
     <ol class="comment-list">
         <li class="comment">
@@ -63,9 +61,9 @@
 </div>
 @section('script')
 <script>
-    function setCommentId(e,commentableId) {
-    e.preventDefault();
-    $("#comment_id").val(commentableId)
-}
+    function setCommentId(e,commentableId){
+        e.preventDefault();
+        $("#comment_id").val(commentableId)
+    }
 </script>
 @endsection

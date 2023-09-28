@@ -655,7 +655,7 @@ textarea {
     content: "\E086";
 }
 
-.sidebar__nav .i-courses a::before {
+.sidebar__nav .i-sliders a::before {
     content: "\E0c2";
 }
 

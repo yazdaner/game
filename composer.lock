@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71d5aea28bdae2db0b168b18ac5366cc",
+    "content-hash": "bf1cab5f98a86e7ddcc3cbe68d8b6e6b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6309,6 +6309,31 @@
             }
         },
         {
+            "name": "yazdan/slider",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Slider",
+                "reference": "78d9b9fa17c919470e1d865503f92187da1672b8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Slider\\App\\Providers\\SliderServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Slider\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/user",
             "version": "dev-master",
             "dist": {
@@ -8699,6 +8724,7 @@
         "yazdan/cart": 20,
         "yazdan/category": 20,
         "yazdan/coin": 20,
+        "yazdan/comment": 20,
         "yazdan/common": 20,
         "yazdan/coupon": 20,
         "yazdan/dashboard": 20,

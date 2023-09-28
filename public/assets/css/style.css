@@ -9445,3 +9445,8 @@ Sidebar Modal CSS
         height: auto;
     }
 }
+
+.post-image img
+{
+    height: 280px !important;
+}
