@@ -4,7 +4,6 @@
 @endsection
 @section('content')
     <div class="main-content">
-        {{-- <div class="show-comment"> --}}
             <div class="ct__header">
                 <div class="comment-info">
                     <a class="back" href="{{ route("admin.comments.index") }}"></a>
