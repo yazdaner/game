@@ -1,3 +1,4 @@
+@if ($mainBanners->isNotEmpty())
 <!-- Start Main Banner Area -->
 <div class="home-slides owl-carousel owl-theme">
     @foreach ($mainBanners as $banner)
@@ -27,3 +28,4 @@
     @endforeach
 </div>
 <!-- End Main Banner Area -->
+@endif

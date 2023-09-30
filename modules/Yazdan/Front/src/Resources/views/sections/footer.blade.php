@@ -10,31 +10,37 @@
                     <img src="/assets/img/logo.png" alt="logo" />
                   </a>
                   <p>
-                    لورم ایپسوم ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم
-                    استاندارد صنعت بوده است. لورم ایپسوم ساختار چاپ و متن را در بر
-                    می گیرد. لورم ایپسوم استاندارد صنعت بوده است.
+                    {{$setting->description}}
                   </p>
                   <ul class="social-link">
+                    @if ($setting->facebook)
                     <li>
-                      <a href="#" class="d-block" target="_blank"
-                        ><i class="bx bxl-facebook"></i
-                      ></a>
-                    </li>
+                        <a href="{{$setting->facebook}}" class="d-block" target="_blank"
+                          ><i class="bx bxl-facebook"></i
+                        ></a>
+                      </li>
+                    @endif
+                    @if ($setting->twitter)
                     <li>
-                      <a href="#" class="d-block" target="_blank"
-                        ><i class="bx bxl-twitter"></i
-                      ></a>
-                    </li>
+                        <a href="{{$setting->twitter}}" class="d-block" target="_blank"
+                          ><i class="bx bxl-twitter"></i
+                        ></a>
+                      </li>
+                    @endif
+                    @if ($setting->instagram)
                     <li>
-                      <a href="#" class="d-block" target="_blank"
-                        ><i class="bx bxl-instagram"></i
-                      ></a>
-                    </li>
+                        <a href="{{$setting->instagram}}" class="d-block" target="_blank"
+                          ><i class="bx bxl-instagram"></i
+                        ></a>
+                      </li>
+                    @endif
+                    @if ($setting->whatsapp)
                     <li>
-                      <a href="#" class="d-block" target="_blank"
-                        ><i class="bx bxl-linkedin"></i
-                      ></a>
-                    </li>
+                        <a href="{{$setting->whatsapp}}" class="d-block" target="_blank"
+                          ><i class="bx bxl-whatsapp"></i
+                        ></a>
+                      </li>
+                    @endif
                   </ul>
                 </div>
               </div>
@@ -73,20 +79,16 @@
 
                   <ul class="footer-contact-info">
                     <li>
-                      <i class="bx bx-map"></i>ایران ، استان تهران ، میدان آزادی ،
-                      خیابان 9 شرقی
+                      <i class="bx bx-map"></i>
+                    {{$setting->address}}
                     </li>
                     <li>
                       <i class="bx bx-phone-call"></i
-                      ><a href="tel:+44587154756">021-12345678</a>
+                      ><a href="tel:{{$setting->telephone}}">{{$setting->telephone}}</a>
                     </li>
                     <li>
                       <i class="bx bx-envelope"></i
-                      ><a href="mailto:hello@zelda.com">hello@zelda.com</a>
-                    </li>
-                    <li>
-                      <i class="bx bxs-inbox"></i
-                      ><a href="tel:+557854578964">021-12345678</a>
+                      ><a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
                     </li>
                   </ul>
                 </div>
@@ -94,25 +96,10 @@
             </div>
 
             <div class="footer-bottom-area">
-              <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="d-flex align-items-center justify-content-center">
                   <p>
-                    کپی رایت 1399 <i class="bx bx-copyright"></i> تمام حقوق قالب
-                    محفوظ است. طراحی توسط
-                    <a
-                      href="https://www.rtl-theme.com/author/barat/?aff=barat"
-                      target="_blank"
-                      >Barat Hadian</a
-                    >
+                    {{$setting->copyright}}
                   </p>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                  <ul>
-                    <li><a href="#">حریم خصوصی</a></li>
-                    <li><a href="#">قوانین و ضوابط</a></li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>

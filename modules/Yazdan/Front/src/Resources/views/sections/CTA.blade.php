@@ -1,3 +1,4 @@
+@if($cta)
 <!-- Start CTA -->
 <section class="featured-games-area ptb-100">
     <div class="container">
@@ -21,8 +22,7 @@
                                 <a class="text-break" href="{{$cta->link}}">{{$cta->title}}</a>
                             </h2>
                             <p class="text-break">{{$cta->description}}</p>
-                            <a href="{{$cta->link}}" class="read-more-btn">مشاهده <i
-                                    class="flaticon-left"></i></a>
+                            <a href="{{$cta->link}}" class="read-more-btn">مشاهده <i class="flaticon-left"></i></a>
                         </div>
                     </div>
                 </div>
@@ -31,3 +31,4 @@
     </div>
 </section>
 <!-- End CTA -->
+@endif

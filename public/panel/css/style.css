@@ -651,6 +651,10 @@ textarea {
     content: "\E083";
 }
 
+.sidebar__nav .i-setting a::before {
+    content: "\E0b8";
+}
+
 .sidebar__nav .i-blogs a::before {
     content: "\E086";
 }

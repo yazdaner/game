@@ -1,3 +1,4 @@
+@if ($games->isNotEmpty())
 <!-- Start Games -->
 <section class="matches-area bg-image ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
     <div class="container">
@@ -39,5 +40,5 @@
         </div>
     </div>
 </section>
-
 <!-- End Games -->
+@endif

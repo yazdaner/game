@@ -1,3 +1,4 @@
+@if ($blogs->isNotEmpty())
 <!-- Start Blog Area -->
 <section class="live-stream-area ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
     <div class="container">
@@ -87,3 +88,4 @@
     </div>
 </section>
 <!-- End Blog Area -->
+@endif

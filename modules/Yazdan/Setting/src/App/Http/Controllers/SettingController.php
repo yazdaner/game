@@ -1,0 +1,32 @@
+<?php
+
+namespace Yazdan\Setting\App\Http\Controllers;
+
+use Yazdan\Setting\App\Models\Setting;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Yazdan\Media\Services\MediaFileService;
+use Yazdan\Setting\Repositories\SettingRepository;
+use Yazdan\Setting\App\Http\Requests\SettingRequest;
+
+class SettingController extends Controller
+{
+    public function edit()
+    {
+        $this->authorize('manage', Setting::class);
+        $setting = Setting::first();
+        if (is_null($setting)) {
+            abort('403');
+        }
+        return view('Setting::admin.edit', compact('setting'));
+    }
+
+    public function update(Setting $setting, Request $request)
+    {
+        $this->authorize('manage', Setting::class);
+
+        SettingRepository::update($setting->id, $request->all());
+        newFeedbacks();
+        return redirect()->route("admin.setting.edit");
+    }
+}

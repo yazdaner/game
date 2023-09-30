@@ -32,30 +32,8 @@ class UpdateProfileRequest extends FormRequest
             'mobile' => ['nullable',new ValidMobile,'unique:users,mobile,'.auth()->id()],
         ];
 
-        if(auth()->user()->hasPermissionTo(PermissionRepository::PERMISSION_TEACH) ||
-            auth()->user()->hasPermissionTo(PermissionRepository::PERMISSION_SUPER_ADMIN))
-        {
-            $rules += [
-                'shaba' => ['nullable','string','size:24'],
-                'card_number' => ['nullable','string','size:16'],
-                'headline' => ['nullable','min:3','max:190'],
-                'bio' => ['nullable'],
-            ];
-
-            $rules['username'] = ['nullable','min:3','max:190','unique:users,username,'.auth()->id()];
-        }
-
         return $rules;
 
     }
 
-    public function attributes()
-    {
-        return [
-            'card_number' => 'شماره کارت بانکی',
-            'shaba' => 'شماره شبا بانکی',
-            'headline' => 'عنوان',
-            'bio' => 'درباره من',
-        ];
-    }
 }

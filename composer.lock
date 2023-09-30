@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf1cab5f98a86e7ddcc3cbe68d8b6e6b",
+    "content-hash": "4495d9d3fdd741cc6ad6f767c62311db",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6309,6 +6309,31 @@
             }
         },
         {
+            "name": "yazdan/setting",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Setting",
+                "reference": "8cf50ea268c0f5a160e0f048b3ef86835a652a09"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Setting\\App\\Providers\\SettingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Setting\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/slider",
             "version": "dev-master",
             "dist": {
@@ -8735,6 +8760,7 @@
         "yazdan/media": 20,
         "yazdan/payment": 20,
         "yazdan/role": 20,
+        "yazdan/slider": 20,
         "yazdan/user": 20
     },
     "prefer-stable": true,

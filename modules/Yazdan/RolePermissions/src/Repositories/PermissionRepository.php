@@ -26,6 +26,7 @@ class PermissionRepository
     const PERMISSION_MANAGE_GROUP = 'manage group';
     const PERMISSION_MANAGE_RECORD = 'manage record';
     const PERMISSION_MANAGE_SLIDER = 'manage slider';
+    const PERMISSION_MANAGE_SETTING = 'manage setting';
 
     static $permissions = [
         self::PERMISSION_SUPER_ADMIN,
@@ -48,6 +49,7 @@ class PermissionRepository
         self::PERMISSION_MANAGE_GROUP,
         self::PERMISSION_MANAGE_RECORD,
         self::PERMISSION_MANAGE_SLIDER,
+        self::PERMISSION_MANAGE_SETTING,
     ];
 
     const PERMISSION_SUPER_ADMIN = 'super admin';

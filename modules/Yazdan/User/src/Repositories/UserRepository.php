@@ -93,17 +93,7 @@ class UserRepository
         auth()->user()->name = $value->name;
         auth()->user()->mobile = $value->mobile;
         auth()->user()->username = $value->username;
-
-        if(auth()->user()->hasPermissionTo(PermissionRepository::PERMISSION_TEACH) ||
-            auth()->user()->hasPermissionTo(PermissionRepository::PERMISSION_SUPER_ADMIN))
-        {
-            auth()->user()->card_number = $value->card_number;
-            auth()->user()->shaba = $value->shaba;
-            auth()->user()->headline = $value->headline;
-            auth()->user()->bio = $value->bio;
-        }
         auth()->user()->save();
-
     }
 
 }

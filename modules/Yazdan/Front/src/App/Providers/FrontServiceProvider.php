@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Yazdan\Course\Repositories\CourseRepository;
 use Yazdan\Category\Repositories\CategoryRepository;
+use Yazdan\Setting\App\Models\Setting;
 use Yazdan\Slider\Repositories\SliderRepository;
 
 class FrontServiceProvider extends ServiceProvider
@@ -52,5 +53,11 @@ class FrontServiceProvider extends ServiceProvider
             $mainBanners = Slider::where('type',SliderRepository::TYPE_MAIN)->where('status',true)->orderBy('priority')->get();
             $view->with(compact('mainBanners'));
         });
+
+        view()->composer(['Front::sections.footer','Front::sections.social'], function ($view) {
+            $setting = Setting::first();
+            $view->with(compact('setting'));
+        });
+
     }
 }
