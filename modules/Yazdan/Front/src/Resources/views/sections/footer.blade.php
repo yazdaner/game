@@ -51,7 +51,7 @@
 
                   <ul class="footer-links-list">
                     <li><a href="#">صفحه اصلی</a></li>
-                    <li><a href="#">درباره ما</a></li>
+                    <li><a href="{{route('about')}}">درباره ما</a></li>
                     <li><a href="#">مطالعات موردی</a></li>
                     <li><a href="#">وبلاگ ما</a></li>
                     <li><a href="{{route('contact')}}">تماس با ما</a></li>
@@ -65,7 +65,7 @@
 
                   <ul class="footer-links-list">
                     <li><a href="#">صفحه اصلی</a></li>
-                    <li><a href="#">درباره ما</a></li>
+                    <li><a href="{{route('about')}}">درباره ما</a></li>
                     <li><a href="#">مطالعات موردی</a></li>
                     <li><a href="#">وبلاگ ما</a></li>
                     <li><a href="{{route('contact')}}">تماس با ما</a></li>

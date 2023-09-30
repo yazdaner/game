@@ -28,6 +28,7 @@ class PermissionRepository
     const PERMISSION_MANAGE_SLIDER = 'manage slider';
     const PERMISSION_MANAGE_SETTING = 'manage setting';
     const PERMISSION_MANAGE_CONTACT = 'manage contact';
+    const PERMISSION_MANAGE_ABOUT = 'manage about';
 
     static $permissions = [
         self::PERMISSION_SUPER_ADMIN,
@@ -52,6 +53,7 @@ class PermissionRepository
         self::PERMISSION_MANAGE_SLIDER,
         self::PERMISSION_MANAGE_SETTING,
         self::PERMISSION_MANAGE_CONTACT,
+        self::PERMISSION_MANAGE_ABOUT,
     ];
 
     const PERMISSION_SUPER_ADMIN = 'super admin';
