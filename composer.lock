@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4495d9d3fdd741cc6ad6f767c62311db",
+    "content-hash": "de79e16319a68f6c623e50fc0d773c27",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6084,6 +6084,31 @@
             }
         },
         {
+            "name": "yazdan/contact",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Contact",
+                "reference": "08882c7fa2b473c3ca060fb01e663d80065f06f5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Contact\\App\\Providers\\ContactServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Contact\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/coupon",
             "version": "dev-master",
             "dist": {
@@ -8760,6 +8785,7 @@
         "yazdan/media": 20,
         "yazdan/payment": 20,
         "yazdan/role": 20,
+        "yazdan/setting": 20,
         "yazdan/slider": 20,
         "yazdan/user": 20
     },

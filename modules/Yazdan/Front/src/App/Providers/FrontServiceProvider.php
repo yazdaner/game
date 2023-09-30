@@ -54,7 +54,7 @@ class FrontServiceProvider extends ServiceProvider
             $view->with(compact('mainBanners'));
         });
 
-        view()->composer(['Front::sections.footer','Front::sections.social'], function ($view) {
+        view()->composer(['Front::sections.footer','Front::sections.social','Contact::front.contact'], function ($view) {
             $setting = Setting::first();
             $view->with(compact('setting'));
         });

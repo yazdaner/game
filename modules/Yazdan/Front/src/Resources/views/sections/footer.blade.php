@@ -54,7 +54,7 @@
                     <li><a href="#">درباره ما</a></li>
                     <li><a href="#">مطالعات موردی</a></li>
                     <li><a href="#">وبلاگ ما</a></li>
-                    <li><a href="#">تماس با ما</a></li>
+                    <li><a href="{{route('contact')}}">تماس با ما</a></li>
                   </ul>
                 </div>
               </div>
@@ -68,7 +68,7 @@
                     <li><a href="#">درباره ما</a></li>
                     <li><a href="#">مطالعات موردی</a></li>
                     <li><a href="#">وبلاگ ما</a></li>
-                    <li><a href="#">تماس با ما</a></li>
+                    <li><a href="{{route('contact')}}">تماس با ما</a></li>
                   </ul>
                 </div>
               </div>

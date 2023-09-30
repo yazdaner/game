@@ -4,7 +4,7 @@
 
     <x-user-photo />
 
-    <ul>
+    <ul class="margin-top-70">
         @foreach (config('sidebar.items') as $item)
             @if ($item)
                 @if ( !array_key_exists('permission',$item) ||

@@ -6,7 +6,7 @@
             <h2>در ارتباط باشید</h2>
         </div>
 
-        <div class="row">
+        <div class="row justify-content-center">
             @if ($setting->twitch)
             <div class="col-lg-2 col-sm-4 col-md-4 col-6">
                 <div class="single-social-box">

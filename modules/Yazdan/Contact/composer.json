@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/contact",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Contact\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Contact\\App\\Providers\\ContactServiceProvider"
+            ]
+        }
+    }
+}

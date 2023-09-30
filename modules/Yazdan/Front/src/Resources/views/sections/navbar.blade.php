@@ -135,7 +135,7 @@
 
 
                         <li class="nav-item">
-                            <a href="contact.html" class="nav-link">تماس با ما</a>
+                            <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
                         </li>
                     </ul>
 
@@ -177,7 +177,7 @@
                                     </a>
                                 </div>
                             </div>
-                           
+
                         @else
                         <div class="option-item d-flex">
                             <div class="ml-3">

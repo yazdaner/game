@@ -9,10 +9,7 @@ use Yazdan\Payment\Traits\PaymentTrait;
 
 class Setting extends Model
 {
-    use PaymentTrait;
-
     protected $table = 'settings';
-
     protected $guarded = [];
 
 }

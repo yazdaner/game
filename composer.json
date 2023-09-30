@@ -26,6 +26,7 @@
         "yazdan/coin": "dev-master",
         "yazdan/comment": "dev-master",
         "yazdan/common": "dev-master",
+        "yazdan/contact": "dev-master",
         "yazdan/coupon": "dev-master",
         "yazdan/dashboard": "dev-master",
         "yazdan/discount": "dev-master",
@@ -131,6 +132,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/Setting"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/Contact"
         }
     ],
     "scripts": {
