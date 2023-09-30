@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="blog-details-desc">
                     <div class="article-image mt-5 d-flex justify-content-center">
-                        <img src="{{$blog->getAvatar()}}" alt="image" class="blogBanner">
+                        <img src="{{$blog->getAvatar(600)}}" alt="image" class="blogBanner">
                     </div>
 
                     <div class="article-content">

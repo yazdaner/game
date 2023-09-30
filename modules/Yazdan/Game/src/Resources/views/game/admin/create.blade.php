@@ -14,10 +14,10 @@
 
                 <x-input name="title" type="text" placeholder="عنوان" />
 
-                <x-input type="text" placeholder="تاریخ پایان بازی" name="deadline" class="expireAt"/>
-
-                <x-text-area name="description" placeholder="توضیحات بازی (اختیاری)" />
-
+                <x-input type="text" placeholder="تاریخ پایان بازی" name="deadline" class="expireAt" />
+                <br>
+                <x-text-area placeholder="توضیحات بازی (اختیاری)" name="description" id="description" />
+                <br>
                 <x-file-upload name="media" placeholder="تصویر بازی" />
 
                 <x-button title="ایجاد" />
@@ -52,5 +52,13 @@
         }
     });
 });
+</script>
+<script src="//cdn.ckeditor.com/4.20.0/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('description', {
+        language: 'fa',
+        filebrowserUploadUrl: '{{ route('admin.editor-upload', ['_token' => csrf_token()]) }}',
+        filebrowserUploadMethod: 'form'
+    });
 </script>
 @endsection

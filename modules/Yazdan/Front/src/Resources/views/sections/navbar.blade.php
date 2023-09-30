@@ -22,124 +22,27 @@
                 <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">خانه <i class="flaticon-down-arrow"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="/" class="nav-link">خانه اصلی</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="/" class="nav-link active">خانه ورزش</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="index-3.html" class="nav-link">خانه برجسته</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="index-4.html" class="nav-link">خانه مجله</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="index-5.html" class="nav-link">خانه مسابقات</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="index-6.html" class="nav-link">خانه رویدادها</a>
-                                </li>
-                            </ul>
+                            <a href="/" class="nav-link">خانه</a>
                         </li>
-
                         <li class="nav-item">
-                            <a href="#" class="nav-link">صفحات <i class="flaticon-down-arrow"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="team.html" class="nav-link">تیم ما</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="sponsors.html" class="nav-link">حامیان ما</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="gallery.html" class="nav-link">گالری</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="faq.html" class="nav-link">سوالات متداول</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="coming-soon.html" class="nav-link">به زودی</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="error-404.html" class="nav-link">خطای 404</a>
-                                </li>
-                            </ul>
+                            <a href="{{route('games')}}" class="nav-link">مسابقات</a>
                         </li>
-
                         <li class="nav-item">
-                            <a href="#" class="nav-link">مسابقات <i class="flaticon-down-arrow"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="stream-schedule.html" class="nav-link">برنامه پخش جریانی</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="single-tournament.html" class="nav-link">مسابقات تک نفره</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="single-match.html" class="nav-link">بازی تک نفره</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="single-match.html" class="nav-link">تیم تک نفره</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="single-player.html" class="nav-link">بازیکن تک نفره</a>
-                                </li>
-                            </ul>
+                            <a href="{{route('coupons.index')}}" class="nav-link">فروشگاه</a>
                         </li>
-
                         <li class="nav-item">
-                            <a href="#" class="nav-link">فروشگاه <i class="flaticon-down-arrow"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="products-list-1.html" class="nav-link">محصولات فهرستی 1</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="products-list-2.html" class="nav-link">محصولات فهرستی 2</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{route('users.cart.index')}}" class="nav-link">سبد خرید</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="checkout.html" class="nav-link">بررسی محصول</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="single-products.html" class="nav-link">جزئیات محصول</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="my-account.html" class="nav-link">حساب کاربری من</a>
-                                </li>
-                            </ul>
+                            <a href="{{route('blogs')}}" class="nav-link">مجله</a>
                         </li>
-
-
                         <li class="nav-item">
                             <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('about')}}" class="nav-link">درباره ما</a>
                         </li>
                     </ul>
 
                     <div class="others-option d-flex align-items-center">
+
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="{{route('users.cart.index')}}">
@@ -207,12 +110,17 @@
 
             <div class="container">
                 <div class="option-inner">
+
                     <div class="others-option">
+
+
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="#">
+                                <a href="{{route('users.cart.index')}}">
                                     <i class="flaticon-null-5"></i>
-                                    <span>1</span>
+                                    @if (! \Cart::isEmpty())
+                                        <span>{{ \Cart::getContent()->count() }}</span>
+                                    @endif
                                 </a>
                             </div>
                         </div>
@@ -223,11 +131,34 @@
                             </div>
                         </div>
 
+                        @auth
                         <div class="option-item">
-                            <div class="side-menu-btn">
-                                <i class="flaticon-null-2" data-toggle="modal" data-target="#sidebarModal"></i>
+                            <div class="d-flex align-items-center">
+                                <a href="{{route('users.profile')}}">
+                                    <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
+                                </a>
+
+                                <a href="{{route('user.coin.index')}}">
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{$coin->getAvatar(60)}}" width="40" alt="">
+                                        <p class="mb-0">
+                                            {{auth()->user()->coin}}
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
+
+                    @else
+                    <div class="option-item d-flex">
+                        <div class="ml-3">
+                            <a href="{{route('login')}}">ورود</a>
+                        </div>
+                        <div class="">
+                            <a href="{{route('register')}}">ثبت نام</a>
+                        </div>
+                    </div>
+                    @endauth
                     </div>
                 </div>
             </div>

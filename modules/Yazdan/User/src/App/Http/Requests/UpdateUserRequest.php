@@ -23,7 +23,6 @@ class UpdateUserRequest extends FormRequest
             'name' => ['required'],
             'email' => ['required','email','unique:users,email,'. request()->route('user')],
             'status' => ['required',Rule::in(UserRepository::$statuses)],
-            'password' => ['nullable',new ValidPassword],
             'mobile' => ['nullable',new ValidMobile,'unique:users,mobile,'. request()->route('user')],
         ];
     }

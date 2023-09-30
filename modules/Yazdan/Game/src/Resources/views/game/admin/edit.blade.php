@@ -8,19 +8,20 @@
     <div class="row no-gutters bg-white">
         <div class="col-12">
             <p class="box__title">ویرایش بازی</p>
-            <form action="{{route('admin.games.update',$game->id)}}" method="post" class="padding-30" enctype="multipart/form-data">
+            <form action="{{route('admin.games.update',$game->id)}}" method="post" class="padding-30"
+                enctype="multipart/form-data">
                 @csrf
                 @method('put')
 
-
+                <x-input name="title" type="text" placeholder="عنوان" value="{{$game->title}}"/>
 
                 <x-input type="text" class="expireAt" id="expire_at" placeholder="تاریخ پایان بازی" name="deadline"
-                value="{{ $discount->deadline ? fromCarbon($discount->deadline) : '' }}" />
+                    value="{{ $game->deadline ? fromCarbon($game->deadline) : '' }}" />
 
-
-
-                <x-text-area name="description" placeholder="توضیحات بازی (اختیاری)" value="{{$game->description}}"/>
-
+                <br>
+                <x-text-area placeholder="توضیحات بازی (اختیاری)" name="description" id="description"
+                    value="{{$game->description}}" />
+                <br>
                 <x-file-upload name="media" placeholder="تصویر بازی" :value="$game->media" />
 
 
@@ -56,5 +57,13 @@
         }
     });
 });
+</script>
+<script src="//cdn.ckeditor.com/4.20.0/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('description', {
+        language: 'fa',
+        filebrowserUploadUrl: '{{ route('admin.editor-upload', ['_token' => csrf_token()]) }}',
+        filebrowserUploadMethod: 'form'
+    });
 </script>
 @endsection

@@ -10,6 +10,7 @@ use Yazdan\Payment\Gateways\Gateway;
 use Yazdan\Payment\App\Models\Payment;
 use Yazdan\Payment\Repositories\PaymentRepository;
 use Yazdan\Payment\App\Events\PaymentWasSuccessful;
+use Yazdan\Payment\App\Http\Requests\PaymentRequest;
 
 class PaymentController extends Controller
 {
@@ -50,7 +51,7 @@ class PaymentController extends Controller
         return redirect('/');
     }
 
-    public function index(PaymentRepository $paymentRepository, Request $request)
+    public function index(PaymentRepository $paymentRepository, PaymentRequest $request)
     {
         $this->authorize('index',Payment::class);
         $payments = $paymentRepository

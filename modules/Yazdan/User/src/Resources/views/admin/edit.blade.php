@@ -19,8 +19,6 @@
 
                 <x-input type="text" name="mobile" placeholder="شماره موبایل" value="{{$user->mobile}}" />
 
-                <x-input type="text" name="telegram" placeholder="تلگرام" value="{{$user->telegram}}" />
-
                 <br>
 
                 <x-file-upload name="avatar" placeholder="آپلود عکس کاربر" :value="$user->avatar" />
@@ -30,12 +28,6 @@
                         <option value="{{$status}}" @if ($user->status == $status) selected @endif>@lang($status)</option>
                     @endforeach
                 </x-select>
-
-                <x-input type="password" name="password" placeholder="پسورد"/>
-
-                <x-input type="text" name="headline" placeholder="عنوان" value="{{$user->headline}}" />
-
-                <x-text-area name="bio" placeholder="درباره" value="{{$user->bio}}"/>
 
                 <button class="btn btn-yazdan">ویراش کاربر</button>
             </form>

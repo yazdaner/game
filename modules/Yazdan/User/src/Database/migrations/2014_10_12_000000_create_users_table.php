@@ -24,14 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 50)->nullable();
             $table->string('mobile', 14)->nullable();
 
-            $table->string('headline')->nullable();
-            $table->text('bio')->nullable();
-
-            $table->string('telegram')->nullable();
             $table->string('ip')->nullable();
-
-            $table->string('card_number', 16)->nullable();
-            $table->string('shaba', 24)->nullable();
 
             $table->foreignId('avatar_id')->nullable();
             $table->foreign('avatar_id')->references('id')->on('media')->onDelete('set null');

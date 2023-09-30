@@ -14,7 +14,7 @@
                         @if (isset($blogs[0]))
                         <div class="col-lg-7 col-md-7">
                             <div class="single-live-stream-box">
-                                <img class="blog-a" src="{{$blogs[0]->getAvatar(300)}}" alt="image" />
+                                <img class="blog-a" src="{{$blogs[0]->getAvatar(600)}}" alt="image" />
 
                                 <div class="content">
                                     <h3>{{$blogs[0]->title}}</h3>
@@ -27,7 +27,7 @@
 
                         <div class="col-lg-5 col-md-5">
                             <div class="single-live-stream-box">
-                                <img class="blog-a" src="{{$blogs[1]->getAvatar(300)}}" alt="image" />
+                                <img class="blog-a" src="{{$blogs[1]->getAvatar(600)}}" alt="image" />
 
                                 <div class="content">
                                     <h3>{{$blogs[1]->title}}</h3>
@@ -42,7 +42,7 @@
 
                         <div class="col-lg-4 col-md-6">
                             <div class="single-live-stream-box">
-                                <img class="blog-b" src="{{$blogs[2]->getAvatar(300)}}" alt="image" />
+                                <img class="blog-b" src="{{$blogs[2]->getAvatar(600)}}" alt="image" />
 
                                 <div class="content">
                                     <h3>{{$blogs[2]->title}}</h3>
@@ -56,7 +56,7 @@
                         @if (isset($blogs[3]))
                         <div class="col-lg-4 col-md-6">
                             <div class="single-live-stream-box">
-                                <img class="blog-b" src="{{$blogs[3]->getAvatar(300)}}" alt="image" />
+                                <img class="blog-b" src="{{$blogs[3]->getAvatar(600)}}" alt="image" />
 
                                 <div class="content">
                                     <h3>{{$blogs[3]->title}}</h3>
@@ -70,7 +70,7 @@
                         @if (isset($blogs[4]))
                         <div class="col-lg-4 col-md-6">
                             <div class="single-live-stream-box">
-                                <img class="blog-b" src="{{$blogs[4]->getAvatar(300)}}" alt="image" />
+                                <img class="blog-b" src="{{$blogs[4]->getAvatar(600)}}" alt="image" />
 
                                 <div class="content">
                                     <h3>{{$blogs[4]->title}}</h3>

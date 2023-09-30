@@ -17,9 +17,13 @@ class HomeGameController extends Controller
         return view('Game::home.index',compact('games'));
     }
 
+    public function games()
+    {
+        $games = Game::all();
+        return view('Game::home.games',compact('games'));
+    }
     public function show(Game $game)
     {
         return view('Game::home.show',compact('game'));
     }
-
 }

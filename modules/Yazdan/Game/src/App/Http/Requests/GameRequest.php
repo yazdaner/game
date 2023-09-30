@@ -3,6 +3,7 @@
 namespace Yazdan\Game\App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Yazdan\Discount\App\Rules\ValidJalaliDate;
 
 class GameRequest extends FormRequest
 {
@@ -27,13 +28,13 @@ class GameRequest extends FormRequest
             'title' => 'required|min:3|unique:games,title',
             'media' => 'required|mimes:png,jpg|max:2048',
             'description' => 'nullable|string',
-            'deadline' => 'required',
+            'deadline' => ["required",new ValidJalaliDate()],
         ];
 
         if (request()->method === 'PUT') {
             $rules['media'] = 'nullable|mimes:png,jpg|max:2048';
             $rules['title'] = 'required|min:3|unique:games,title,'.request()->route('game');
-            $rules['deadline'] = 'nullable';
+            $rules['deadline'] = ["nullable",new ValidJalaliDate()];
 
         }
 

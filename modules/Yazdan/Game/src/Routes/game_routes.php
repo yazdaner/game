@@ -31,5 +31,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // Front Routes
 
+Route::get('/games',[HomeGameController::class,'games'])->name('games');
 Route::get('/games/{game}',[HomeGameController::class,'show'])->name('games.show');
 

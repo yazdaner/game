@@ -2,7 +2,6 @@
 
 namespace Yazdan\Discount\App\Http\Requests;
 
-use Yazdan\Discount\App\Rules\ValidJalaliDate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CodeRequest extends FormRequest

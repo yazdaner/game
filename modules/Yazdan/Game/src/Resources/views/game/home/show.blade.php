@@ -24,7 +24,7 @@
 
                                 <div class="single-match-list p-3 text-right">
 
-                                    <span class="mr-2 text-right text-break">{{$game->description}}</span>
+                                    <span class="mr-2 text-right text-break">{!! $game->description !!}</span>
 
                                 </div>
 
@@ -46,32 +46,26 @@ background: #978e8e0f;
 ">
     <div class="container">
         <div class="section-title">
-            <span class="sub-title">بازی ها</span>
-            <h2>بازی های پرطرفدار</h2>
+            <h2>گروه های بازی</h2>
         </div>
 
         <div class="matches-tabs">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" id="all-matches-tab" data-toggle="tab" href="#all-matches" role="tab"
-                        aria-controls="all-matches" aria-selected="true">بازی های جاری</a>
+                        aria-controls="all-matches" aria-selected="true">گروه های بازی</a>
                 </li>
 
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="upcoming-matches-tab" data-toggle="tab" href="#upcoming-matches" role="tab"
-                        aria-controls="upcoming-matches" aria-selected="false">بازی های گذشته</a>
-                </li>
             </ul>
 
             <div class="tab-content p-3" id="myTabContent">
-                {{-- todo --}}
                 <div class="tab-pane fade show active" id="all-matches" role="tabpanel">
                     <section class="match-details-area">
                         <div class="container">
                             <div class="row">
                                 @foreach ($game->groups as $group)
 
-                                <div class="col-lg-3 col-md-12 p-2">
+                                <div class="col-lg-4 col-md-12 p-2">
                                     <aside class="widget-area p-0">
                                         <section class="widget widget_match_list">
 
@@ -105,11 +99,6 @@ background: #978e8e0f;
                     </section>
 
                 </div>
-
-                <div class="tab-pane fade" id="upcoming-matches" role="tabpanel">
-                    <!-- todo -->
-                </div>
-
             </div>
         </div>
 </section>

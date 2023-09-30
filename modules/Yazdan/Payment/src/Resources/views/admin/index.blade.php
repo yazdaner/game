@@ -95,7 +95,7 @@
                             <td>{{$payment->quantity}}</td>
                             <td>{{number_format($payment->totalAmount)}}</td>
                             <td>{{$payment->invoice_id}}</td>
-                            <td>{{$payment->created_at}}</td>
+                            <td>{{verta($payment->created_at)}}</td>
                             <td class="{{$payment->confirmStatus}}">{{__($payment->status)}}</td>
                         </tr>
                         @endforeach

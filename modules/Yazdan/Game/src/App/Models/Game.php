@@ -15,7 +15,10 @@ class Game extends Model
         'media_id',
         'deadline',
     ];
-
+    protected $casts = [
+        "deadline" => "datetime"
+    ];
+    
     public function media()
     {
         return $this->belongsTo(Media::class, 'media_id');
