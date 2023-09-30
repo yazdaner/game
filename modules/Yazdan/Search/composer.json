@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/search",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Search\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Search\\App\\Providers\\SearchServiceProvider"
+            ]
+        }
+    }
+}

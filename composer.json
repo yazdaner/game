@@ -37,6 +37,7 @@
         "yazdan/media": "dev-master",
         "yazdan/payment": "dev-master",
         "yazdan/role": "dev-master",
+        "yazdan/search": "dev-master",
         "yazdan/setting": "dev-master",
         "yazdan/slider": "dev-master",
         "yazdan/user": "dev-master"
@@ -141,6 +142,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/About"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/Search"
         }
     ],
     "scripts": {

@@ -12,9 +12,9 @@
         </div>
 
         <div class="search-overlay-form">
-          <form>
-            <input type="text" class="input-search" placeholder="جستجو ..." />
-            <button type="submit"><i class="flaticon-search-1"></i></button>
+            <form action="{{route('search')}}" id="search">
+                <input type="text" class="input-search" name="search" placeholder="جستجو ..." />
+                <button type="submit"><i class="flaticon-search-1"></i></button>
           </form>
         </div>
       </div>

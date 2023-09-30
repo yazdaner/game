@@ -5,9 +5,7 @@ namespace Yazdan\About\App\Http\Controllers;
 use Yazdan\About\App\Models\About;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Yazdan\Media\Services\MediaFileService;
 use Yazdan\About\Repositories\AboutRepository;
-use Yazdan\About\App\Http\Requests\AboutRequest;
 
 class AboutController extends Controller
 {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad1cd35927def34d8e22f52b128eb942",
+    "content-hash": "ad67bf968d4ea231e2d3289bb97843f3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6359,6 +6359,31 @@
             }
         },
         {
+            "name": "yazdan/search",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Search",
+                "reference": "f8f8049d33380e021a1e9de76b9725c2763ee523"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Search\\App\\Providers\\SearchServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Search\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/setting",
             "version": "dev-master",
             "dist": {
@@ -8795,6 +8820,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "yazdan/about": 20,
         "yazdan/blog": 20,
         "yazdan/cart": 20,
         "yazdan/category": 20,
