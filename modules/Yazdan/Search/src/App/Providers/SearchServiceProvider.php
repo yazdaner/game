@@ -12,5 +12,4 @@ class SearchServiceProvider extends ServiceProvider
         Route::middleware('web')->group(__DIR__ . '/../../Routes/search_routes.php');
         $this->loadViewsFrom(__DIR__ . '/../../Resources/views/', 'Search');
     }
-
 }
