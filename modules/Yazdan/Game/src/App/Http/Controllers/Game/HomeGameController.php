@@ -4,6 +4,7 @@ namespace Yazdan\Game\App\Http\Controllers\Game;
 
 use Yazdan\Game\App\Models\Game;
 use App\Http\Controllers\Controller;
+use Yazdan\Game\Repositories\GameRepository;
 
 class HomeGameController extends Controller
 {
@@ -19,7 +20,7 @@ class HomeGameController extends Controller
 
     public function games()
     {
-        $games = Game::all();
+        $games = GameRepository::getAll();
         return view('Game::home.games',compact('games'));
     }
     public function show(Game $game)

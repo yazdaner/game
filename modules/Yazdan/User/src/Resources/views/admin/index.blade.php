@@ -89,8 +89,8 @@
     <script>
         function setFormAction(userId){
             let form = document.getElementById('form-select-role');
-            let action = "{{route('admin.users.role',0)}}";
-            form.action = action.replace(0,userId);
+            let action = "{{route('admin.users.role',3234686)}}";
+            form.action = action.replace(3234686,userId);
             form.method = 'POST';
         }
     </script>

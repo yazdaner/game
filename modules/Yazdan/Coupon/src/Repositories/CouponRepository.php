@@ -52,7 +52,7 @@ class CouponRepository
         return $coin->update([
             'title' => $data['title'],
             'description' => $data['description'],
-            'media_id' => $data['media_id'],
+            'media_id' => $data['media_id'] ?? null,
             'price' => $data['price'],
             'coefficient' => $data['coefficient'],
         ]);

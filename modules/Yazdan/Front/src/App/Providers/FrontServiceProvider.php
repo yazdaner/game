@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\View;
 use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Slider\App\Models\Slider;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider;
-use Yazdan\Course\Repositories\CourseRepository;
-use Yazdan\Category\Repositories\CategoryRepository;
 use Yazdan\Setting\App\Models\Setting;
+use Illuminate\Support\ServiceProvider;
+use Yazdan\Game\Repositories\GameRepository;
+use Yazdan\Course\Repositories\CourseRepository;
 use Yazdan\Slider\Repositories\SliderRepository;
+use Yazdan\Category\Repositories\CategoryRepository;
 
 class FrontServiceProvider extends ServiceProvider
 {
@@ -59,5 +60,9 @@ class FrontServiceProvider extends ServiceProvider
             $view->with(compact('setting'));
         });
 
+        view()->composer(['Front::sections.games'], function ($view) {
+            $games = GameRepository::getAll();
+            $view->with(compact('games'));
+        });
     }
 }

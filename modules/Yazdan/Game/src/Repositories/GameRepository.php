@@ -9,6 +9,14 @@ use Yazdan\Game\App\Models\Game;
 class GameRepository
 {
 
+    const STATUS_ACTIVE = 'active';
+    const STATUS_INACTIVE = 'inactive';
+
+    static $statuses = [
+        self::STATUS_ACTIVE,
+        self::STATUS_INACTIVE,
+    ];
+
     public static function findById($id)
     {
         return Game::find($id);
@@ -16,7 +24,7 @@ class GameRepository
 
     public static function getAll()
     {
-        return Game::latest()->paginate(20);
+        return Game::where('status',self::STATUS_ACTIVE)->latest()->paginate(200);
     }
 
     public static function store($data)
@@ -37,6 +45,7 @@ class GameRepository
             'title' => $data->title,
             'description' => $data->description,
             'media_id' => $data->media_id,
+            'status' => $data->status,
             "deadline" => $data->deadline ? Jalalian::fromFormat("Y/m/d H:i", $data->deadline)->toCarbon() : null,
         ]);
     }

@@ -38,7 +38,6 @@ class GameServiceProvider extends ServiceProvider
 
     }
 
-
     public function boot()
     {
         config()->set('sidebar.items.game', [
@@ -53,10 +52,5 @@ class GameServiceProvider extends ServiceProvider
             'url' => route('game.users.index'),
             'title' => 'بازی ها'
         ]);
-
-        view()->composer('Front::sections.games', function ($view) {
-            $games = GameRepository::getAll();
-            $view->with(compact('games'));
-        });
     }
 }

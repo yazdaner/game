@@ -13,7 +13,7 @@
                 @csrf
                 @method('put')
 
-                <x-input name="title" type="text" placeholder="عنوان" value="{{$game->title}}"/>
+                <x-input name="title" type="text" placeholder="عنوان" value="{{$game->title}}" />
 
                 <x-input type="text" class="expireAt" id="expire_at" placeholder="تاریخ پایان بازی" name="deadline"
                     value="{{ $game->deadline ? fromCarbon($game->deadline) : '' }}" />
@@ -24,6 +24,13 @@
                 <br>
                 <x-file-upload name="media" placeholder="تصویر بازی" :value="$game->media" />
 
+                <br>
+
+                <x-select name="status" placeholder="وضعیت بازی">
+                    @foreach ($statuses as $status)
+                    <option value="{{$status}}" @if ($game->status == $status) selected @endif>@lang($status)</option>
+                    @endforeach
+                </x-select>
 
                 <x-button title="ویرایش" />
             </form>

@@ -21,13 +21,14 @@ class CouponController extends Controller
 
     public function store(CouponRequest $request)
     {
-        $this->authorize('manage',Coupon::class);
+        $this->authorize('manage', Coupon::class);
 
         if (isset($request->media)) {
-              $images = MediaFileService::publicUpload($request->media);if($images == false){
-            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
-            return back();
-        }
+            $images = MediaFileService::publicUpload($request->media);
+            if ($images == false) {
+                newFeedbacks('نا موفق', 'فرمت فایل نامعتبر میباشد', 'error');
+                return back();
+            }
             $request->request->add(['media_id' => $images->id]);
         }
         CouponRepository::store($request);
@@ -41,7 +42,6 @@ class CouponController extends Controller
         $this->authorize('manage', Coupon::class);
         $coupon = CouponRepository::findById($id);
         return view('Coupon::admin.edit', compact('coupon'));
-
     }
 
     public function update(Coupon $coupon, CouponRequest $request)
@@ -49,17 +49,17 @@ class CouponController extends Controller
         $this->authorize('manage', Coupon::class);
 
         if ($request->hasFile('media')) {
-
+            $images = MediaFileService::publicUpload($request->media);
+            if ($images == false) {
+                newFeedbacks('نا موفق', 'فرمت فایل نامعتبر میباشد', 'error');
+                return back();
+            }
             if ($coupon->media) {
                 $coupon->media->delete();
             }
-              $images = MediaFileService::publicUpload($request->media);if($images == false){
-            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
-            return back();
-        }
             $request->request->add(['media_id' => $images->id]);
         } else {
-            if ($coupon->media) {
+            if ($coupon->media && $coupon->media->id) {
                 $request->request->add(['media_id' => $coupon->media->id]);
             }
         }
@@ -71,7 +71,7 @@ class CouponController extends Controller
 
     public function destroy($id)
     {
-        $this->authorize('manage',Coupon::class);
+        $this->authorize('manage', Coupon::class);
         $coupon = CouponRepository::findById($id);
         if ($coupon->media) {
             $coupon->media->delete();

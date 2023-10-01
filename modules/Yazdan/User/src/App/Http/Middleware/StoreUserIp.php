@@ -9,10 +9,14 @@ class StoreUserIp
 {
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->check() && auth()->user()->ip != $request->ip()){
-            auth()->user()->ip = $request->ip();
-            auth()->user()->save();
+        $user = auth()->user();
+        if(auth()->check() && $user->ip != $request->ip()){
+            $user->ip = $request->ip();
+            $user->save();
         }
+        if(auth()->check() && ($user->status == 'ban' || $user->status == 'inactive')){
+            return abort(403);
+        };
         return $next($request);
     }
 }

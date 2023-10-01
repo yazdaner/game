@@ -45,7 +45,7 @@
                             </td>
 
                             <td class="product-price">
-                                <span class="unit-amount">{{$item->associatedModel->price}} تومان</span>
+                                <span class="unit-amount">{{number_format($item->associatedModel->price)}} تومان</span>
                                 @if($item->associatedModel->hasDiscount())
                                 <p class="text-error">
                                     <span>{{ $item->associatedModel->getDiscountPercent() }}</span>
@@ -65,7 +65,7 @@
                             </td>
 
                             <td class="product-subtotal">
-                                <span class="subtotal-amount">{{$item->price * $item->quantity}} تومان</span>
+                                <span class="subtotal-amount">{{number_format($item->price * $item->quantity)}} تومان</span>
                                 <a href="{{ route('users.cart.remove' , ['rowId' => $item->id]) }}" class="remove"><i
                                         class='bx bx-trash'></i></a>
                             </td>
@@ -99,11 +99,9 @@
             </div>
 
             <div class="cart-totals">
-                <h3>مجموع خرید</h3>
                 <ul>
-                    <li>زیرمجموعه خرید <span>800000 تومان</span></li>
-                    <li>کرایه حمل <span>30000 تومان</span></li>
-                    <li>مجموع خرید <span>{{\Cart::getTotal()}} تومان</span></li>
+                    <li>مجموع خرید <span>{{number_format(\Cart::getTotal())}} تومان</span></li>
+                    <li></li>
                 </ul>
                 <a href="{{route('users.cart.buy')}}" class="default-btn">ادامه خرید</a>
             </div>

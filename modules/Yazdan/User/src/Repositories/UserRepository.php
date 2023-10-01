@@ -58,10 +58,7 @@ class UserRepository
             'email' => $value->email,
             'username' => $value->username,
             'mobile' => $value->mobile,
-            'telegram' => $value->telegram,
             'status' => $value->status,
-            'bio' => $value->bio,
-            'headline' => $value->headline,
             'avatar_id' => $value->avatar_id,
         ];
 

@@ -11,6 +11,7 @@
             <a class="tab__item {{ request("status") == "approved" ? "is-active" : "" }}" href="{{ route("admin.comments.index") }}?status=approved">نظرات تاییده شده</a>
         </div>
     </div>
+    @include("Comment::show")
     <div class="bg-white padding-20">
         <div class="t-header-search">
             <form action="">
@@ -46,7 +47,7 @@
                 <td><a href="">{{ $comment->id }}</a></td>
                 <td><a href="">{{ $comment->user->name }}</a></td>
                 <td><a href="">{{ $comment->commentable->title }}</a></td>
-                <td>{{ $comment->body }}</td>
+                <td><a class="btn-show btn btn-yazdan" href="#rolesModal" rel="modal:open" onclick="showComment(event,'{{$comment->body}}')">نمایش</a></td>
                 <td>{{ \Morilog\Jalali\Jalalian::fromCarbon($comment->created_at) }}</td>
                 <td>{{ $comment->comments()->count() }} ({{ $comment->not_approved_comments_count }})</td>
                 <td class="confirmation_status {{ $comment->getStatusCssClass() }}">@lang($comment->status)</td>
@@ -66,4 +67,17 @@
             </tbody>
         </table>
     </div>
+@endsection
+
+@section('style')
+    <link rel="stylesheet" href="../panel/css/modal.css">
+@endsection
+@section('script')
+<script src="../panel/js/modal.js"></script>
+<script>
+    function showComment(e,comment){
+        e.preventDefault();
+        $("#ShowComment").text(comment)
+    }
+</script>
 @endsection

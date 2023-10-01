@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Yazdan\Game\Repositories\GameRepository;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateGamesTable extends Migration
 {
@@ -23,6 +24,9 @@ class CreateGamesTable extends Migration
             $table->foreign('media_id')->references('id')->on('media')->onDelete('SET NULL');
 
             $table->timestamp('deadline');
+
+            $table->enum('status', GameRepository::$statuses)->default(GameRepository::STATUS_ACTIVE);
+
             $table->timestamps();
         });
     }

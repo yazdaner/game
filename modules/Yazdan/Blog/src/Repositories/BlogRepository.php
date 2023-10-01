@@ -48,7 +48,7 @@ class BlogRepository
             'title' => $value->title,
             'slug' => Str::slug($value->title),
             'category_id' => $value->category_id,
-            'media_id' => $value->media_id,
+            'media_id' => $value->media_id ?? null,
             'preview' => $value->preview,
             'content' => $value->content,
         ]);

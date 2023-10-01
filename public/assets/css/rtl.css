@@ -361,12 +361,12 @@ body {
 
 .single-matches-box .matches-team.right-image {
   padding-right: 0;
-  padding-left: 100px;
+  padding-left: 70px;
 }
 
 .single-matches-box .matches-team.right-image img {
   right: auto;
-  left: -50px;
+  left: -10px;
 }
 
 .single-matches-box .matches-team.right-image .content {
@@ -1322,7 +1322,7 @@ blockquote::after, .blockquote::after {
     padding-left: 20px;
   }
   .single-matches-box .matches-team.right-image {
-    padding-left: 68px;
+    padding-left: 34px;
   }
   .single-matches-box .matches-team.right-image .content h3 {
     padding-right: 20px;

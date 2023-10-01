@@ -2102,3 +2102,10 @@ span.tagRemove:hover {
     float: left;
     margin-top: 25px;
 }
+.text-break {
+    word-break: break-word!important;
+    overflow-wrap: break-word!important;
+}
+.text-right {
+    text-align: right!important;
+}

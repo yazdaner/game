@@ -81,6 +81,14 @@ class RecordController extends Controller
 
     public function sendRecord(RecordRequest $request)
     {
+
+        $level = LevelRepository::findById($request->level);
+
+        if($level->game->deadline < now()){
+            newFeedbacks('نا موفق','تاریخ بازی به پابان رسیده است','error');
+            return back();
+        }
+
         if (auth()->user()->records()->where('level_id', $request->level)->where('status', RecordRepository::STATUS_PENDING)->first()) {
             newFeedbacks('نا موفق', 'شما رکوردی در این مرحله از قبل ارسال کرده اید که هنوز تایید یا رد نشده است', 'error');
             return back();

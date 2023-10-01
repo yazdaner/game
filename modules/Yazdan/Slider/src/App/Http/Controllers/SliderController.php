@@ -16,13 +16,21 @@ class SliderController extends Controller
         $this->authorize('manage', Slider::class);
         $sliders = SliderRepository::all();
         $types = SliderRepository::$types;
-        return view("Slider::index", compact('sliders','types'));
+        return view("Slider::index", compact('sliders', 'types'));
     }
 
     public function store(SliderRequest $request)
     {
         $this->authorize('manage', Slider::class);
-        $request->request->add(['media_id' => MediaFileService::publicUpload($request->file('media'))->id]);
+
+        if (isset($request->media)) {
+            $images = MediaFileService::publicUpload($request->media);
+            if ($images == false) {
+                newFeedbacks('نا موفق', 'فرمت فایل نامعتبر میباشد', 'error');
+                return back();
+            }
+            $request->request->add(['media_id' => $images->id]);
+        }
         SliderRepository::store($request);
         newFeedbacks();
         return redirect()->route('admin.sliders.index');
@@ -32,8 +40,7 @@ class SliderController extends Controller
     {
         $this->authorize('manage', Slider::class);
         $types = SliderRepository::$types;
-        return view("Slider::edit", compact('slider','types'));
-
+        return view("Slider::edit", compact('slider', 'types'));
     }
 
     public function update(Slider $slider, SliderRequest $request)
@@ -41,9 +48,15 @@ class SliderController extends Controller
         $this->authorize('manage', Slider::class);
 
         if ($request->hasFile('media')) {
-            $request->request->add(['media_id' => MediaFileService::publicUpload($request->file('media'))->id]);
-            if ($slider->media)
+            $images = MediaFileService::publicUpload($request->media);
+            if ($images == false) {
+                newFeedbacks('نا موفق', 'فرمت فایل نامعتبر میباشد', 'error');
+                return back();
+            }
+            if ($slider->media) {
                 $slider->media->delete();
+            }
+            $request->request->add(['media_id' => $images->id]);
         } else {
             $request->request->add(['media_id' => $slider->media_id]);
         }

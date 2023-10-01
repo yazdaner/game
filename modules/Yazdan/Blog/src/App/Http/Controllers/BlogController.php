@@ -69,7 +69,7 @@ class BlogController extends Controller
         }
             $request->request->add(['media_id' => $images->id]);
         } else {
-            if ($blog->media) {
+            if ($blog->media && $blog->media->id) {
                 $request->request->add(['media_id' => $blog->media->id]);
             }
         }

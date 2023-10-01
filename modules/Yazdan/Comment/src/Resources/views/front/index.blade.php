@@ -20,7 +20,7 @@
                 </footer>
 
                 <div class="comment-content">
-                    <p>{{ $comment->body }}</p>
+                    <p class="text-break">{{ $comment->body }}</p>
                 </div>
 
                 <div class="reply">
@@ -47,7 +47,7 @@
                         </footer>
 
                         <div class="comment-content">
-                            <p>{{ $reply->body }}</p>
+                            <p class="text-break">{{ $reply->body }}</p>
                         </div>
 
                     </article>

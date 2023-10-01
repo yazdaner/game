@@ -52,6 +52,11 @@ class GroupController extends Controller
     {
         $group = GroupRepository::findById($groupId);
 
+        if($group->game->deadline < now()){
+            newFeedbacks('نا موفق','تاریخ بازی به پابان رسیده است','error');
+            return back();
+        }
+
         if(auth()->user()->groups->count() > 0){
             foreach(auth()->user()->groups as $item){
                 if($group->game_id == $item->game_id){

@@ -28,3 +28,4 @@ function showImage() {
 showImage()
 
 modal('#Modal2', '1000px', '.btn-answer')
+modal('#Modal3', '1000px', '.btn-show')

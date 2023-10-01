@@ -26,7 +26,7 @@
                             </ul>
                         </div>
 
-                       <div class="content my-5">
+                       <div class="content my-5 text-break">
                             {!! $blog->content !!}
                        </div>
 

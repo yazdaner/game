@@ -25,14 +25,14 @@ class CoinController extends Controller
         $this->authorize('manage', Coin::class);
 
         if ($request->hasFile('media')) {
-
+            $images = MediaFileService::publicUpload($request->media);
+            if ($images == false) {
+                newFeedbacks('نا موفق', 'فرمت فایل نامعتبر میباشد', 'error');
+                return back();
+            }
             if ($coin->media) {
                 $coin->media->delete();
             }
-              $images = MediaFileService::publicUpload($request->media);if($images == false){
-            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
-            return back();
-        }
             $request->request->add(['media_id' => $images->id]);
         } else {
             if ($coin->media && $coin->media->id) {

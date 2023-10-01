@@ -32,7 +32,7 @@
                             <td>{{$record->user->name}}</td>
                             <td>{{$record->level->title}}</td>
                             @if (isset($record->coupon_id))
-                            <td>{{$record->claimRecord / $record->coupon->coefficient}} * {{$record->coupon->coefficient}}</td>
+                            <td>{{round($record->claimRecord / $record->coupon->coefficient)}} * <span class="text-error">{{$record->coupon->coefficient}}</span></td>
                             @else
                             <td>{{$record->claimRecord ?? 'سکه : ' .$record->coin }}</td>
                             @endif
