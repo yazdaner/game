@@ -29,7 +29,10 @@ class CoinController extends Controller
             if ($coin->media) {
                 $coin->media->delete();
             }
-            $images = MediaFileService::publicUpload($request->media);
+              $images = MediaFileService::publicUpload($request->media);if($images == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
             $request->request->add(['media_id' => $images->id]);
         } else {
             if ($coin->media && $coin->media->id) {

@@ -82,12 +82,15 @@ class RecordController extends Controller
     public function sendRecord(RecordRequest $request)
     {
         if (auth()->user()->records()->where('level_id', $request->level)->where('status', RecordRepository::STATUS_PENDING)->first()) {
-            newFeedbacks('نا موفق', 'شما رکوردی در این مرحله از قبل ارسال کرده اید که هنور تایید یا رد نشده است', 'error');
+            newFeedbacks('نا موفق', 'شما رکوردی در این مرحله از قبل ارسال کرده اید که هنوز تایید یا رد نشده است', 'error');
             return back();
         }
 
         if (isset($request->media)) {
-            $images = MediaFileService::publicUpload($request->media);
+              $images = MediaFileService::publicUpload($request->media);if($images == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
             $request->request->add(['media_id' => $images->id]);
         }
 
@@ -145,7 +148,7 @@ class RecordController extends Controller
     {
         // todo
         if ($level->coin > auth()->user()->coin) {
-            newFeedbacks('نا موفق', 'تعداد یکه های شما کافی نمیباشد', 'error');
+            newFeedbacks('نا موفق', 'تعداد سکه های شما کافی نمیباشد', 'error');
             return back();
         }
 

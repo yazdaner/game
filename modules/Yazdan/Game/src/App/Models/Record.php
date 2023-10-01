@@ -52,8 +52,8 @@ class Record extends Model
 
     public function getAvatar($size = 'original')
     {
-        if (isset($this->avatar_id)) {
-            return $this->avatar->thumb($size);
+        if (isset($this->media_id)) {
+            return $this->media->thumb($size);
         } else {
             return asset('img/coin.png');
         }

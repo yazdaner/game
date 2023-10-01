@@ -3,9 +3,10 @@
 namespace Yazdan\Media\Services;
 
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
 use Yazdan\Media\App\Models\Media;
-use Yazdan\Media\Contracts\FileServiceContract;
 use Yazdan\Media\Repositories\MediaRepository;
+use Yazdan\Media\Contracts\FileServiceContract;
 
 class MediaFileService
 {
@@ -51,15 +52,22 @@ class MediaFileService
 
     private static function uploadByHandler(FileServiceContract $service, $type)
     {
-        $uploadedFile = $service::upload(self::$file, self::$dir, self::generateFilename());
+        try {
+            $uploadedFile = $service::upload(self::$file, self::$dir, self::generateFilename());
+            DB::beginTransaction();
+            $media = Media::create([
+                'user_id' => auth()->id(),
+                'filename' => self::$file->getClientOriginalName(),
+                'files' => $uploadedFile,
+                'type' => $type,
+                'access' => self::$access,
+            ]);
 
-        $media = Media::create([
-            'user_id' => auth()->id(),
-            'filename' => self::$file->getClientOriginalName(),
-            'files' => $uploadedFile,
-            'type' => $type,
-            'access' => self::$access,
-        ]);
+            DB::commit();
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            return false;
+        }
         return $media;
     }
 
@@ -74,11 +82,11 @@ class MediaFileService
     }
 
 
-    public static function thumb(Media $media,string $size)
+    public static function thumb(Media $media, string $size)
     {
         foreach (config('MediaFile.MediaTypeServices') as $type => $service) {
             if ($media->type == $type) {
-                return $service['handler']::thumb($media,$size);
+                return $service['handler']::thumb($media, $size);
             }
         }
     }
@@ -91,5 +99,4 @@ class MediaFileService
             }
         }
     }
-
 }

@@ -35,7 +35,10 @@ class BlogController extends Controller
     {
         $this->authorize('manage', Blog::class);
         if (isset($request->media)) {
-            $images = MediaFileService::publicUpload($request->media);
+              $images = MediaFileService::publicUpload($request->media);if($images == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
             $request->request->add(['media_id' => $images->id]);
         }
         BlogRepository::create($request);
@@ -60,7 +63,10 @@ class BlogController extends Controller
             if ($blog->media) {
                 $blog->media->delete();
             }
-            $images = MediaFileService::publicUpload($request->media);
+              $images = MediaFileService::publicUpload($request->media);if($images == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
             $request->request->add(['media_id' => $images->id]);
         } else {
             if ($blog->media) {

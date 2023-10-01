@@ -24,7 +24,10 @@ class CouponController extends Controller
         $this->authorize('manage',Coupon::class);
 
         if (isset($request->media)) {
-            $images = MediaFileService::publicUpload($request->media);
+              $images = MediaFileService::publicUpload($request->media);if($images == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
             $request->request->add(['media_id' => $images->id]);
         }
         CouponRepository::store($request);
@@ -50,7 +53,10 @@ class CouponController extends Controller
             if ($coupon->media) {
                 $coupon->media->delete();
             }
-            $images = MediaFileService::publicUpload($request->media);
+              $images = MediaFileService::publicUpload($request->media);if($images == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
             $request->request->add(['media_id' => $images->id]);
         } else {
             if ($coupon->media) {

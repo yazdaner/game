@@ -30,7 +30,10 @@ class GameController extends Controller
     {
         $this->authorize('manage', Game::class);
         if (isset($request->media)) {
-            $images = MediaFileService::publicUpload($request->media);
+              $images = MediaFileService::publicUpload($request->media);if($images == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
             $request->request->add(['media_id' => $images->id]);
         }
         GameRepository::store($request);
@@ -68,7 +71,10 @@ class GameController extends Controller
             if ($game->media) {
                 $game->media->delete();
             }
-            $images = MediaFileService::publicUpload($request->media);
+              $images = MediaFileService::publicUpload($request->media);if($images == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
             $request->request->add(['media_id' => $images->id]);
         } else {
             if ($game->media) {

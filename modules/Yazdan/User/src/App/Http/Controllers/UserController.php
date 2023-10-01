@@ -85,6 +85,10 @@ class UserController extends Controller
         $this->authorize('updatePhoto',User::class);
 
         $image = MediaFileService::publicUpload($request->image);
+        if($image == false){
+            newFeedbacks('نا موفق','فرمت فایل نامعتبر میباشد','error');
+            return back();
+        }
         if(auth()->user()->avatar) auth()->user()->avatar->delete();
         auth()->user()->avatar_id = $image->id;
         auth()->user()->save();
