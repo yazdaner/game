@@ -10,7 +10,7 @@
                         <h1 class="text-break">
                             {{$banner->title}}
                         </h1>
-                        <h6 class="text-break">{{$banner->description}}</h6>
+                        <p class="text-break mt-5">{{$banner->description}}</p>
                         <div class="btn-box">
                             <a href="{{$banner->link}}" class="optional-btn">مشاهده</a>
                         </div>

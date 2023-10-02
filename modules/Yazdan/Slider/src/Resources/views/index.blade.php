@@ -27,7 +27,7 @@
                             <td>{{ $slider->priority }}</td>
                             <td>{{ $slider->link }}</td>
                             <td>{{ __($slider->type) }}</td>
-                            <td>{{ $slider->status }}</td>
+                            <td>{{ $slider->status == 1 ? 'فعال' : 'غیرفعال' }}</td>
                             <td>
                                 <a href="" onclick="deleteItem(event, '{{ route('admin.sliders.destroy', $slider->id) }}')" class="item-delete mlg-15" title="حذف"></a>
                                 <a href="{{ route('admin.sliders.edit',  $slider->id) }}" class="item-edit " title="ویرایش"></a>

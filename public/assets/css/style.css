@@ -9436,7 +9436,7 @@ Sidebar Modal CSS
     height: 250px;
 }
 .blogBanner{
-    width: 50% !important;
+    width: 70% !important;
     height: auto;
 }
 @media only screen and (max-width: 600px) {
