@@ -46,7 +46,7 @@
             <tr role="row" >
                 <td><a href="">{{ $comment->id }}</a></td>
                 <td><a href="">{{ $comment->user->name }}</a></td>
-                <td><a href="">{{ $comment->commentable->title }}</a></td>
+                <td><a href="">{{ $comment->commentable->title ?? ''}}</a></td>
                 <td><a class="btn-show btn btn-yazdan" href="#rolesModal" rel="modal:open" onclick="showComment(event,'{{$comment->body}}')">نمایش</a></td>
                 <td>{{ \Morilog\Jalali\Jalalian::fromCarbon($comment->created_at) }}</td>
                 <td>{{ $comment->comments()->count() }} ({{ $comment->not_approved_comments_count }})</td>

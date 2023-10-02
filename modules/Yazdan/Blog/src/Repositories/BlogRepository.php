@@ -56,7 +56,9 @@ class BlogRepository
 
     public static function delete($blogId)
     {
-        return Blog::whereId($blogId)->delete();
+        $blog = Blog::whereId($blogId)->first();
+        $blog->comments()->delete();
+        return $blog->delete();
     }
 
 }

@@ -11,7 +11,7 @@
             <div class="row m-0 align-items-center">
                 <div class="col-lg-7 col-md-12 p-0">
                     <div class="featured-games-image text-center">
-                        <img class="w-100" src="{{$cta->getAvatar(300)}}" alt="image" />
+                        <img class="w-100" src="{{$cta->getAvatar(600)}}" alt="image" />
                     </div>
                 </div>
 

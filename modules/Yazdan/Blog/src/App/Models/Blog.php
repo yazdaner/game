@@ -2,14 +2,12 @@
 
 namespace Yazdan\Blog\App\Models;
 
-use;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Yazdan\User\App\Models\User;
+use Yazdan\Media\App\Models\Media;
+use Yazdan\Comment\Trait\HasComments;
 use Illuminate\Database\Eloquent\Model;
 use Yazdan\Category\App\Models\Category;
-use Yazdan\Media\App\Models\Media;
-use Yazdan\User\App\Models\User;
-
-Yazdan\Comment\Trait\HasComments;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {

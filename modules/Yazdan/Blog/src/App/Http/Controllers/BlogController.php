@@ -89,12 +89,10 @@ class BlogController extends Controller
     public function postImagesUpload(Request $request)
     {
         $this->authorize('manage', Blog::class);
-
         $file = $request->file('upload');
         $base_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $ext = $file->getClientOriginalExtension();
         $file_name = $base_name . '_' . time() . '.' . $ext;
-
         $file->storeAs('images/posts', $file_name, 'public_files');
         $funcNum = $request->CKEditorFuncNum;
         $fileUrl = asset('images/posts/' . $file_name);
@@ -105,7 +103,7 @@ class BlogController extends Controller
 
     public function blogs()
     {
-        $blogs = Blog::latest()->paginate(2);
+        $blogs = Blog::latest()->paginate(20);
         return view('Blog::front.index',compact('blogs'));
     }
 
