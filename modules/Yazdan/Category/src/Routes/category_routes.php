@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use Yazdan\Category\App\Http\Controllers\CategoryController;
 
 Route::prefix('admin-panel')->name('admin.')->middleware([
