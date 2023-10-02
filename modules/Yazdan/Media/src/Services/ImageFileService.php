@@ -38,13 +38,9 @@ class ImageFileService extends DefaultFileService implements FileServiceContract
 
             // Remove black BG og png image
             if (self::$ext == 'png') {
-                $background = imagecolorallocate($thumb, 0, 0, 0);
-
-                imagecolortransparent($thumb, $background);
-
-                imagealphablending($thumb, false);
-
                 imagesavealpha($thumb, true);
+                $color = imagecolorallocatealpha($thumb, 0, 0, 0, 127);
+                imagefill($thumb, 0, 0, $color);
             }
 
             // Diffrent fuction for png & jpg

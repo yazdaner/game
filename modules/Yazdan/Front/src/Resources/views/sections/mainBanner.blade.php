@@ -19,7 +19,7 @@
 
                 <div class="col-lg-7 col-md-12">
                     <div class="main-banner-image">
-                        <img src="{{$banner->getAvatar(300)}}" alt="image" />
+                        <img src="{{$banner->getAvatar(600)}}" alt="image" />
                     </div>
                 </div>
             </div>
