@@ -31,10 +31,5 @@ class Category extends Model
         return $this->hasMany(Category::class,'parent_id');
     }
 
-    public function getPathAttribute()
-    {
-        // todo
-        return route('categories.show',$this->id);
-    }
 }
 

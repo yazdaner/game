@@ -6,7 +6,7 @@
             <div class="row">
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                  <a href="index-3.html" class="logo">
+                  <a href="/" class="logo">
                     <img src="/assets/img/logo.png" alt="logo" />
                   </a>
                   <p>
@@ -45,35 +45,20 @@
                 </div>
               </div>
 
-              <div class="col-lg-2 col-md-6 col-sm-6">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div class="single-footer-widget pl-5">
                   <h3>کاوش کنید</h3>
 
                   <ul class="footer-links-list">
-                    <li><a href="#">صفحه اصلی</a></li>
+                    <li><a href="/">صفحه اصلی</a></li>
                     <li><a href="{{route('about')}}">درباره ما</a></li>
-                    <li><a href="#">مطالعات موردی</a></li>
-                    <li><a href="#">وبلاگ ما</a></li>
+                    <li><a href="{{route('blogs')}}">وبلاگ ما</a></li>
                     <li><a href="{{route('contact')}}">تماس با ما</a></li>
                   </ul>
                 </div>
               </div>
 
-              <div class="col-lg-2 col-md-6 col-sm-6">
-                <div class="single-footer-widget pl-3">
-                  <h3>منابع</h3>
-
-                  <ul class="footer-links-list">
-                    <li><a href="#">صفحه اصلی</a></li>
-                    <li><a href="{{route('about')}}">درباره ما</a></li>
-                    <li><a href="#">مطالعات موردی</a></li>
-                    <li><a href="#">وبلاگ ما</a></li>
-                    <li><a href="{{route('contact')}}">تماس با ما</a></li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div class="single-footer-widget pl-3">
                   <h3>آدرس</h3>
 

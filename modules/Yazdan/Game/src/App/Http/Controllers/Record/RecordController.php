@@ -102,7 +102,7 @@ class RecordController extends Controller
             $request->request->add(['media_id' => $images->id]);
         }
 
-        // todo validate min record with coupon
+        // validate min record with coupon
         $minScore = LevelRepository::findById($request->level)->minScore;
 
 
@@ -138,7 +138,6 @@ class RecordController extends Controller
             return back();
         }
 
-        //todo
         Record::create([
             'claimRecord' => $record,
             'media_id' => $request->media_id,
@@ -154,9 +153,13 @@ class RecordController extends Controller
 
     public function coinRecord(Level $level)
     {
-        // todo
         if ($level->coin > auth()->user()->coin) {
             newFeedbacks('نا موفق', 'تعداد سکه های شما کافی نمیباشد', 'error');
+            return back();
+        }
+
+        if($level->game->deadline < now()){
+            newFeedbacks('نا موفق','تاریخ بازی به پابان رسیده است','error');
             return back();
         }
 

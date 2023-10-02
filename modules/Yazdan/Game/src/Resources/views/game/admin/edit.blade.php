@@ -28,7 +28,7 @@
 
                 <x-select name="status" placeholder="وضعیت بازی">
                     @foreach ($statuses as $status)
-                    <option value="{{$status}}" @if ($game->status == $status) selected @endif>@lang($status)</option>
+                    <option value="{{$status}}" @if ($game->status == $status) selected @endif>{{$status == 'active' ? 'نمایش' : 'عدم نمایش'}}</option>
                     @endforeach
                 </x-select>
 

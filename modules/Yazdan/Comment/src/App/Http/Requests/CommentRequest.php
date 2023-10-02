@@ -15,7 +15,6 @@ class CommentRequest extends FormRequest
 
     public function rules()
     {
-        //todo
         return [
             "body" => "required",
             "commentable_id" => "required",

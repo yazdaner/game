@@ -1,4 +1,4 @@
-<div class="comment-main">
+<div class="comment-main mt-5">
     <div>
         <h3>نظرات</h3>
     </div>

@@ -32,10 +32,6 @@
 
                     </div>
                 </div>
-
-                <div class="tab-pane fade" id="upcoming-matches" role="tabpanel">
-                    <!-- todo -->
-                </div>
             </div>
         </div>
     </div>

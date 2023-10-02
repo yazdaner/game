@@ -11,7 +11,3 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
         'create', 'show'
     ]);
 });
-
-
-// todo
-Route::get('/categories/{category}', [LoginController::class, 'showLoginForm'])->name('categories.show');

@@ -9,7 +9,7 @@
                     <div class="single-blog-post-box">
                         <div class="post-image">
                             <a href="{{route('blog.show',$blog->slug)}}">
-                                <img src="{{$blog->getAvatar(300)}}" alt="image">
+                                <img src="{{$blog->getAvatar(600)}}" alt="image">
                             </a>
                         </div>
 

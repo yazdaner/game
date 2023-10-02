@@ -26,15 +26,18 @@
                             </ul>
                         </div>
 
-                       <div class="content my-5 text-break">
+                       <div class="content my-5">
                             {!! $blog->content !!}
                        </div>
 
-                    @include('Comment::front.index')
                 </div>
             </div>
 
         </div>
     </div>
+    <div class="mt-5">
+        @include('Comment::front.index')
+    </div>
+
 </section>
 @endsection

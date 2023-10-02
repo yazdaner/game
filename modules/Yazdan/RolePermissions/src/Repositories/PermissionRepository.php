@@ -15,7 +15,6 @@ class PermissionRepository
     const PERMISSION_MANAGE_COUPON = 'manage coupon';
     const PERMISSION_MANAGE_ROLE_PERMISSIONS = 'manage role permissions';
     const PERMISSION_MANAGE_PAYMENTS = 'manage payments';
-    const PERMISSION_MANAGE_SETTLEMENTS = 'manage settlements';
     const PERMISSION_MANAGE_DISCOUNT = 'manage discounts';
     const PERMISSION_MANAGE_TICKETS = "manage tickets";
     const PERMISSION_MANAGE_COMMENTS = "manage comments";
@@ -38,7 +37,6 @@ class PermissionRepository
         self::PERMISSION_MANAGE_ROLE_PERMISSIONS,
         self::PERMISSION_MANAGE_USERS,
         self::PERMISSION_MANAGE_PAYMENTS,
-        self::PERMISSION_MANAGE_SETTLEMENTS,
         self::PERMISSION_MANAGE_DISCOUNT,
         self::PERMISSION_MANAGE_TICKETS,
         self::PERMISSION_MANAGE_COMMENTS,
