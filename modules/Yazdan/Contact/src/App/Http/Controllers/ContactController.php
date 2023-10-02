@@ -3,10 +3,10 @@
 namespace Yazdan\Contact\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Yazdan\Contact\App\Models\Contact;
 use Yazdan\Common\Responses\AjaxResponses;
-use Yazdan\Contact\Repositories\ContactRepository;
 use Yazdan\Contact\App\Http\Requests\ContactRequest;
+use Yazdan\Contact\App\Models\Contact;
+use Yazdan\Contact\Repositories\ContactRepository;
 
 class ContactController extends Controller
 {

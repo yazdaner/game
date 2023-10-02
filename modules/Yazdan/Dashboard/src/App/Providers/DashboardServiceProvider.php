@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Yazdan\Dashboard\App\Policies\HomePolicy;
-use Yazdan\RolePermissions\Repositories\PermissionRepository;
 
 class DashboardServiceProvider extends ServiceProvider
 {

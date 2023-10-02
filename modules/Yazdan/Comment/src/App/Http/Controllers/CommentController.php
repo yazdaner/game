@@ -3,10 +3,10 @@
 namespace Yazdan\Comment\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Yazdan\Comment\App\Models\Comment;
-use Yazdan\Common\Responses\AjaxResponses;
-use Yazdan\Comment\Repositories\CommentRepository;
 use Yazdan\Comment\App\Http\Requests\CommentRequest;
+use Yazdan\Comment\App\Models\Comment;
+use Yazdan\Comment\Repositories\CommentRepository;
+use Yazdan\Common\Responses\AjaxResponses;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
 
 class CommentController extends Controller

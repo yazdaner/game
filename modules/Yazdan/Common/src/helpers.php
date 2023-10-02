@@ -1,7 +1,7 @@
 <?php
 
-use Morilog\Jalali\Jalalian;
 use Illuminate\Support\Facades\Route;
+use Morilog\Jalali\Jalalian;
 
 function newFeedbacks($title = 'با موفقعیت',$body = 'عملیات انجام شد',$type = 'success')
 {

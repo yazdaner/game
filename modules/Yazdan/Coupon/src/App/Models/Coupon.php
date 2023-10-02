@@ -2,11 +2,9 @@
 
 namespace Yazdan\Coupon\App\Models;
 
-use Yazdan\Media\App\Models\Media;
-use Yazdan\Payment\App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
+use Yazdan\Media\App\Models\Media;
 use Yazdan\Payment\Traits\PaymentTrait;
-use Yazdan\Discount\App\Models\Discount;
 use Yazdan\User\App\Models\User;
 
 class Coupon extends Model

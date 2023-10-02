@@ -3,12 +3,11 @@
 namespace Yazdan\User\App\Http\Controllers\Auth;
 
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Yazdan\User\Services\UserService;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Yazdan\User\App\Http\Requests\UpdatePasswordRequest;
+use Yazdan\User\Services\UserService;
 
 class ResetPasswordController extends Controller
 {

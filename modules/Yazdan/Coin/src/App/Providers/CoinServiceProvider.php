@@ -2,12 +2,12 @@
 
 namespace Yazdan\Coin\App\Providers;
 
-use Yazdan\Coin\App\Policies\CoinPolicy;
-use Yazdan\Coin\App\Models\Coin;
 use Carbon\Laravel\ServiceProvider;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
+use Yazdan\Coin\App\Models\Coin;
+use Yazdan\Coin\App\Policies\CoinPolicy;
 use Yazdan\Coin\Database\Seeders\CoinSeeder;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
 

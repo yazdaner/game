@@ -2,14 +2,14 @@
 
 namespace Yazdan\Game\App\Http\Controllers\Game;
 
-use Yazdan\Game\App\Models\Game;
 use App\Http\Controllers\Controller;
 use Yazdan\Common\Responses\AjaxResponses;
-use Yazdan\Media\Services\MediaFileService;
+use Yazdan\Game\App\Http\Requests\GameRequest;
+use Yazdan\Game\App\Models\Game;
 use Yazdan\Game\Repositories\GameRepository;
 use Yazdan\Game\Repositories\LevelRepository;
-use Yazdan\Game\App\Http\Requests\GameRequest;
 use Yazdan\Game\Repositories\RecordRepository;
+use Yazdan\Media\Services\MediaFileService;
 
 class GameController extends Controller
 {

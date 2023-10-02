@@ -3,7 +3,6 @@
 namespace Yazdan\Discount\Repositories;
 
 use Morilog\Jalali\Jalalian;
-use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Discount\App\Models\Discount;
 
 class DiscountRepository

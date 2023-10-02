@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Yazdan\User\App\Http\Controllers\UserController;
+use Yazdan\User\App\Http\Controllers\Auth\ForgotPasswordController;
 use Yazdan\User\App\Http\Controllers\Auth\LoginController;
 use Yazdan\User\App\Http\Controllers\Auth\RegisterController;
-use Yazdan\User\App\Http\Controllers\Auth\VerificationController;
 use Yazdan\User\App\Http\Controllers\Auth\ResetPasswordController;
-use Yazdan\User\App\Http\Controllers\Auth\ForgotPasswordController;
+use Yazdan\User\App\Http\Controllers\Auth\VerificationController;
+use Yazdan\User\App\Http\Controllers\UserController;
 
 
 Route::prefix('admin-panel')->name('admin.')->middleware([

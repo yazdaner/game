@@ -2,12 +2,11 @@
 
 namespace Yazdan\Game\App\Models;
 
-use Yazdan\User\App\Models\User;
-use Yazdan\Game\App\Models\Level;
-use Yazdan\Media\App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Game\Repositories\RecordRepository;
+use Yazdan\Media\App\Models\Media;
+use Yazdan\User\App\Models\User;
 
 class Record extends Model
 {

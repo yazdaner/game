@@ -2,9 +2,9 @@
 
 namespace Yazdan\About\App\Http\Controllers;
 
-use Yazdan\About\App\Models\About;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Yazdan\About\App\Models\About;
 use Yazdan\About\Repositories\AboutRepository;
 
 class AboutController extends Controller

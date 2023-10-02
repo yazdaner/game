@@ -2,17 +2,14 @@
 
 namespace Yazdan\Cart\App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Cart;
 use Illuminate\Http\Request;
-use Yazdan\Coin\App\Models\Coin;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Yazdan\Payment\Gateways\Gateway;
-use Illuminate\Support\Facades\Session;
-use Yazdan\Payment\Services\PaymentService;
 use Yazdan\Cart\App\Http\Requests\CartRequest;
-use Yazdan\Payment\Repositories\PaymentRepository;
 use Yazdan\Payment\App\Events\PaymentWasSuccessful;
+use Yazdan\Payment\Gateways\Gateway;
+use Yazdan\Payment\Repositories\PaymentRepository;
+use Yazdan\Payment\Services\PaymentService;
 
 class CartController extends Controller
 {

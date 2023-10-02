@@ -2,9 +2,9 @@
 
 namespace Yazdan\Cart\App\Http\Requests;
 
-use Yazdan\Cart\App\Rules\ProductableRule;
-use Illuminate\Foundation\Http\FormRequest;
 use Cyaxaress\Comment\Rules\CommentableRule;
+use Illuminate\Foundation\Http\FormRequest;
+use Yazdan\Cart\App\Rules\ProductableRule;
 
 class CartRequest extends FormRequest
 {

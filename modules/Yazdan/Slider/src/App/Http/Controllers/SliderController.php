@@ -3,11 +3,11 @@
 namespace Yazdan\Slider\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Yazdan\Slider\App\Models\Slider;
 use Yazdan\Common\Responses\AjaxResponses;
 use Yazdan\Media\Services\MediaFileService;
-use Yazdan\Slider\Repositories\SliderRepository;
 use Yazdan\Slider\App\Http\Requests\SliderRequest;
+use Yazdan\Slider\App\Models\Slider;
+use Yazdan\Slider\Repositories\SliderRepository;
 
 class SliderController extends Controller
 {

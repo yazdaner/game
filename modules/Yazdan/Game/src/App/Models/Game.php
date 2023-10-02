@@ -2,9 +2,8 @@
 
 namespace Yazdan\Game\App\Models;
 
-use Yazdan\Game\App\Models\Group;
-use Yazdan\Media\App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
+use Yazdan\Media\App\Models\Media;
 
 class Game extends Model
 {

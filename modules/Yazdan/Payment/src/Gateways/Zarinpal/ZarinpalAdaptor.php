@@ -2,7 +2,6 @@
 
 namespace Yazdan\Payment\Gateways\Zarinpal;
 
-use Yazdan\Payment\App\Models\Payment;
 use Yazdan\Payment\Contracts\GatewayContract;
 
 class ZarinpalAdaptor implements GatewayContract

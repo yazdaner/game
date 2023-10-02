@@ -2,14 +2,14 @@
 
 namespace Yazdan\Setting\App\Providers;
 
-use Yazdan\Setting\App\Policies\SettingPolicy;
-use Yazdan\Setting\App\Models\Setting;
 use Carbon\Laravel\ServiceProvider;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
-use Yazdan\Setting\Database\Seeders\SettingSeeder;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
+use Yazdan\Setting\App\Models\Setting;
+use Yazdan\Setting\App\Policies\SettingPolicy;
+use Yazdan\Setting\Database\Seeders\SettingSeeder;
 
 class SettingServiceProvider extends ServiceProvider
 {

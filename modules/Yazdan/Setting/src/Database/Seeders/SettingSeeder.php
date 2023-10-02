@@ -3,7 +3,6 @@
 namespace Yazdan\Setting\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
 use Yazdan\Setting\App\Models\Setting;
 use Yazdan\Setting\Repositories\SettingRepository;
 

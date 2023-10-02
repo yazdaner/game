@@ -2,13 +2,13 @@
 
 namespace Yazdan\Game\App\Http\Controllers\Level;
 
-use Yazdan\Game\App\Models\Level;
 use App\Http\Controllers\Controller;
-use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Common\Responses\AjaxResponses;
+use Yazdan\Coupon\App\Models\Coupon;
+use Yazdan\Game\App\Http\Requests\LevelRequest;
+use Yazdan\Game\App\Models\Level;
 use Yazdan\Game\Repositories\GameRepository;
 use Yazdan\Game\Repositories\LevelRepository;
-use Yazdan\Game\App\Http\Requests\LevelRequest;
 
 class LevelController extends Controller
 {

@@ -5,8 +5,8 @@ namespace Yazdan\Media\Services;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Yazdan\Media\App\Models\Media;
-use Yazdan\Media\Repositories\MediaRepository;
 use Yazdan\Media\Contracts\FileServiceContract;
+use Yazdan\Media\Repositories\MediaRepository;
 
 class MediaFileService
 {

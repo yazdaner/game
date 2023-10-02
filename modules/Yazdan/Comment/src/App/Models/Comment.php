@@ -2,9 +2,9 @@
 
 namespace Yazdan\Comment\App\Models;
 
-use Yazdan\User\App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Yazdan\Comment\Repositories\CommentRepository;
+use Yazdan\User\App\Models\User;
 
 class Comment extends Model
 {

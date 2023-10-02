@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Yazdan\Game\App\Http\Controllers\Game\GameController;
-use Yazdan\Home\App\Http\Controllers\HomeController;
 use Yazdan\Game\App\Http\Controllers\Game\HomeGameController;
 
 

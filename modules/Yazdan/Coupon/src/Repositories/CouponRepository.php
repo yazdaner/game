@@ -2,7 +2,6 @@
 namespace Yazdan\Coupon\Repositories;
 
 use Yazdan\Coupon\App\Models\Coupon;
-use Yazdan\Common\Responses\AjaxResponses;
 
 class CouponRepository
 {

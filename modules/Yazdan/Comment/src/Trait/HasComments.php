@@ -2,8 +2,8 @@
 
 namespace Yazdan\Comment\Trait;
 
-use Yazdan\Comment\App\Models\Comment;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
+use Yazdan\Comment\App\Models\Comment;
 use Yazdan\Comment\Repositories\CommentRepository;
 
 trait HasComments

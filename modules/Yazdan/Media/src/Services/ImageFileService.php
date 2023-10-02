@@ -2,10 +2,8 @@
 
 namespace Yazdan\Media\Services;
 
-use Yazdan\Media\App\Models\Media;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
-use Yazdan\Media\Services\DefaultFileService;
+use Yazdan\Media\App\Models\Media;
 use Yazdan\Media\Contracts\FileServiceContract;
 
 class ImageFileService extends DefaultFileService implements FileServiceContract

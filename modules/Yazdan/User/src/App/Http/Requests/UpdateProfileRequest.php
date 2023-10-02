@@ -3,9 +3,7 @@
 namespace Yazdan\User\App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Yazdan\RolePermissions\Repositories\PermissionRepository;
 use Yazdan\User\App\Rules\ValidMobile;
-use Yazdan\User\App\Rules\ValidPassword;
 
 class UpdateProfileRequest extends FormRequest
 {

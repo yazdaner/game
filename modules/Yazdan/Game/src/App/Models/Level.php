@@ -2,10 +2,8 @@
 
 namespace Yazdan\Game\App\Models;
 
-use Yazdan\Game\App\Models\Game;
-use Yazdan\User\App\Models\User;
-use Yazdan\Coupon\App\Models\Coupon;
 use Illuminate\Database\Eloquent\Model;
+use Yazdan\Coupon\App\Models\Coupon;
 
 class Level extends Model
 {

@@ -2,18 +2,17 @@
 
 namespace Yazdan\Game\App\Providers;
 
+use Carbon\Laravel\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Route;
 use Yazdan\Game\App\Models\Game;
 use Yazdan\Game\App\Models\Group;
 use Yazdan\Game\App\Models\Level;
 use Yazdan\Game\App\Models\Record;
-use Carbon\Laravel\ServiceProvider;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Route;
 use Yazdan\Game\App\Policies\GamePolicy;
 use Yazdan\Game\App\Policies\GroupPolicy;
 use Yazdan\Game\App\Policies\LevelPolicy;
 use Yazdan\Game\App\Policies\RecordPolicy;
-use Yazdan\Game\Repositories\GameRepository;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
 
 class GameServiceProvider extends ServiceProvider

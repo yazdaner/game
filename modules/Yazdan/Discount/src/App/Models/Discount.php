@@ -1,10 +1,10 @@
 <?php
 namespace Yazdan\Discount\App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Yazdan\Coin\App\Models\Coin;
 use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Payment\App\Models\Payment;
-use Illuminate\Database\Eloquent\Model;
 
 class Discount extends Model
 {

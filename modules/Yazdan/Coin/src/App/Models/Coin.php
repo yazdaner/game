@@ -2,9 +2,8 @@
 
 namespace Yazdan\Coin\App\Models;
 
-use Yazdan\Media\App\Models\Media;
-use Yazdan\Payment\App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
+use Yazdan\Media\App\Models\Media;
 use Yazdan\Payment\Traits\PaymentTrait;
 
 class Coin extends Model

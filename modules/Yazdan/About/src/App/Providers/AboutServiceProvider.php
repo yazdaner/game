@@ -2,12 +2,12 @@
 
 namespace Yazdan\About\App\Providers;
 
-use Yazdan\About\App\Policies\AboutPolicy;
-use Yazdan\About\App\Models\About;
 use Carbon\Laravel\ServiceProvider;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
+use Yazdan\About\App\Models\About;
+use Yazdan\About\App\Policies\AboutPolicy;
 use Yazdan\About\Database\Seeders\AboutSeeder;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
 

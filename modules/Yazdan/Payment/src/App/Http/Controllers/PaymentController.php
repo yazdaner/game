@@ -2,15 +2,14 @@
 
 namespace Yazdan\Payment\App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
-use Morilog\Jalali\Jalalian;
-use App\Http\Controllers\Controller;
-use Yazdan\Payment\Gateways\Gateway;
-use Yazdan\Payment\App\Models\Payment;
-use Yazdan\Payment\Repositories\PaymentRepository;
 use Yazdan\Payment\App\Events\PaymentWasSuccessful;
 use Yazdan\Payment\App\Http\Requests\PaymentRequest;
+use Yazdan\Payment\App\Models\Payment;
+use Yazdan\Payment\Gateways\Gateway;
+use Yazdan\Payment\Repositories\PaymentRepository;
 
 class PaymentController extends Controller
 {

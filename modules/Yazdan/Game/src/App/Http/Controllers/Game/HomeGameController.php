@@ -2,8 +2,8 @@
 
 namespace Yazdan\Game\App\Http\Controllers\Game;
 
-use Yazdan\Game\App\Models\Game;
 use App\Http\Controllers\Controller;
+use Yazdan\Game\App\Models\Game;
 use Yazdan\Game\Repositories\GameRepository;
 
 class HomeGameController extends Controller

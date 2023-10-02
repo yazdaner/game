@@ -2,9 +2,9 @@
 
 namespace Yazdan\Search\App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yazdan\Blog\App\Models\Blog;
-use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {

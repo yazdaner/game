@@ -2,12 +2,12 @@
 
 namespace Yazdan\User\App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Yazdan\User\Services\VerifyMailService;
-use Yazdan\User\Repositories\UserRepository;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\Request;
 use Yazdan\User\App\Http\Requests\ResetPasswordVerifyCodeRequest;
+use Yazdan\User\Repositories\UserRepository;
+use Yazdan\User\Services\VerifyMailService;
 
 class ForgotPasswordController extends Controller
 {

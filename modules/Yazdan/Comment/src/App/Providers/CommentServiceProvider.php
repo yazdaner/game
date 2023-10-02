@@ -4,8 +4,8 @@ namespace Yazdan\Comment\App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
-use Yazdan\Comment\App\Models\Comment;
 use Illuminate\Support\ServiceProvider;
+use Yazdan\Comment\App\Models\Comment;
 use Yazdan\Comment\App\Policies\CommentPolicy;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
 

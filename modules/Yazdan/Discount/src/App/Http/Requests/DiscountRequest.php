@@ -2,8 +2,8 @@
 
 namespace Yazdan\Discount\App\Http\Requests;
 
-use Yazdan\Discount\App\Rules\ValidJalaliDate;
 use Illuminate\Foundation\Http\FormRequest;
+use Yazdan\Discount\App\Rules\ValidJalaliDate;
 
 class DiscountRequest extends FormRequest
 {

@@ -2,8 +2,8 @@
 
 namespace Yazdan\Slider\App\Models;
 
-use Yazdan\Media\App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
+use Yazdan\Media\App\Models\Media;
 
 class Slider extends Model
 {

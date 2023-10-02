@@ -2,11 +2,11 @@
 
 namespace Yazdan\Coin\App\Http\Controllers;
 
-use Yazdan\Coin\App\Models\Coin;
 use App\Http\Controllers\Controller;
-use Yazdan\Media\Services\MediaFileService;
-use Yazdan\Coin\Repositories\CoinRepository;
 use Yazdan\Coin\App\Http\Requests\CoinRequest;
+use Yazdan\Coin\App\Models\Coin;
+use Yazdan\Coin\Repositories\CoinRepository;
+use Yazdan\Media\Services\MediaFileService;
 
 class CoinController extends Controller
 {

@@ -2,11 +2,11 @@
 
 namespace Yazdan\Payment\Traits;
 
-use Yazdan\Payment\App\Models\Payment;
-use Yazdan\Discount\App\Models\Discount;
-use Yazdan\Discount\Services\DiscountService;
-use Yazdan\Discount\Repositories\DiscountRepository;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
+use Yazdan\Discount\App\Models\Discount;
+use Yazdan\Discount\Repositories\DiscountRepository;
+use Yazdan\Discount\Services\DiscountService;
+use Yazdan\Payment\App\Models\Payment;
 
 trait PaymentTrait
 {

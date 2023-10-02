@@ -2,10 +2,8 @@
 
 namespace Yazdan\Coin\App\Listeners;
 
-use Yazdan\User\App\Models\User;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Yazdan\Coupon\App\Models\Coupon;
+use Yazdan\User\App\Models\User;
 
 class GiveCoinToUser
 {

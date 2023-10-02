@@ -2,15 +2,15 @@
 
 namespace Yazdan\Discount\App\Http\Controllers;
 
-use Yazdan\Coin\App\Models\Coin;
 use App\Http\Controllers\Controller;
-use Yazdan\Coupon\App\Models\Coupon;
-use Yazdan\Discount\App\Models\Discount;
+use Yazdan\Coin\App\Models\Coin;
 use Yazdan\Common\Responses\AjaxResponses;
-use Yazdan\Discount\Services\DiscountService;
+use Yazdan\Coupon\App\Models\Coupon;
 use Yazdan\Discount\App\Http\Requests\CodeRequest;
-use Yazdan\Discount\Repositories\DiscountRepository;
 use Yazdan\Discount\App\Http\Requests\DiscountRequest;
+use Yazdan\Discount\App\Models\Discount;
+use Yazdan\Discount\Repositories\DiscountRepository;
+use Yazdan\Discount\Services\DiscountService;
 
 class DiscountController extends Controller
 {

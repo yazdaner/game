@@ -2,8 +2,8 @@
 
 namespace Yazdan\Contact\App\Http\Requests;
 
-use Yazdan\User\App\Rules\ValidMobile;
 use Illuminate\Foundation\Http\FormRequest;
+use Yazdan\User\App\Rules\ValidMobile;
 
 class ContactRequest extends FormRequest
 {

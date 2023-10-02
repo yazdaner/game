@@ -2,20 +2,17 @@
 
 namespace Yazdan\Game\App\Http\Controllers\Record;
 
-use Illuminate\Http\Request;
-use Yazdan\Game\App\Models\Game;
-use Yazdan\Game\App\Models\Level;
-use Illuminate\Support\Facades\DB;
-use Yazdan\Game\App\Models\Record;
 use App\Http\Controllers\Controller;
-use function PHPUnit\Framework\isNull;
+use Illuminate\Support\Facades\DB;
 use Yazdan\Common\Responses\AjaxResponses;
-use Yazdan\Media\Services\MediaFileService;
-use Yazdan\Game\Repositories\LevelRepository;
-use Yazdan\Game\Repositories\RecordRepository;
-
 use Yazdan\Coupon\Repositories\CouponRepository;
 use Yazdan\Game\App\Http\Requests\RecordRequest;
+use Yazdan\Game\App\Models\Game;
+use Yazdan\Game\App\Models\Level;
+use Yazdan\Game\App\Models\Record;
+use Yazdan\Game\Repositories\LevelRepository;
+use Yazdan\Game\Repositories\RecordRepository;
+use Yazdan\Media\Services\MediaFileService;
 
 class RecordController extends Controller
 {

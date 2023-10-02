@@ -2,12 +2,12 @@
 
 namespace Yazdan\User\App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\Request;
 use Yazdan\User\App\Http\Requests\VerifyCodeRequest;
 use Yazdan\User\Services\VerifyMailService;
-use Illuminate\Foundation\Auth\VerifiesEmails;
 
 class VerificationController extends Controller
 {

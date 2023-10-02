@@ -2,8 +2,8 @@
 
 namespace Yazdan\Coupon\App\Http\Controllers\Home;
 
-use Yazdan\Coupon\App\Models\Coupon;
 use App\Http\Controllers\Controller;
+use Yazdan\Coupon\App\Models\Coupon;
 
 
 class HomeCouponController extends Controller

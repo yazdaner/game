@@ -3,7 +3,6 @@
 namespace Yazdan\Game\App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Yazdan\Game\App\Models\Level;
 
 class RecordRequest extends FormRequest
 {

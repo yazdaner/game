@@ -5,9 +5,9 @@ namespace Yazdan\Slider\App\Providers;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Yazdan\RolePermissions\Repositories\PermissionRepository;
 use Yazdan\Slider\App\Models\Slider;
 use Yazdan\Slider\App\Policies\SliderPolicy;
-use Yazdan\RolePermissions\Repositories\PermissionRepository;
 
 class SliderServiceProvider extends ServiceProvider
 {

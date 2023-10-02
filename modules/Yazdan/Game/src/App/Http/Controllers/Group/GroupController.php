@@ -2,12 +2,12 @@
 
 namespace Yazdan\Game\App\Http\Controllers\Group;
 
-use Yazdan\Game\App\Models\Group;
 use App\Http\Controllers\Controller;
 use Yazdan\Common\Responses\AjaxResponses;
+use Yazdan\Game\App\Http\Requests\GroupRequest;
+use Yazdan\Game\App\Models\Group;
 use Yazdan\Game\Repositories\GameRepository;
 use Yazdan\Game\Repositories\GroupRepository;
-use Yazdan\Game\App\Http\Requests\GroupRequest;
 
 class GroupController extends Controller
 {

@@ -2,8 +2,6 @@
 
 namespace Yazdan\Game\Repositories;
 
-use Yazdan\Game\App\Models\Game;
-use Yazdan\Game\App\Models\Group;
 use Yazdan\Game\App\Models\Level;
 
 class LevelRepository
