@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Yazdan\RolePermissions\Repositories\RoleRepository;
 use Yazdan\User\App\Models\User;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use Yazdan\RolePermissions\Repositories\RoleRepository;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,9 @@ use Yazdan\User\App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Artisan::call('storage:link');
+Route::get('/linkstorage', function () {
+    $targetFolder = base_path().'/storage/app/public';
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';
+    symlink($targetFolder, $linkFolder);
+ });

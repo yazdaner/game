@@ -22,7 +22,6 @@ function modal(modalID, size = null, btn, func = null) {
 
 function showImage() {
     var imgsrc = $('.tutor-avatar-img').attr('src');
-    console.log(imgsrc)
     $('.modal-body img').attr('src', imgsrc);
 }
 showImage()

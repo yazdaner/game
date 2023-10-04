@@ -126,7 +126,7 @@ class Zarinpal
             $node     = ($SandBox == true) ? "sandbox" : $this->zarinpal_node();
             $upay     = ($SandBox == true) ? "sandbox" : "www";
 
-            $client = new SoapClient("https://{$node}.zarinpal.com/pg/services/WebGate/wsdl", ['encoding' => 'UTF-8']);
+            $client = new \SoapClient("https://{$node}.zarinpal.com/pg/services/WebGate/wsdl", ['encoding' => 'UTF-8']);
 
             $result = $client->PaymentRequest([
                 'MerchantID'     => $MerchantID,
@@ -209,7 +209,7 @@ class Zarinpal
             $au     = (isset($_GET['Authority']) && $_GET['Authority'] != "") ? $_GET['Authority'] : "";
             $node     = ($SandBox == true) ? "sandbox" : $this->zarinpal_node();
 
-            $client = new SoapClient("https://{$node}.zarinpal.com/pg/services/WebGate/wsdl", ['encoding' => 'UTF-8']);
+            $client = new \SoapClient("https://{$node}.zarinpal.com/pg/services/WebGate/wsdl", ['encoding' => 'UTF-8']);
 
             $result = $client->PaymentVerification([
                 'MerchantID'     => $MerchantID,

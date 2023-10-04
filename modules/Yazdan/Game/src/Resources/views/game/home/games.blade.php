@@ -7,15 +7,12 @@
             <h2>بازی های پرطرفدار</h2>
         </div>
 
-        <div class="matches-tabs p-5">
+        <div class="matches-tabs p-3">
 
-
-            <div class="tab-content p-5" id="myTabContent">
+            <div class="tab-content" id="myTabContent">
                 <div class="single-matches-box">
-                    <div class="row align-items-center justify-content-between ">
-
+                    <div class="row align-items-center justify-content-between">
                         @foreach ($games as $game)
-
                         @if($loop->iteration % 2 != 0)
                         <div class="col-lg-6 col-md-12 mb-5">
                             <x-game title="{{$game->title}}" img="{{$game->media->thumb(300)}}" link="{{route('games.show',$game->id)}}" />
@@ -25,11 +22,7 @@
                             <x-game title="{{$game->title}}" img="{{$game->media->thumb(300)}}" link="{{route('games.show',$game->id)}}" class="right-image" />
                         </div>
                         @endif
-
-
-
                         @endforeach
-
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@
 namespace Yazdan\Payment\Gateways\Zarinpal;
 
 use Yazdan\Payment\Contracts\GatewayContract;
+use Yazdan\Payment\Gateways\Zarinpal\Zarinpal;
 
 class ZarinpalAdaptor implements GatewayContract
 {
@@ -21,7 +22,7 @@ class ZarinpalAdaptor implements GatewayContract
         $ZarinGate         = false;
         $SandBox         = true;
 
-        $this->client     = new zarinpal();
+        $this->client     = new Zarinpal();
         $result = $this->client->request($MerchantID, $Amount, $Description, $Email, $Mobile, $CallbackURL, $SandBox, $ZarinGate);
 
         if (isset($result["Status"]) && $result["Status"] == 100) {
@@ -45,7 +46,7 @@ class ZarinpalAdaptor implements GatewayContract
         $SandBox         = true;
         $ZarinGate         = false;
 
-        $this->client = new zarinpal();
+        $this->client = new Zarinpal();
 
         $result = $this->client->verify($MerchantID, $Amount, $SandBox, $ZarinGate);
 

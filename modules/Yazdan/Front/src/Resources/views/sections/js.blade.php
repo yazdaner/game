@@ -1,6 +1,4 @@
 <div class="go-top"><i class="bx bx-up-arrow-alt"></i></div>
-<div class="zelda-cursor"></div>
-<div class="zelda-cursor2"></div>
 <!-- Links of JS files -->
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/popper.min.js"></script>

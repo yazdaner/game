@@ -9391,6 +9391,13 @@ Sidebar Modal CSS
     height: 150px !important;
 }
 
+@media only screen and (max-width: 700px) {
+    .gameImg{
+        width: 110px !important;
+        height: 110px !important;
+    }
+}
+
 .text-success {
     color: #00b894 !important;
 }
