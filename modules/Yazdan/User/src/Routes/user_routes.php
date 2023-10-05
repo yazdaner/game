@@ -58,7 +58,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 // logout
 
-// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/logout', function(){
 auth()->logout();
 return back();

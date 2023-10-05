@@ -1,8 +1,7 @@
 @extends('User::front.master')
 
 @section('content')
-<div class="row mt-5">
-    <div class="col-lg-5 col-md-7 col-sm-9 col-11 mx-auto">
+    <div class="col-lg-5 col-md-7 col-sm-9 col-12 my-5 mx-auto">
         <div class="login-form">
             <h2 class="text-center">بازیابی گذرواژه</h2>
 
@@ -24,7 +23,6 @@
                 </div>
             </form>
 
-        </div>
     </div>
 </div>
 @endsection

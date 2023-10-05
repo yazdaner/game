@@ -2,10 +2,6 @@
 <!-- Start CTA -->
 <section class="featured-games-area ptb-100">
     <div class="container">
-        <div class="section-title">
-            <span class="sub-title">ویترین</span>
-            <h2>بازی های برجسته ما</h2>
-        </div>
 
         <div class="featured-games-inner">
             <div class="row m-0 align-items-center">

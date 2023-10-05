@@ -4,7 +4,7 @@
     <div class="container">
         <div class="section-title mt-5">
             <span class="sub-title">بازی ها</span>
-            <h2>بازی های پرطرفدار</h2>
+            <h2>بازی های جاری</h2>
         </div>
 
         <div class="matches-tabs p-3">

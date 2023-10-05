@@ -1,8 +1,7 @@
 @extends('User::front.master')
 @section('content')
 
-<div class="row mt-5">
-    <div class="col-lg-5 col-md-7 col-sm-9 col-11 mx-auto">
+    <div class="col-lg-5 col-md-7 col-sm-9 col-12 my-5 mx-auto">
         <div class="login-form">
             <h2 class="text-center">فعال سازی حساب</h2>
 
@@ -45,7 +44,6 @@
             <form id="resend-code" action="{{route('verification.resend')}}" method="post">@csrf</form>
             <form id="logout" action="{{route('logout')}}" method="post">@csrf</form>
 
-        </div>
     </div>
 </div>
 

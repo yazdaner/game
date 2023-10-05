@@ -42,13 +42,26 @@
                     </ul>
 
                     <div class="others-option d-flex align-items-center">
+                        @auth
+
+                        <div class="option-item">
+                            <a href="{{route('user.coin.index')}}">
+                                <div class="d-flex align-items-center">
+                                    <img src="{{$coin->getAvatar(60)}}" width="40" alt="">
+                                    <p class="mb-0">
+                                        {{auth()->user()->coin}}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        @endauth
 
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="{{route('users.cart.index')}}">
                                     <i class="flaticon-null-5"></i>
                                     @if (! \Cart::isEmpty())
-                                        <span>{{ \Cart::getContent()->count() }}</span>
+                                    <span>{{ \Cart::getContent()->count() }}</span>
                                     @endif
                                 </a>
                             </div>
@@ -61,25 +74,16 @@
                         </div>
 
                         @auth
-                            <div class="option-item">
-                                <div class="d-flex align-items-center">
-                                    <a href="{{route('users.profile')}}">
-                                        <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
-                                    </a>
-                                    <div class="mr-3">
-                                        <a href="{{route('logout')}}">خروج</a>
-                                    </div>
-
-                                    <a href="{{route('user.coin.index')}}">
-                                        <div class="d-flex align-items-center">
-                                            <img src="{{$coin->getAvatar(60)}}" width="40" alt="">
-                                            <p class="mb-0">
-                                                {{auth()->user()->coin}}
-                                            </p>
-                                        </div>
-                                    </a>
+                        <div class="option-item">
+                            <div class="d-flex align-items-center">
+                                <a href="{{route('users.profile')}}">
+                                    <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
+                                </a>
+                                <div class="mr-3">
+                                    <a href="{{route('logout')}}">خروج</a>
                                 </div>
                             </div>
+                        </div>
 
                         @else
                         <div class="option-item d-flex">
@@ -112,14 +116,26 @@
                 <div class="option-inner">
 
                     <div class="others-option">
+                        @auth
 
+                        <div class="option-item">
+                            <a href="{{route('user.coin.index')}}">
+                                <div class="d-flex align-items-center">
+                                    <img src="{{$coin->getAvatar(60)}}" width="40" alt="">
+                                    <p class="mb-0">
+                                        {{auth()->user()->coin}}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        @endauth
 
                         <div class="option-item">
                             <div class="cart-btn">
                                 <a href="{{route('users.cart.index')}}">
                                     <i class="flaticon-null-5"></i>
                                     @if (! \Cart::isEmpty())
-                                        <span>{{ \Cart::getContent()->count() }}</span>
+                                    <span>{{ \Cart::getContent()->count() }}</span>
                                     @endif
                                 </a>
                             </div>
@@ -138,27 +154,19 @@
                                     <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
                                 </a>
 
-                                <a href="{{route('user.coin.index')}}">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{$coin->getAvatar(60)}}" width="40" alt="">
-                                        <p class="mb-0">
-                                            {{auth()->user()->coin}}
-                                        </p>
-                                    </div>
-                                </a>
                             </div>
                         </div>
 
-                    @else
-                    <div class="option-item d-flex">
-                        <div class="ml-3">
-                            <a href="{{route('login')}}">ورود</a>
+                        @else
+                        <div class="option-item d-flex align-items-center">
+                            <div class="ml-3">
+                                <a href="{{route('login')}}">ورود</a>
+                            </div>
+                            <div class="">
+                                <a href="{{route('register')}}">ثبت نام</a>
+                            </div>
                         </div>
-                        <div class="">
-                            <a href="{{route('register')}}">ثبت نام</a>
-                        </div>
-                    </div>
-                    @endauth
+                        @endauth
                     </div>
                 </div>
             </div>
