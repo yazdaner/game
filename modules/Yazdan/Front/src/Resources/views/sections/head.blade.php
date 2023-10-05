@@ -2,9 +2,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Zelda - eSports & Gaming Template" />
-    <meta name="description" content="Zelda - eSports & Gaming Template" />
-    <meta name="author" content="Barat Hadian" />
+    <meta name="keywords" content="Tandorfia" />
+    <meta name="description" content="Tandorfia" />
 
     <!-- Links of CSS files -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
@@ -21,7 +20,7 @@
     <link rel="stylesheet" href="/assets/css/modal.css" />
 
     <title>
-        Zelda - قالب HTML زلدا , پوسته سایت سرگرمی بازی و مسابقات الکترونیکی
+        Tandorfia - تاندورفیا
     </title>
 
     <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
