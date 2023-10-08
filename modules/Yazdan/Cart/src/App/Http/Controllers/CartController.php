@@ -109,9 +109,10 @@ class CartController extends Controller
         $code = session()->get('code');
         foreach ($items as $item) {
             [$amount, $discounts] = $item['model']->finalPrice($item['quantity'], $code, true);
-            $amounts[] = $amount * $item['quantity'];
+            $amounts[] = $amount;
             $item['discounts'] = $discounts;
-            $item['amount'] = $amount;
+            $item['amount'] = round($amount / $item['quantity']);
+            $item['totalAmount'] = $amount;
             $products[] = $item;
         }
         $totalAmount = array_sum($amounts);
@@ -126,7 +127,7 @@ class CartController extends Controller
                     'paymentable_type' => get_class($item['model']),
                     'amount' => $item['amount'],
                     'quantity' => $item['quantity'],
-                    'totalAmount' => $item['amount'] * $item['quantity'],
+                    'totalAmount' => $item['totalAmount'],
                     'invoice_id' => $invoice_id,
                     'gateway' => 'free',
                     'status' => PaymentRepository::CONFIRMATION_STATUS_SUCCESS,
@@ -144,7 +145,6 @@ class CartController extends Controller
             newFeedbacks('عملیات موفق', 'پرداخت با موفقیت انجام شد', 'success');
             return redirect('/');
         }
-
         PaymentService::generate($products, $user, $totalAmount);
         resolve(Gateway::class)->redirect();
     }

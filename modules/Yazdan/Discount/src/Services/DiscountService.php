@@ -18,13 +18,13 @@ class DiscountService
         }
         if($quantity_limitation){
             if($discount->percent == 100 && $quantity > 1){
-                return round(((($quantity - $quantity_limitation) * $price + ($quantity_limitation * $paybleAmount)) / $quantity));
+                return round(((($quantity - $quantity_limitation) * $price + ($quantity_limitation * $paybleAmount))));
             }
             elseif($quantity - $quantity_limitation < 0){
-                return round(( $quantity *  $paybleAmount)/ $quantity);
+                return round(( $quantity *  $paybleAmount));
             }
             else{
-                return round((($quantity - $quantity_limitation) * $price + ($quantity_limitation * $paybleAmount)) / $quantity);
+                return round((($quantity - $quantity_limitation) * $price + ($quantity_limitation * $paybleAmount)));
             }
         }
         return $paybleAmount;

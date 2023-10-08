@@ -26,7 +26,7 @@ class PaymentController extends Controller
         };
         $amount =0;
         foreach($payments as $payment){
-            $amount += $payment->amount * $payment->quantity;
+            $amount += $payment->totalAmount;
         }
         $result = $gateway->verify($amount);
 

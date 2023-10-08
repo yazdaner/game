@@ -84,7 +84,7 @@ class DiscountController extends Controller
         foreach ($ProductWithDiscount as $item) {
             $discountAmount = DiscountService::calculateDiscountAmount($item['product'], $item['discount'],$item['quantity']);
             \Cart::update(get_class($item['product']) . '-' .  $item['product']->id,
-                ['price' => $discountAmount]);
+                ['price' => $discountAmount / $item['quantity']]);
         }
 
         newFeedbacks();
