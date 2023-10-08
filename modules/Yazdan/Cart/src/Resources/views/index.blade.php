@@ -93,7 +93,7 @@
 
                     <div class="col-lg-6 col-sm-6 col-md-6 text-right d-flex align-items-center">
                         <button type="submit" class="default-btn ml-4"> به روز رسانی سبد خرید </button>
-                        <a href="{{ route('users.cart.clear') }}" class="default-btn">پاک کردن سبد خرید</a>
+                        <a href="{{ route('users.cart.clear') }}" class="default-btn text-center">پاک کردن سبد خرید</a>
                     </div>
                 </div>
             </div>
