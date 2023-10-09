@@ -14,7 +14,7 @@ class DiscountService
         $discountAmount = $finalPrice - $paybleAmount;
 
         if($max_amount){
-            return ($discountAmount > $max_amount ? $max_amount :  $paybleAmount);
+            return ($discountAmount > $max_amount ? $price - $max_amount :  $paybleAmount);
         }
         if($quantity_limitation){
             if($discount->percent == 100 && $quantity > 1){

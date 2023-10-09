@@ -82,6 +82,8 @@ class DiscountRepository
     {
         $id = $product->id;
         $table = $product->getTable();
+
+
         $query = Discount::query()
             ->where("code", $code);
             $query->where(function ($query) {

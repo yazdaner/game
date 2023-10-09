@@ -64,6 +64,7 @@ trait PaymentTrait
     public function finalPrice($quantity = 1, $code = null, $withDiscounts = false)
     {
         $discounts = [];
+        $amount = $this->price;
         if ($code) {
             $repo = new DiscountRepository();
             $discountFromCode = $repo->getValidDiscountByCode($code, $this);
