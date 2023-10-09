@@ -23,17 +23,6 @@ trait PaymentTrait
         return $this->morphMany(Payment::class, "paymentable");
     }
     // dicount functions
-    public function getDiscount()
-    {
-        $discountRepo = new DiscountRepository();
-        $discount = $discountRepo->getBiggerDiscount($this->id);
-        $globalDiscount = $discountRepo->getGlobalBiggerDiscount();
-        if ($discount == null && $globalDiscount == null) return null;
-        if ($discount == null && $globalDiscount != null) return $globalDiscount;
-        if ($discount != null && $globalDiscount == null) return $discount;
-        if ($globalDiscount->percent > $discount->percent) return $globalDiscount;
-        return $discount;
-    }
 
     public function getDiscountWithCode()
     {
@@ -55,15 +44,9 @@ trait PaymentTrait
 
     public function getDiscountPercent()
     {
-        $discount = $this->getDiscount() ? $this->getDiscount()->percent : null;
         $getDiscountWithCode = $this->getDiscountWithCode() ? $this->getDiscountWithCode()->percent : null;
-
-        if ($discount == null && $getDiscountWithCode == null) return 0;
-        if ($discount != null && $getDiscountWithCode == null) return $discount;
-        if ($discount == null && $getDiscountWithCode != null) return $getDiscountWithCode;
-
-        if ($discount != null && $getDiscountWithCode != null) return
-            $discount + $getDiscountWithCode >= 100 ? 100 : $discount + $getDiscountWithCode;
+        if ($getDiscountWithCode == null) return 0;
+        if ($getDiscountWithCode != null) return $getDiscountWithCode;
     }
 
     public function hasDiscount()
@@ -72,11 +55,8 @@ trait PaymentTrait
         return $discount == 0 ? false : true;
     }
 
-    public function getDiscountAmount($discount = null)
+    public function getDiscountAmount($discount)
     {
-        if ($discount == null) {
-            $discount = $this->getDiscount();
-        }
         return DiscountService::calculateDiscountAmount($this, $discount);
     }
 
@@ -84,14 +64,6 @@ trait PaymentTrait
     public function finalPrice($quantity = 1, $code = null, $withDiscounts = false)
     {
         $discounts = [];
-        $discount = $this->getDiscount();
-        $amount = $this->price;
-
-        if ($discount) {
-            $discounts[] = $discount;
-            $amount = $this->price - $this->getDiscountAmount($this->getDiscountPercent());
-        }
-
         if ($code) {
             $repo = new DiscountRepository();
             $discountFromCode = $repo->getValidDiscountByCode($code, $this);

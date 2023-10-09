@@ -20,7 +20,7 @@ class CreateDiscountsTable extends Migration
             $table->foreignId("user_id");
             $table->foreign("user_id")->references('id')->on('users')->onDelete('CASCADE');
 
-            $table->string("code")->nullable();
+            $table->string("code");
 
             $table->enum("type", [DiscountRepository::$types])
             ->default(DiscountRepository::TYPE_ALL);

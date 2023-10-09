@@ -78,53 +78,24 @@ class DiscountRepository
         }
     }
 
-    // dicount functions
-    public function getValidDiscountsQuery($type = "all", $id = null)
-    {
-        $query = Discount::query()
-            ->where("expire_at", ">", now())
-            ->where("type", $type)
-            ->whereNull("code");
-        if (!is_null($id)) {
-            $query->whereHas("coupons", function ($query) use ($id) {
-                $query->where("id", $id);
-            });
-        }
-
-        $query->where(function ($query) {
-            $query->where("usage_limitation", ">", "0")
-                ->orWhereNull("usage_limitation");
-        })
-            ->orderBy("percent", "desc");
-
-        return $query;
-    }
-
-    public function getGlobalBiggerDiscount()
-    {
-        return $this->getValidDiscountsQuery()
-            ->first();
-    }
-
-    public function getBiggerDiscount($id)
-    {
-        return $this->getValidDiscountsQuery(DiscountRepository::TYPE_SPECIAL, $id)->first();
-    }
-
     public static function getValidDiscountByCode($code, $product)
     {
         $id = $product->id;
         $table = $product->getTable();
-        return Discount::query()
-            ->where("code", $code)
-            ->where(function ($query) use ($id,$table) {
+        $query = Discount::query()
+            ->where("code", $code);
+            $query->where(function ($query) {
+                $query->where("expire_at", ">", now())
+                    ->orWhereNull("expire_at");
+            });
+            $query->where(function ($query) use ($id,$table) {
                 return $query->whereHas($table, function ($query) use ($id) {
                     return $query->where("id", $id);
                 })->orWhereDoesntHave('coins')->whereDoesntHave('coupons');
             })->where(function ($query) {
                 $query->where("usage_limitation", ">", "0")
                     ->orWhereNull("usage_limitation");
-            })
-            ->first();
+            });
+            return $query->first();
     }
 }

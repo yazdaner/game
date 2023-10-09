@@ -16,7 +16,7 @@ class DiscountRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            "code" => "nullable|max:50|unique:discounts,code",
+            "code" => "required|max:50|unique:discounts,code",
             "percent" => "required|numeric|min:1|max:100",
             "usage_limitation" => "nullable|numeric|min:0|max:1000000000",
             "expire_at" => ["nullable",new ValidJalaliDate()],
@@ -26,7 +26,7 @@ class DiscountRequest extends FormRequest
         ];
 
         if (request()->getMethod() == "PUT"){
-            $rules["code"] = "nullable|max:50|unique:discounts,code," . request()->route("discount")->id;
+            $rules["code"] = "required|max:50|unique:discounts,code," . request()->route("discount")->id;
         }
 
         return $rules;

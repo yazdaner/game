@@ -2448,16 +2448,16 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.2.4",
+            "version": "v1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "c9ff517a53903b3d4e29ec547fb20feecb05b8ab"
+                "reference": "0462f0166e823aad657c9224d0f849ecac1ba10a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/c9ff517a53903b3d4e29ec547fb20feecb05b8ab",
-                "reference": "c9ff517a53903b3d4e29ec547fb20feecb05b8ab",
+                "url": "https://api.github.com/repos/nette/schema/zipball/0462f0166e823aad657c9224d0f849ecac1ba10a",
+                "reference": "0462f0166e823aad657c9224d0f849ecac1ba10a",
                 "shasum": ""
             },
             "require": {
@@ -2504,9 +2504,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.2.4"
+                "source": "https://github.com/nette/schema/tree/v1.2.5"
             },
-            "time": "2023-08-05T18:56:25+00:00"
+            "time": "2023-10-05T20:37:59+00:00"
         },
         {
             "name": "nette/utils",
@@ -6338,7 +6338,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/About",
-                "reference": "6aef4b5db6a4970b5f244241d511759d0acfb36e"
+                "reference": "9073fb749f49cc7d785abfa904a5ffd0dce1939f"
             },
             "type": "library",
             "extra": {
@@ -6363,7 +6363,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Blog",
-                "reference": "bbcff7c9d2d281c7ef1e98ec78018d8c71510d03"
+                "reference": "bc8446cda919c873f9b0569e1644bf1a2cce23a6"
             },
             "type": "library",
             "extra": {
@@ -6388,7 +6388,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Cart",
-                "reference": "bda012d529b85b80ed7aede0e16c5f0b722465c3"
+                "reference": "cc8ad2e32ccf2b58cec831a3417601bf61fc2b9d"
             },
             "type": "library",
             "extra": {
@@ -6413,7 +6413,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Category",
-                "reference": "9eb71a4bacaca0ff1d40810db2a2264dc1e899d3"
+                "reference": "252e0ba30ecf8164f77d4310d4afc2c4bd92558a"
             },
             "type": "library",
             "extra": {
@@ -6438,7 +6438,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Coin",
-                "reference": "e9be91b421375fb21c0e08e5cc31ee62d01316c7"
+                "reference": "05563a72032301b9cbc1b63ba58baa61e654ff15"
             },
             "type": "library",
             "extra": {
@@ -6463,7 +6463,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Comment",
-                "reference": "778f95d03413a4e728e21abb4ae98be363b4c5af"
+                "reference": "0be8cd8f6830be81fa834728c5bb01b5f4ff6062"
             },
             "type": "library",
             "extra": {
@@ -6488,7 +6488,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Common",
-                "reference": "3e7c00959fafa90bf5da5617eeff8a6a8715069e"
+                "reference": "399096f360fcaf0f50dbbb7b96a7a756725b3c2e"
             },
             "type": "library",
             "extra": {
@@ -6516,7 +6516,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Contact",
-                "reference": "08882c7fa2b473c3ca060fb01e663d80065f06f5"
+                "reference": "ff9d65cb680b15a3bd055a7e7c89299de563c53f"
             },
             "type": "library",
             "extra": {
@@ -6541,7 +6541,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Coupon",
-                "reference": "441e920ab8bd99b6628425dbe2cace94042bbc8d"
+                "reference": "1457516fa53be9d61d7eeecce184e76da4bdda73"
             },
             "type": "library",
             "extra": {
@@ -6566,7 +6566,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Dashboard",
-                "reference": "479fb98558dd8ec0b1b181ece637f0973bea90b5"
+                "reference": "e0d23367c5362d963cf6650e2d09d38c0540cfeb"
             },
             "type": "library",
             "extra": {
@@ -6591,7 +6591,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Discount",
-                "reference": "34301d2206761a2efc9bd670ba924416c4d3e186"
+                "reference": "2202ec19052070c9b0ac9a275486b68204f3dfa8"
             },
             "type": "library",
             "extra": {
@@ -6616,7 +6616,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Front",
-                "reference": "d906713d1467048a2cf7f4e4bbb57031f79c4fbf"
+                "reference": "61682e206088e68a716b711ea1885f077472a02a"
             },
             "type": "library",
             "extra": {
@@ -6641,7 +6641,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Game",
-                "reference": "85eee5d1f920bbd6f5d03dfb699c38d7de12d962"
+                "reference": "3b924f6fe8cb8f96667c10fb50a13c8b88fe2ffe"
             },
             "type": "library",
             "extra": {
@@ -6666,7 +6666,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Home",
-                "reference": "2287fd689fd5403dd67cde5df19983996e55df12"
+                "reference": "a1c889c5a7adfdea0fd13eaabc8ba61aefcc4f23"
             },
             "type": "library",
             "extra": {
@@ -6691,7 +6691,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Media",
-                "reference": "5bf86546b0f6ac4dcd2e24cd30ef72f5c9062d96"
+                "reference": "dfdbbbfea6e585421d510fd1c3e1cd20b8dce37f"
             },
             "type": "library",
             "extra": {
@@ -6716,7 +6716,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Payment",
-                "reference": "a6262397d69ca23422f661ef57a8b3d5918db8d4"
+                "reference": "951d115ad0f07630e2ddc4522ffcc48a8c96a798"
             },
             "type": "library",
             "extra": {
@@ -6741,7 +6741,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/RolePermissions",
-                "reference": "daf154aaca4b55b13542b2f0d325d003e514ca54"
+                "reference": "25681f960cb89acd56bab5991fd57070d9cac000"
             },
             "type": "library",
             "extra": {
@@ -6766,7 +6766,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Search",
-                "reference": "f8f8049d33380e021a1e9de76b9725c2763ee523"
+                "reference": "679374073da6937dc7a8e8f67442d087f8d46320"
             },
             "type": "library",
             "extra": {
@@ -6791,7 +6791,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Setting",
-                "reference": "8cf50ea268c0f5a160e0f048b3ef86835a652a09"
+                "reference": "2c3a6975e7065a1fbbc96313d37ebf12f0b6dbbd"
             },
             "type": "library",
             "extra": {
@@ -6816,7 +6816,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/Slider",
-                "reference": "78d9b9fa17c919470e1d865503f92187da1672b8"
+                "reference": "8354090e20fb85d07d90344d79f88b77190bfd88"
             },
             "type": "library",
             "extra": {
@@ -6841,7 +6841,7 @@
             "dist": {
                 "type": "path",
                 "url": "./modules/Yazdan/User",
-                "reference": "80ba8f441949d264a15a9e4d5bb19ee51cb82593"
+                "reference": "17ee073ad8b8721bd086e86482246c0df7ae9798"
             },
             "type": "library",
             "extra": {
