@@ -5,7 +5,6 @@ namespace Yazdan\User\App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Yazdan\Common\Responses\AjaxResponses;
-use Yazdan\Course\Repositories\CourseRepository;
 use Yazdan\Media\Services\MediaFileService;
 use Yazdan\RolePermissions\Repositories\RoleRepository;
 use Yazdan\User\App\Http\Requests\AddRoleRequest;
@@ -18,12 +17,18 @@ use Yazdan\User\Repositories\UserRepository;
 class UserController extends Controller
 {
 
-    public function index()
+    public function index(UserRepository $repo)
     {
         $this->authorize('index',User::class);
+
+        $users = $repo
+            ->searchKey(request("key"))
+            ->searchEmail(request("email"))
+            ->searchName(request("name"));
+
         $roles = RoleRepository::getAll();
-        $users = UserRepository::paginate(10);
-        return view('User::admin.index',compact('users','roles'));
+        $users = $users->paginateAlls();
+        return view('User::admin.index',compact("users",'roles'));
     }
 
     public function edit(User $user)

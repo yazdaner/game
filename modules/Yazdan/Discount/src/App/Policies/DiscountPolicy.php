@@ -3,7 +3,6 @@
 namespace Yazdan\Discount\App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Yazdan\Course\App\Models\Course;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
 use Yazdan\User\App\Models\User;
 

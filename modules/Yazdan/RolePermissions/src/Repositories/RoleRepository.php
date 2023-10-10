@@ -6,8 +6,6 @@ use Spatie\Permission\Models\Role;
 
 class RoleRepository
 {
-
-    const ROLE_TEACHER = 'teacher';
     const ROLE_SUPER_ADMIN = 'super admin';
     static $roles = [
         self::ROLE_SUPER_ADMIN => [

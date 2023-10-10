@@ -21,7 +21,7 @@
             <x-input type="text" placeholder="یوتیوب" name="youtube" value="{{ $setting->youtube }}"/>
             <x-input type="text" placeholder="توییتر" name="twitter" value="{{ $setting->twitter }}"/>
             <x-input type="text" placeholder="توییچ" name="twitch" value="{{ $setting->twitch }}"/>
-            <button type="submit" class="btn btn-webamooz_net">بروزرسانی</button>
+            <button type="submit" class="btn btn-yazdan">بروزرسانی</button>
         </form>
     </div>
   </div>

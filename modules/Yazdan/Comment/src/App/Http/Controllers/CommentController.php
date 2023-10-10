@@ -2,11 +2,12 @@
 
 namespace Yazdan\Comment\App\Http\Controllers;
 
+use Yazdan\Blog\App\Models\Blog;
 use App\Http\Controllers\Controller;
-use Yazdan\Comment\App\Http\Requests\CommentRequest;
 use Yazdan\Comment\App\Models\Comment;
-use Yazdan\Comment\Repositories\CommentRepository;
 use Yazdan\Common\Responses\AjaxResponses;
+use Yazdan\Comment\Repositories\CommentRepository;
+use Yazdan\Comment\App\Http\Requests\CommentRequest;
 use Yazdan\RolePermissions\Repositories\PermissionRepository;
 
 class CommentController extends Controller
@@ -22,8 +23,8 @@ class CommentController extends Controller
             ->searchStatus(request("status"));
 
         if (!auth()->user()->hasAnyPermission(PermissionRepository::PERMISSION_MANAGE_COMMENTS, PermissionRepository::PERMISSION_SUPER_ADMIN)) {
-            $comments->query->whereHasMorph("commentable", [Course::class] , function ($query) {
-                return $query->where("teacher_id", auth()->id());
+            $comments->query->whereHasMorph("commentable", [Blog::class] , function ($query) {
+                return $query->where("user_id", auth()->id());
             })->where("status", CommentRepository::STATUS_APPROVED);
         }
 

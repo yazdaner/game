@@ -3,10 +3,38 @@
     <li><a href="#" title="کاربران">کاربران</a></li>
 @endsection
 @section('content')
+{{-- <div class="tab__box">
+    <div class="tab__items">
+        <a class="tab__item {{ request("status") == "" ? "is-active" : "" }}" href="{{ route("admin.comments.index") }}?status="> همه نظرات</a>
+        <a class="tab__item {{ request("status") == "new" ? "is-active" : "" }}" href="{{ route("admin.comments.index") }}?status=new">نظرات تاییده نشده</a>
+        <a class="tab__item {{ request("status") == "rejected" ? "is-active" : "" }}" href="{{ route("admin.comments.index") }}?status=rejected">نظرات رد شده</a>
+        <a class="tab__item {{ request("status") == "approved" ? "is-active" : "" }}" href="{{ route("admin.comments.index") }}?status=approved">نظرات تاییده شده</a>
+    </div>
+</div> --}}
+
 <div class="main-content padding-0 users">
     <div class="row no-gutters">
         <div class="col-12 margin-left-10 margin-bottom-15 border-radius-3">
             <p class="box__title">کاربران</p>
+
+
+            <div class="bg-white padding-20 d-flex justify-content-between">
+                <div class="t-header-search">
+                    <form action="">
+                        <div class="t-header-searchbox font-size-13">
+                            <input type="text" class="text search-input__box font-size-13" placeholder="جستجوی در کاربران">
+                            <div class="t-header-search-content ">
+                                <input type="text"  class="text" name="key"  placeholder="شناسه">
+                                <input type="text"  class="text" name="name"  placeholder="نام">
+                                <input type="text"  class="text" name="email"  placeholder="ایمیل">
+                                <button type="submit" class="btn btn-yazdan">جستجو</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <a class="btn btn-yazdan" href="{{route('admin.users.index')}}">همه کاربران</a>
+            </div>
+
             <div class="table__box">
                 <table class="table">
                     <thead role="rowgroup">

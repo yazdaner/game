@@ -106,7 +106,7 @@ class PaymentRepository
 
     public function paginate()
     {
-        return $this->query->latest()->paginate();
+        return $this->query->latest()->paginate(20);
     }
 
 

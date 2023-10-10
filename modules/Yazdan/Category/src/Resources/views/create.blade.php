@@ -22,6 +22,6 @@
             @endforeach
         </select>
 
-        <button type="submit" class="btn btn-webamooz_net">اضافه کردن</button>
+        <button type="submit" class="btn btn-yazdan">اضافه کردن</button>
     </form>
 </div>

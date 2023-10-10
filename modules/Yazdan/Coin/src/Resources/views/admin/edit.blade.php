@@ -16,7 +16,7 @@
 
             <x-file-upload name="media" placeholder="تصویر سکه" :value="$coin->media" />
 
-            <button type="submit" class="btn btn-webamooz_net">بروزرسانی</button>
+            <button type="submit" class="btn btn-yazdan">بروزرسانی</button>
         </form>
     </div>
   </div>

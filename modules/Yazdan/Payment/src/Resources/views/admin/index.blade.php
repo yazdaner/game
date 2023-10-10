@@ -45,7 +45,7 @@
 
 
     <div class="d-flex flex-space-between item-center flex-wrap padding-30 border-radius-3 bg-white">
-       <a class="btn btn-webamooz_net" href="{{route('admin.payments.index')}}">همه تراکنش ها</a>
+       <a class="btn btn-yazdan" href="{{route('admin.payments.index')}}">همه تراکنش ها</a>
         <div class="t-header-search">
             <form>
                 <div class="t-header-searchbox font-size-13">
@@ -56,7 +56,7 @@
                         <input type="text"  class="text" name="invoice_id" value="{{ request("invoice_id") }}" placeholder="شماره تراکنش">
                         <input type="text"  class="text" name="start_date" value="{{ request("start_date") }}" placeholder="از تاریخ : 1402/6/18">
                         <input type="text" class="text margin-bottom-20" name="end_date" value="{{ request("end_date") }}"  placeholder="تا تاریخ : 1402/6/18">
-                        <button class="btn btn-webamooz_net" type="submit">جستجو</button>
+                        <button class="btn btn-yazdan" type="submit">جستجو</button>
                     </div>
                 </div>
             </form>

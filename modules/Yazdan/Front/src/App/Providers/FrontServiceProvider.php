@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 use Yazdan\Blog\App\Models\Blog;
 use Yazdan\Coin\App\Models\Coin;
 use Yazdan\Coupon\App\Models\Coupon;
-use Yazdan\Course\Repositories\CourseRepository;
 use Yazdan\Game\Repositories\GameRepository;
 use Yazdan\Setting\App\Models\Setting;
 use Yazdan\Slider\App\Models\Slider;
@@ -21,11 +20,6 @@ class FrontServiceProvider extends ServiceProvider
             ->group(__DIR__ . '/../../Routes/front_routes.php');
 
         $this->loadViewsFrom(__DIR__ . '/../../Resources/views/', 'Front');
-
-        // view()->composer('Front::layouts.sections.header', function ($view) {
-        //     $categories = CategoryRepository::tree();
-        //     $view->with(compact('categories'));
-        // });
 
         view()->composer('Front::sections.navbar', function ($view) {
             $coin = Coin::first();

@@ -32,7 +32,7 @@
                 <option value="0" {{ $slider->status==0 ? "selected" : "" }}>غیرفعال</option>
             </select>
 
-            <button class="btn btn-webamooz_net">بروزرسانی</button>
+            <button class="btn btn-yazdan">بروزرسانی</button>
         </form>
     </div>
 </div>

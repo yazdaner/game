@@ -1,4 +1,5 @@
 <?php
+
 namespace Yazdan\User\Repositories;
 
 use Yazdan\Media\Services\MediaFileService;
@@ -19,7 +20,7 @@ class UserRepository
 
 
     const USER_SUPER_ADMIN = [
-        'name' => 'admin',
+        'username' => 'admin',
         'email' => 'a@a.com',
         'password' => '1234',
         'role' => RoleRepository::ROLE_SUPER_ADMIN
@@ -29,28 +30,27 @@ class UserRepository
         self::USER_SUPER_ADMIN,
     ];
 
+
+    public $query;
+
+    public function __construct()
+    {
+        $this->query = User::query();
+    }
+
     public static function getUserByEmail($email)
     {
-       return User::whereEmail($email)->first();
+        return User::whereEmail($email)->first();
     }
 
     public static function findById($id)
     {
-       return User::find($id);
-    }
-
-    public static function getTeachers()
-    {
-       return User::permission('teach')->get();
-    }
-
-    public static function paginate($count)
-    {
-        return User::latest()->paginate($count);
+        return User::find($id);
     }
 
 
-    public static function update($value,$userId)
+
+    public static function update($value, $userId)
     {
         $update = [
             'name' => $value->name,
@@ -66,20 +66,19 @@ class UserRepository
         }
 
         User::whereId($userId)->update($update);
-
     }
 
-    public static function upload($request,$userId)
+    public static function upload($request, $userId)
     {
         $user = static::findById($userId);
 
-        if($request->hasFile('avatar')){
-            if($user->avatar){
+        if ($request->hasFile('avatar')) {
+            if ($user->avatar) {
                 $user->avatar->delete();
             }
             $images = MediaFileService::publicUpload($request->avatar);
             return $request->request->add(['avatar_id' => $images->id]);
-        }else{
+        } else {
             return $request->request->add(['avatar_id' => $user->avatar_id]);
         }
     }
@@ -92,4 +91,34 @@ class UserRepository
         auth()->user()->save();
     }
 
+
+    public function searchKey($key)
+    {
+        if (!is_null($key)) {
+            $this->query->where("key", $key);
+        }
+        return $this;
+    }
+
+    public function searchEmail($email)
+    {
+        if (!is_null($email)) {
+            $this->query->where("email", "like", "%" . $email . "%");
+        }
+
+        return $this;
+    }
+
+    public function searchName($name)
+    {
+        if (!is_null($name)) {
+            $this->query->where("name", "like", "%" . $name . "%");
+        }
+        return $this;
+    }
+
+    public function paginateAlls()
+    {
+        return $this->query->latest()->paginate(20);
+    }
 }

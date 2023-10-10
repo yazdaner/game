@@ -8,7 +8,7 @@
 
             @csrf
 
-            <x-inputHome type="text" name="name" label="نام و نام خانوادگی *" />
+            <x-inputHome type="text" name="username" label="نام کاربری *" />
             <x-inputHome type="text" name="email" label="ایمیل *" />
             <x-inputHome type="text" name="mobile" label="موبایل" />
             <x-inputHome type="password" name="password" label="گذرواژه *" />

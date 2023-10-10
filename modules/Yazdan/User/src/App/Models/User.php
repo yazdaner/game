@@ -9,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Yazdan\Coupon\App\Models\Coupon;
-use Yazdan\Course\App\Models\Course;
 use Yazdan\Game\App\Models\Group;
 use Yazdan\Game\App\Models\Record;
 use Yazdan\Media\App\Models\Media;

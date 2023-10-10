@@ -12,7 +12,7 @@
         </div>
     </div>
     @include("Comment::show")
-    <div class="bg-white padding-20">
+    <div class="bg-white padding-20 d-flex justify-content-between">
         <div class="t-header-search">
             <form action="">
                 <div class="t-header-searchbox font-size-13">
@@ -21,11 +21,13 @@
                         <input type="text"  class="text" name="body"  placeholder="قسمتی از متن">
                         <input type="text"  class="text" name="email"  placeholder="ایمیل">
                         <input type="text"  class="text margin-bottom-20" name="name"  placeholder="نام و نام خانوادگی">
-                        <button type="submit" class="btn btn-webamooz_net">جستجو</button>
+                        <button type="submit" class="btn btn-yazdan">جستجو</button>
                     </div>
                 </div>
             </form>
         </div>
+        <a class="btn btn-yazdan" href="{{route('admin.comments.index')}}">همه نظرات</a>
+
     </div>
     <div class="table__box">
         <table class="table">

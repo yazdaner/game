@@ -39,7 +39,7 @@
             </div>
             @enderror
 
-            <button type="submit" class="btn btn-webamooz_net">ویرایش</button>
+            <button type="submit" class="btn btn-yazdan">ویرایش</button>
         </form>
     </div>
 @endsection

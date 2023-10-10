@@ -47,6 +47,6 @@
 
 
 
-        <button class="btn btn-webamooz_net" type="submit">اضافه کردن</button>
+        <button class="btn btn-yazdan" type="submit">اضافه کردن</button>
     </form>
 </div>

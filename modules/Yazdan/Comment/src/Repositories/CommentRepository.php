@@ -60,11 +60,7 @@ class CommentRepository
 
     public function paginateParents($status = null)
     {
-        //        $query = Comment::query()->whereNull("comment_id")->withCount("notApprovedComments");
-        //        if ($status){
-        //            $query->where("status", $status);
-        //        }
-        return $this->query->latest()->paginate();
+        return $this->query->latest()->paginate(20);
     }
 
     public function updateStatus($id, string $status)
@@ -76,31 +72,39 @@ class CommentRepository
 
     public function searchBody($body)
     {
-        $this->query->where("body", "like", "%" . $body . "%");
+
+        if (!is_null($body)) {
+            $this->query->where("body", "like", "%" . $body . "%");
+        }
         return $this;
     }
 
     public function searchStatus($status)
     {
-        if ($status)
+        if (!is_null($status)) {
             $this->query->where("status", $status);
+        }
         return $this;
     }
 
     public function searchEmail($email)
     {
-        $this->query->whereHas("user", function ($q) use ($email) {
-            return $q->where("email", "like", "%" . $email . "%");
-        });
-
+        if (!is_null($email)) {
+            $this->query->whereHas("user", function ($q) use ($email) {
+                return $q->where("email", "like", "%" . $email . "%");
+            });
+        }
         return $this;
     }
 
     public function searchName($name)
     {
-        $this->query->whereHas("user", function ($q) use ($name) {
-            return $q->where("name", "like", "%" . $name . "%");
-        });
+
+        if (!is_null($name)) {
+            $this->query->whereHas("user", function ($q) use ($name) {
+                return $q->where("name", "like", "%" . $name . "%");
+            });
+        }
 
         return $this;
     }
