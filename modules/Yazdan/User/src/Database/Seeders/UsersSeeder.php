@@ -18,6 +18,7 @@ class UsersSeeder extends Seeder
                 'email' => $user['email'],
                 'name' => $user['name'],
                 'password' => bcrypt($user['password']),
+                'key' => 1000,
             ])->assignRole($user['role'])->markEmailAsVerified();
 
         }

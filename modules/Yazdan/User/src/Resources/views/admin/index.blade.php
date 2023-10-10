@@ -26,8 +26,7 @@
                     <tbody>
                         @foreach ($users as $key => $user)
                             <tr role="row" class="">
-                                <td>{{$users->firstItem() + $key}}</td>
-
+                                <td>{{$user->key}}</td>
                                 <td>
                                     <a href="{{$user->getAvatar()}}" target="_blank"><img src="{{$user->getAvatar(60)}}" class="profile_sm"></a>
                                 </td>
