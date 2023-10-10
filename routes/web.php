@@ -18,11 +18,3 @@ use Yazdan\RolePermissions\Repositories\RoleRepository;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/d',function(){
-    // get game
-    $game = Game::first();
-    // get last level of game
-    $level = $game->levels->sortByDesc('priority')->first();
-    dd($level->records->where('status',RecordRepository::STATUS_ACCEPTED)->sortByDesc('claimRecord'));
-});
