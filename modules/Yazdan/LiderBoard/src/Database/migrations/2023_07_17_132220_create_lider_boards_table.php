@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateliderBoardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('liderBoards', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('parent_id')->nullable();
-            $table->foreign('parent_id')->on('categories')->references('id')->onDelete('SET NULL');
+            $table->foreign('parent_id')->on('liderBoards')->references('id')->onDelete('SET NULL');
 
             $table->string('title');
             $table->string('slug');
@@ -32,6 +32,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('liderBoards');
     }
 }

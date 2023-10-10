@@ -9,7 +9,7 @@ class LiderBoard extends Model
 {
     use HasFactory;
 
-    protected $table = 'categories';
+    protected $table = 'liderBoards';
     protected $fillable = [
         'title',
         'slug',

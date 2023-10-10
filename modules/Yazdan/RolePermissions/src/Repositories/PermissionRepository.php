@@ -28,9 +28,11 @@ class PermissionRepository
     const PERMISSION_MANAGE_SETTING = 'manage setting';
     const PERMISSION_MANAGE_CONTACT = 'manage contact';
     const PERMISSION_MANAGE_ABOUT = 'manage about';
+    const PERMISSION_MANAGE_LIDER_BOARD = 'manage lider board';
 
     static $permissions = [
         self::PERMISSION_SUPER_ADMIN,
+        self::PERMISSION_MANAGE_LIDER_BOARD,
         self::PERMISSION_MANAGE_RECORD,
         self::PERMISSION_MANAGE_BLOG,
         self::PERMISSION_MANAGE_CATEGORIES,

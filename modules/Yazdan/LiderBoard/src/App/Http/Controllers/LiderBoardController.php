@@ -15,8 +15,8 @@ class LiderBoardController extends Controller
     {
         $this->authorize('manage', LiderBoard::class);
 
-        $categories = LiderBoardRepository::getAllPaginate(10);
-        return view('LiderBoard::index', compact('categories'));
+        $liderBoards = LiderBoardRepository::getAllPaginate(10);
+        return view('LiderBoard::index', compact('liderBoards'));
     }
 
 
@@ -33,8 +33,8 @@ class LiderBoardController extends Controller
         $this->authorize('manage', LiderBoard::class);
 
         $LiderBoard = LiderBoardRepository::findById($LiderBoardId);
-        $parentCategories = LiderBoardRepository::getAllExceptById($LiderBoardId);
-        return view('LiderBoard::edit', compact('LiderBoard', 'parentCategories'));
+        $parentliderBoards = LiderBoardRepository::getAllExceptById($LiderBoardId);
+        return view('LiderBoard::edit', compact('LiderBoard', 'parentliderBoards'));
     }
 
     public function update($LiderBoardId, LiderBoardRequest $request)
@@ -42,7 +42,7 @@ class LiderBoardController extends Controller
         $this->authorize('manage', LiderBoard::class);
 
         LiderBoardRepository::updating($LiderBoardId, $request);
-        return redirect(route('admin.categories.index'));
+        return redirect(route('admin.liderBoards.index'));
     }
 
     public function destroy($LiderBoardId)

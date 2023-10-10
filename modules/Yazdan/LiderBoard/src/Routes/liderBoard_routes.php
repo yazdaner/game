@@ -8,7 +8,7 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
     'verified'
 ])->group(function () {
 
-    Route::resource('categories', LiderBoardController::class)->except([
+    Route::resource('liderBoards', LiderBoardController::class)->except([
         'create', 'show'
     ]);
 });

@@ -29,7 +29,7 @@ class LiderBoardServiceProvider extends ServiceProvider
                 'icon' => 'i-categories',
                 'url' => route('admin.categories.index'),
                 'title' => 'دسته بندی',
-                'permission' => PermissionRepository::PERMISSION_MANAGE_CATEGORIES,
+                'permission' => PermissionRepository::PERMISSION_MANAGE_LIDER_BOARD,
             ]);
         });
     }

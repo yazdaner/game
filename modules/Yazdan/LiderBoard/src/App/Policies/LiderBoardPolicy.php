@@ -13,7 +13,7 @@ class LiderBoardPolicy
 
     public function manage(User $user)
     {
-        return $user->hasPermissionTo(PermissionRepository::PERMISSION_MANAGE_CATEGORIES);
+        return $user->hasPermissionTo(PermissionRepository::PERMISSION_MANAGE_LIDER_BOARD);
     }
 
 
