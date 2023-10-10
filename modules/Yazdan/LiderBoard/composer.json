@@ -1,0 +1,16 @@
+{
+    "name" : "yazdan/lider-board",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\LiderBoard\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\LiderBoard\\App\\Providers\\LiderBoardServiceProvider"
+            ]
+        }
+    }
+}
+
