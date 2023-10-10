@@ -34,7 +34,7 @@
                                         src="{{$game->media->thumb(60)}}" class="profile_sm"></a>
                             </td>
                             <td>{{$game->title}}</td>
-                            <td>{{verta($game->deadline)->format('H:i Y/n/j')}}</td>
+                            <td>{{($game->deadline)->diffForHumans()}}</td>
                             <td>{{verta($game->created_at)->format('H:i Y/n/j')}}</td>
                             <td>
                                 <a href="{{route('admin.games.details',$game->id)}}" class="btn btn-yazdan">مشاهده</a>

@@ -82,9 +82,9 @@ class DiscountController extends Controller
         session()->put('code', $request->code);
 
         foreach ($ProductWithDiscount as $item) {
-            $discountAmount = DiscountService::calculateDiscountAmount($item['product'], $item['discount'],$item['quantity']);
+            $discountTotalAmount = DiscountService::calculateDiscountAmount($item['product'], $item['discount'],$item['quantity']);
             \Cart::update(get_class($item['product']) . '-' .  $item['product']->id,
-                ['price' => $discountAmount / $item['quantity']]);
+                ['price' => $discountTotalAmount / $item['quantity']]);
         }
 
         newFeedbacks();

@@ -82,8 +82,6 @@ class DiscountRepository
     {
         $id = $product->id;
         $table = $product->getTable();
-
-
         $query = Discount::query()
             ->where("code", $code);
             $query->where(function ($query) {
@@ -94,7 +92,9 @@ class DiscountRepository
                 return $query->whereHas($table, function ($query) use ($id) {
                     return $query->where("id", $id);
                 })->orWhereDoesntHave('coins')->whereDoesntHave('coupons');
-            })->where(function ($query) {
+
+            })
+            ->where(function ($query) {
                 $query->where("usage_limitation", ">", "0")
                     ->orWhereNull("usage_limitation");
             });
