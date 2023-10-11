@@ -34,7 +34,7 @@
             </div>
             {{ $faqs->links('pagination.admin') }}
         </div>
-        @include('Faq::create')
+        @include('Faq::admin.create')
     </div>
 </div>
 @endsection
