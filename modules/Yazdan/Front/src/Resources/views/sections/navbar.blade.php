@@ -3,10 +3,30 @@
     <div class="zelda-responsive-nav">
         <div class="container">
             <div class="zelda-responsive-menu">
-                <div class="logo">
+                <div class="logo d-flex align-items-center justify-content-between">
                     <a href="/">
                         <img src="/assets/img/logo.png" alt="logo" />
                     </a>
+                    @auth
+                    <div class="option-item">
+                        <div class="d-flex align-items-center">
+                            <a href="{{route('users.profile')}}">
+                                <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
+                            </a>
+
+                        </div>
+                    </div>
+
+                    @else
+                    <div class="option-item d-flex align-items-center">
+                        <div class="ml-3">
+                            <a href="{{route('login')}}">ورود</a>
+                        </div>
+                        <div class="">
+                            <a href="{{route('register')}}">ثبت نام</a>
+                        </div>
+                    </div>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -28,7 +48,7 @@
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a href="{{route('games')}}" class="nav-link">بازی ها</a></li>
 
-                                <li class="nav-item"><a href="#" class="nav-link">لیدر برد فصلی</a></li>
+                                <li class="nav-item"><a href="{{route('liderBoards')}}" class="nav-link">لیدر برد فصلی</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -156,26 +176,7 @@
                             </div>
                         </div>
 
-                        @auth
-                        <div class="option-item">
-                            <div class="d-flex align-items-center">
-                                <a href="{{route('users.profile')}}">
-                                    <img src="{{auth()->user()->getAvatar(60)}}" class="profile_sm">
-                                </a>
 
-                            </div>
-                        </div>
-
-                        @else
-                        <div class="option-item d-flex align-items-center">
-                            <div class="ml-3">
-                                <a href="{{route('login')}}">ورود</a>
-                            </div>
-                            <div class="">
-                                <a href="{{route('register')}}">ثبت نام</a>
-                            </div>
-                        </div>
-                        @endauth
                     </div>
                 </div>
             </div>

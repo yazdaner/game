@@ -35,10 +35,4 @@ class HomeGameController extends Controller
         return view('Game::home.show',compact('game','records'));
     }
 
-
-    public function liderBoards()
-    {
-        $gamers = LiderBoard::orderByDesc('score')->get();
-        return view('Game::home.liderBoards',compact('gamers'));
-    }
 }

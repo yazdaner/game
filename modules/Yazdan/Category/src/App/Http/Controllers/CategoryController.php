@@ -15,7 +15,7 @@ class CategoryController extends Controller
     {
         $this->authorize('manage', Category::class);
         $categories = CategoryRepository::getAllPaginate(10);
-        return view('Category::index', compact('categories'));
+        return view('Category::admin.index', compact('categories'));
     }
 
     public function store(CategoryRequest $request)
@@ -32,7 +32,7 @@ class CategoryController extends Controller
 
         $category = CategoryRepository::findById($categoryId);
         $parentCategories = CategoryRepository::getAllExceptById($categoryId);
-        return view('Category::edit', compact('category', 'parentCategories'));
+        return view('Category::admin.edit', compact('category', 'parentCategories'));
     }
 
     public function update($categoryId, CategoryRequest $request)

@@ -32,4 +32,3 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::get('/games',[HomeGameController::class,'games'])->name('games');
 Route::get('/games/{game}',[HomeGameController::class,'show'])->name('games.show');
-Route::get('/lider-boards',[HomeGameController::class,'liderBoards'])->name('games.liderBoards');

@@ -34,7 +34,7 @@
             </div>
             {{ $liderBoards->links('pagination.admin') }}
         </div>
-        @include('LiderBoard::create')
+        @include('LiderBoard::admin.create')
     </div>
 </div>
 @endsection

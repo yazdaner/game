@@ -12,3 +12,5 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
         'create', 'show'
     ]);
 });
+
+Route::get('/lider-boards',[LiderBoardController::class,'show'])->name('liderBoards');

@@ -48,7 +48,7 @@ background: #978e8e0f;
                 </li>
                 @if ($records->isNotEmpty())
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="all-matches-tab" data-toggle="tab" href="#lider-win" role="tab"
+                    <a class="nav-link" id="all-matches-tab" data-toggle="tab" href="#lider-board" role="tab"
                         aria-controls="all-matches" aria-selected="true">لیدر برد</a>
                 </li>
                 @endif
@@ -96,7 +96,7 @@ background: #978e8e0f;
 
                 </div>
                 @if ($records->isNotEmpty())
-                <div class="tab-pane fade show" id="lider-win" role="tabpane2">
+                <div class="tab-pane fade show" id="lider-board" role="tabpane2">
                     <section class="match-details-area">
                         <div class="container">
                             <div class="row">

@@ -13,7 +13,3 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
     ]);
     providerGetRoute('/sliders',SliderController::class,'index','sliders.index');
 });
-
-
-
-

@@ -15,7 +15,7 @@ class LiderBoardController extends Controller
     {
         $this->authorize('manage', LiderBoard::class);
         $liderBoards = LiderBoardRepository::getAllPaginate(10);
-        return view('LiderBoard::index', compact('liderBoards'));
+        return view('LiderBoard::admin.index', compact('liderBoards'));
     }
 
 
@@ -31,7 +31,7 @@ class LiderBoardController extends Controller
     {
         $this->authorize('manage', LiderBoard::class);
         $liderBoard = LiderBoardRepository::findById($liderBoard);
-        return view('LiderBoard::edit', compact('liderBoard'));
+        return view('LiderBoard::admin.edit', compact('liderBoard'));
     }
 
     public function update($LiderBoardId, LiderBoardRequest $request)
@@ -48,4 +48,13 @@ class LiderBoardController extends Controller
         LiderBoardRepository::delete($LiderBoardId);
         return AjaxResponses::SuccessResponses();
     }
+
+     // front
+
+     public function show()
+     {
+         $liderBoards = LiderBoardRepository::getAll()->sortByDesc('score');
+         return view('LiderBoard::front.index', compact('liderBoards'));
+     }
+
 }

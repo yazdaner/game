@@ -36,7 +36,7 @@
             </div>
             {{ $categories->links('pagination.admin') }}
         </div>
-        @include('Category::create')
+        @include('Category::admin.create')
     </div>
 </div>
 @endsection
