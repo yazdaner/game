@@ -51,8 +51,4 @@ class LiderBoardRepository
         return LiderBoard::whereId($LiderBoardId)->delete();
     }
 
-    public static function tree()
-    {
-        return LiderBoard::where('parent_id',null)->with('subLiderBoard')->get();
-    }
 }

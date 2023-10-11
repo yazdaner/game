@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1982c16a07834ceaff88cd545774164f",
+    "content-hash": "ce63ea16fc2d5d4a6933efd6e1ded50f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6611,6 +6611,31 @@
             }
         },
         {
+            "name": "yazdan/faq",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Faq",
+                "reference": "b9a9fd78d2e018d7c3422d1ed2bb54af5fd9bcc7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Faq\\App\\Providers\\FaqServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Faq\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "yazdan/front",
             "version": "dev-master",
             "dist": {
@@ -9276,6 +9301,7 @@
         "yazdan/front": 20,
         "yazdan/game": 20,
         "yazdan/home": 20,
+        "yazdan/lider-board": 20,
         "yazdan/media": 20,
         "yazdan/payment": 20,
         "yazdan/role": 20,

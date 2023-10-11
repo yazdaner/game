@@ -714,7 +714,9 @@ textarea {
 .sidebar__nav .i-categories a::before {
     content: "\E028";
 }
-
+.sidebar__nav .i-faqs a::before {
+    content: "\E09b";
+}
 .sidebar__nav .i-slideshow a::before {
     content: "\E0f7";
 }

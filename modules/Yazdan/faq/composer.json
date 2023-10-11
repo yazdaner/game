@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/faq",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Faq\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Faq\\App\\Providers\\FaqServiceProvider"
+            ]
+        }
+    }
+}

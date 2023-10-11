@@ -10,6 +10,7 @@ class PermissionRepository
 
     const PERMISSION_MANAGE_CATEGORIES = 'manage categories';
     const PERMISSION_MANAGE_BLOG = 'manage blog';
+    const PERMISSION_MANAGE_FAQ = 'manage faq';
     const PERMISSION_MANAGE_USERS = 'manage users';
     const PERMISSION_MANAGE_COIN = 'manage coin';
     const PERMISSION_MANAGE_COUPON = 'manage coupon';
@@ -54,6 +55,7 @@ class PermissionRepository
         self::PERMISSION_MANAGE_SETTING,
         self::PERMISSION_MANAGE_CONTACT,
         self::PERMISSION_MANAGE_ABOUT,
+        self::PERMISSION_MANAGE_FAQ,
     ];
 
     const PERMISSION_SUPER_ADMIN = 'super admin';

@@ -41,7 +41,12 @@
                             <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('about')}}" class="nav-link">درباره ما</a>
+                            <a href="#" class="nav-link">درباره ما <i class="flaticon-down-arrow"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="{{route('about')}}" class="nav-link">درباره تاندورفیا</a></li>
+
+                                <li class="nav-item"><a href="{{route('faq')}}" class="nav-link">سوالات متداول</a></li>
+                            </ul>
                         </li>
                     </ul>
 

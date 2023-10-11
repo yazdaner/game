@@ -32,6 +32,7 @@
         "yazdan/coupon": "dev-master",
         "yazdan/dashboard": "dev-master",
         "yazdan/discount": "dev-master",
+        "yazdan/faq": "dev-master",
         "yazdan/front": "dev-master",
         "yazdan/game": "dev-master",
         "yazdan/home": "dev-master",
@@ -152,6 +153,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/LiderBoard"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/Faq"
         }
     ],
     "scripts": {
