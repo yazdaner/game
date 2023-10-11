@@ -6,6 +6,7 @@ use Yazdan\Game\App\Models\Game;
 use App\Http\Controllers\Controller;
 use Yazdan\Game\Repositories\GameRepository;
 use Yazdan\Game\Repositories\RecordRepository;
+use Yazdan\LiderBoard\App\Models\LiderBoard;
 
 class HomeGameController extends Controller
 {
@@ -32,5 +33,12 @@ class HomeGameController extends Controller
             $records = $level->records->where('status',RecordRepository::STATUS_ACCEPTED)->sortByDesc('claimRecord');
         }
         return view('Game::home.show',compact('game','records'));
+    }
+
+
+    public function liderBoards()
+    {
+        $gamers = LiderBoard::orderByDesc('score')->get();
+        return view('Game::home.liderBoards',compact('gamers'));
     }
 }

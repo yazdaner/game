@@ -35,6 +35,7 @@
         "yazdan/front": "dev-master",
         "yazdan/game": "dev-master",
         "yazdan/home": "dev-master",
+        "yazdan/lider-board": "dev-master",
         "yazdan/media": "dev-master",
         "yazdan/payment": "dev-master",
         "yazdan/role": "dev-master",
@@ -147,6 +148,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/Search"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/LiderBoard"
         }
     ],
     "scripts": {

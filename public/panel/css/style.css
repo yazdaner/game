@@ -675,6 +675,10 @@ textarea {
     content: "\E0c2";
 }
 
+.sidebar__nav .i-liderBoard a::before {
+    content: "\E034";
+}
+
 .sidebar__nav .i-users a::before {
     content: "\E136";
 }

@@ -2,6 +2,7 @@
 
 namespace Yazdan\LiderBoard\Repositories;
 
+use Yazdan\User\App\Models\User;
 use Yazdan\LiderBoard\App\Models\LiderBoard;
 
 class LiderBoardRepository
@@ -19,9 +20,8 @@ class LiderBoardRepository
     public static function create($value)
     {
         return LiderBoard::create([
-            'title' => $value->title,
-            'slug' => $value->slug,
-            'parent_id' => $value->parent_id,
+            'user_id' => User::where('key',$value->userKey)->first()->id,
+            'score' => $value->score,
         ]);
     }
 
@@ -41,9 +41,8 @@ class LiderBoardRepository
     public static function updating($LiderBoardId,$value)
     {
         return LiderBoard::whereId($LiderBoardId)->update([
-            'title' => $value->title,
-            'slug' => $value->slug,
-            'parent_id' => $value->parent_id,
+            'user_id' => User::where('key',$value->userKey)->first()->id,
+            'score' => $value->score,
         ]);
     }
 

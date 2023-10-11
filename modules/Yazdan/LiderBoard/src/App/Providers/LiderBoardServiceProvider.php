@@ -25,10 +25,10 @@ class LiderBoardServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->booted(function () {
-            config()->set('sidebar.items.categories', [
-                'icon' => 'i-categories',
-                'url' => route('admin.categories.index'),
-                'title' => 'دسته بندی',
+            config()->set('sidebar.items.liderBoard', [
+                'icon' => 'i-liderBoard',
+                'url' => route('admin.liderBoards.index'),
+                'title' => 'لیدر برد',
                 'permission' => PermissionRepository::PERMISSION_MANAGE_LIDER_BOARD,
             ]);
         });

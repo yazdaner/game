@@ -24,8 +24,12 @@
                         <li class="nav-item">
                             <a href="/" class="nav-link">خانه</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('games')}}" class="nav-link">مسابقات</a>
+                        <li class="nav-item"><a href="#" class="nav-link">مسابقات <i class="flaticon-down-arrow"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="{{route('games')}}" class="nav-link">بازی ها</a></li>
+
+                                <li class="nav-item"><a href="#" class="nav-link">لیدر برد فصلی</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('coupons.index')}}" class="nav-link">فروشگاه</a>

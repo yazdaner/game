@@ -14,17 +14,15 @@ class CategoryController extends Controller
     public function index()
     {
         $this->authorize('manage', Category::class);
-
         $categories = CategoryRepository::getAllPaginate(10);
         return view('Category::index', compact('categories'));
     }
 
-
     public function store(CategoryRequest $request)
     {
         $this->authorize('manage', Category::class);
-
         CategoryRepository::create($request);
+        newFeedbacks();
         return back();
     }
 
@@ -40,15 +38,14 @@ class CategoryController extends Controller
     public function update($categoryId, CategoryRequest $request)
     {
         $this->authorize('manage', Category::class);
-
         CategoryRepository::updating($categoryId, $request);
+        newFeedbacks();
         return redirect(route('admin.categories.index'));
     }
 
     public function destroy($categoryId)
     {
         $this->authorize('manage', Category::class);
-
         CategoryRepository::delete($categoryId);
         return AjaxResponses::SuccessResponses();
     }

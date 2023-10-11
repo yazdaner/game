@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbb7947be62a996f7b749aa188d565bc",
+    "content-hash": "1982c16a07834ceaff88cd545774164f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6679,6 +6679,31 @@
             "autoload": {
                 "psr-4": {
                     "Yazdan\\Home\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "yazdan/lider-board",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/LiderBoard",
+                "reference": "b9e54a7bed1d0a46dc35c905b87b590697e5d324"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\LiderBoard\\App\\Providers\\LiderBoardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\LiderBoard\\": "src"
                 }
             },
             "transport-options": {

@@ -24,9 +24,16 @@ class LiderBoardRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:200',
-            'slug' => 'required|max:200',
-            'parent_id' => 'nullable|exists:categories,id',
+            'userKey' => 'required|max:200|exists:users,key',
+            'score' => 'required|integer',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            "userKey" => "شناسه کاربر",
+            "score" => "امتیاز",
         ];
     }
 }

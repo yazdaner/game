@@ -51,7 +51,7 @@ class FrontServiceProvider extends ServiceProvider
             $view->with(compact('setting'));
         });
 
-        view()->composer(['Front::sections.games'], function ($view) {
+        view()->composer('Front::sections.games', function ($view) {
             $games = GameRepository::getAll();
             $view->with(compact('games'));
         });

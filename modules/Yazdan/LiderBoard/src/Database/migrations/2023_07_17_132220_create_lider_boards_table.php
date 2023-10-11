@@ -16,11 +16,11 @@ class CreateliderBoardsTable extends Migration
         Schema::create('liderBoards', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('parent_id')->nullable();
-            $table->foreign('parent_id')->on('liderBoards')->references('id')->onDelete('SET NULL');
+            $table->foreignId('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
 
-            $table->string('title');
-            $table->string('slug');
+            $table->unsignedBigInteger('score');
+
             $table->timestamps();
         });
     }
