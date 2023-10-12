@@ -2,7 +2,7 @@
 @section('content')
 <section class="faq-area ptb-100">
     <div class="container mt-5">
-        <h2 class="text-center">سوالات متداول</h2>
+        <h2 class="text-center "><strong>سوالات متداول</strong></h2>
         <div class="tab faq-accordion-tab mt-5">
             <div class="tab-content">
                 <div class="tabs-item">
