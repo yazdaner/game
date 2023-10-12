@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- My Account Page Start -->
-                <div class="myaccount-page-wrapper">
+                <div class="myaccount-page-wrapper mt-5">
                     <div class="row text-right" style="direction: rtl;">
                       @include('Home::sections.sidebar')
                         <!-- My Account Tab Content Start -->

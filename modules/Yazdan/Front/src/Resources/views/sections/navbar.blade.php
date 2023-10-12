@@ -1,5 +1,5 @@
 <!-- Start Navbar Area -->
-<div class="navbar-area navbar-style-two">
+<div class="navbar-area navbar-style-two p-1">
     <div class="zelda-responsive-nav">
         <div class="container">
             <div class="zelda-responsive-menu">
@@ -58,15 +58,15 @@
                             <a href="{{route('blogs')}}" class="nav-link">مجله</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="#" class="nav-link">درباره ما <i class="flaticon-down-arrow"></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a href="{{route('about')}}" class="nav-link">درباره تاندورفیا</a></li>
 
                                 <li class="nav-item"><a href="{{route('faq')}}" class="nav-link">سوالات متداول</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('contact')}}" class="nav-link">تماس با ما</a>
                         </li>
                     </ul>
 
@@ -175,7 +175,6 @@
                                 <i class="flaticon-search-1"></i>
                             </div>
                         </div>
-
 
                     </div>
                 </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tandorfia - تاندورفیا</title>
     <style>
       @font-face {
         font-family: myFirstFont;
@@ -31,6 +31,7 @@
   </body>
   <script src="{{asset('./memberCard/js.js')}}"></script>
   <script>
-    document.body.addEventListener("load",draw('{{auth()->user()->key}}','{{auth()->user()->username}}','{{auth()->user()->mobile}}',"{{verta(auth()->user()->created_at)->format('Y-m-d')}}",'{{auth()->user()->avatar->thumb('300')}}'));
+
+    document.addEventListener("DOMContentLoaded",draw('{{auth()->user()->key}}','{{auth()->user()->username}}','{{auth()->user()->mobile}}',"{{verta(auth()->user()->created_at)->format('Y-m-d')}}",'{{auth()->user()->avatar->thumb('300')}}'));
   </script>
 </html>
