@@ -15,7 +15,7 @@ class LiderBoardServiceProvider extends ServiceProvider
     public function register()
     {
         Route::middleware('web')
-            ->group(__DIR__ . '/../../Routes/LiderBoard_routes.php');
+            ->group(__DIR__ . '/../../Routes/liderBoard_routes.php');
         $this->loadViewsFrom(__DIR__ . '/../../Resources/views/', 'LiderBoard');
         $this->loadMigrationsFrom(__DIR__ . '/../../Database/migrations/');
 
