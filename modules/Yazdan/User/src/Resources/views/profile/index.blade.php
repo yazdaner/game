@@ -1,8 +1,13 @@
 @extends('Home::master')
 @section('content')
-<h3>پروفایل</h3>
+<div class="d-flex justify-content-between">
+    <h3>پروفایل</h3>
+<a class="btn btn-primary" href="{{route('users.memberCard')}}" target="_blank">دانلود کارت عضویت</a>
+</div>
+
 <div class="user-info padding-30 font-size-13">
     <x-user-photo />
+
     <form action="{{route('users.profile')}}" method="POST">
         @csrf
         @method('patch')

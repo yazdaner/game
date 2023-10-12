@@ -114,5 +114,10 @@ class UserController extends Controller
         return back();
     }
 
+    public function memberCard(){
+        $this->authorize('profile',User::class);
+        return view('User::profile.memberCard');
+    }
+
 }
 
