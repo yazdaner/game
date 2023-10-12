@@ -32,6 +32,6 @@
   <script src="{{asset('./memberCard/js.js')}}"></script>
   <script>
 
-    document.addEventListener("DOMContentLoaded",draw('{{auth()->user()->key}}','{{auth()->user()->username}}','{{auth()->user()->mobile}}',"{{verta(auth()->user()->created_at)->format('Y-m-d')}}",'{{auth()->user()->avatar->thumb('300')}}'));
+    document.addEventListener("DOMContentLoaded",draw('{{auth()->user()->key}}','{{auth()->user()->username}}','{{auth()->user()->mobile}}',"{{verta(auth()->user()->created_at)->format('Y-m-d')}}",'{{auth()->user()->getAvatar(600)}}'));
   </script>
 </html>
