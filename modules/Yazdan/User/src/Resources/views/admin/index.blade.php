@@ -41,8 +41,9 @@
                         <tr role="row" class="title-row">
                             <th>شناسه</th>
                             <th>عکس</th>
-                            <th>نام</th>
+                            <th>نام کاریری</th>
                             <th>ایمیل</th>
+                            <th>نام</th>
                             <th>شماره موبایل</th>
                             <th>ip</th>
                             <th>تاریخ عضویت</th>
@@ -58,8 +59,9 @@
                                 <td>
                                     <a href="{{$user->getAvatar()}}" target="_blank"><img src="{{$user->getAvatar(60)}}" class="profile_sm"></a>
                                 </td>
-                                <td>{{$user->name}}</td>
+                                <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
+                                <td>{{$user->name ?? '-'}}</td>
                                 <td>{{$user->mobile ?? '-'}}</td>
                                 <td>{{$user->ip}}</td>
                                 <td>{{$user->created_at}}</td>

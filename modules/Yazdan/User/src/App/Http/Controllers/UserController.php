@@ -65,7 +65,7 @@ class UserController extends Controller
     {
         $this->authorize('addRole',User::class);
         $user->assignRole($request->role);
-        newFeedbacks('با موفقیت',"نقش مورد نظر به کاربر {$user->name} داده شد",'success');
+        newFeedbacks('با موفقیت',"نقش مورد نظر به کاربر {$user->username} داده شد",'success');
         return redirect()->route('admin.users.index');
     }
 

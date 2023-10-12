@@ -81,7 +81,7 @@ background: #978e8e0f;
                                                 <img src="{{$user->getAvatar(60)}}" class="team-1 profile_sm mr-3"
                                                     alt="image">
                                                 <span class="mr-5 text-danger">{{++$loop->index}}#</span>
-                                                <span class="mr-2">{{$user->name}}</span>
+                                                <span class="mr-2">{{$user->username}}</span>
 
                                             </div>
                                             @endforeach
