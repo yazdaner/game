@@ -88,7 +88,7 @@
                         <tr role="row" class="">
                             <td>{{$payments->firstItem() + $key}}</td>
 
-                            <td>{{$payment->user->name}}</td>
+                            <td>{{$payment->user->username}}</td>
                             <td>{{$payment->user->email}}</td>
                             <td>{{$payment->paymentable->title}}</td>
                             <td>{{number_format($payment->amount)}}</td>

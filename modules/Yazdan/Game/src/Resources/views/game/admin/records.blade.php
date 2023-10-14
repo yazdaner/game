@@ -29,7 +29,7 @@
                         @foreach ($records as $key => $record)
                         <tr role="row">
                             <td>{{$records->firstItem() + $key}}</td>
-                            <td>{{$record->user->name}}</td>
+                            <td>{{$record->user->username}}</td>
                             <td>{{$record->level->title}}</td>
                             @if (isset($record->coupon_id))
                             <td>{{round($record->claimRecord / $record->coupon->coefficient)}} * <span class="text-error">{{$record->coupon->coefficient}}</span></td>

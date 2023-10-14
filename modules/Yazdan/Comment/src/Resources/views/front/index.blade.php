@@ -8,7 +8,7 @@
                 <footer class="comment-meta">
                     <div class="comment-author vcard">
                         <img src="{{ $comment->user->getAvatar(60) }}" class="avatar" alt="image">
-                        <b class="fn">{{ $comment->user->name }}</b>
+                        <b class="fn">{{ $comment->user->username }}</b>
                         <span class="says">می گوید:</span>
                     </div>
 
@@ -35,7 +35,7 @@
                         <footer class="comment-meta">
                             <div class="comment-author vcard">
                                 <img src="{{ $reply->user->getAvatar(60) }}" class="avatar" alt="image">
-                                <b class="fn">{{ $reply->user->name }}</b>
+                                <b class="fn">{{ $reply->user->username }}</b>
                                 <span class="says">می گوید:</span>
                             </div>
 

@@ -116,7 +116,7 @@ background: #978e8e0f;
                                                 <span class="mr-5 text-danger">{{++$loop->index}}#</span>
                                                 <img src="{{$record->user->getAvatar(60)}}"
                                                     class="team-1 profile_sm mr-3" alt="image">
-                                                <span class="mr-2">نام : {{$record->user->name}}</span>
+                                                <span class="mr-2">نام : {{$record->user->username}}</span>
                                                 <span> | </span>
                                                 <span class="mr-2">رکورد : {{$record->claimRecord}}</span>
                                             </div>

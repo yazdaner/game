@@ -61,7 +61,7 @@
                                 </td>
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->name ?? '-'}}</td>
+                                <td>{{$user->username ?? '-'}}</td>
                                 <td>{{$user->mobile ?? '-'}}</td>
                                 <td>{{$user->ip}}</td>
                                 <td>{{$user->created_at}}</td>

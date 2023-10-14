@@ -11,7 +11,7 @@
                 @csrf
                 @method('put')
 
-                <x-input type="text" name="name" placeholder="نام" value="{{$user->name}}" />
+                <x-input type="text" name="name" placeholder="نام" value="{{$user->username}}" />
 
                 <x-input type="email" name="email" placeholder="ایمیل" value="{{$user->email}}" />
 
