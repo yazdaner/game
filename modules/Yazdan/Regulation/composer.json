@@ -1,0 +1,15 @@
+{
+    "name" : "yazdan/regulation",
+    "autoload" : {
+        "psr-4" : {
+            "Yazdan\\Regulation\\": "src"
+        }
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Yazdan\\Regulation\\App\\Providers\\RegulationServiceProvider"
+            ]
+        }
+    }
+}

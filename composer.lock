@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce63ea16fc2d5d4a6933efd6e1ded50f",
+    "content-hash": "a8ccec06b98573de99ba431b3cc4ff23",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6779,6 +6779,31 @@
             "autoload": {
                 "psr-4": {
                     "Yazdan\\Payment\\": "src"
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "yazdan/regulation",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/Yazdan/Regulation",
+                "reference": "bad3f5b893ed491deccf747c3411777c9e36e925"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yazdan\\Regulation\\App\\Providers\\RegulationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yazdan\\Regulation\\": "src"
                 }
             },
             "transport-options": {

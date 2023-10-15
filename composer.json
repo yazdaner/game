@@ -39,6 +39,7 @@
         "yazdan/lider-board": "dev-master",
         "yazdan/media": "dev-master",
         "yazdan/payment": "dev-master",
+        "yazdan/regulation": "dev-master",
         "yazdan/role": "dev-master",
         "yazdan/search": "dev-master",
         "yazdan/setting": "dev-master",
@@ -157,6 +158,10 @@
         {
             "type": "path",
             "url": "./modules/Yazdan/Faq"
+        },
+        {
+            "type": "path",
+            "url": "./modules/Yazdan/Regulation"
         }
     ],
     "scripts": {
