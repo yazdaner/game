@@ -12,7 +12,7 @@ class RegulationPolicy
 
     public function manage(User $user)
     {
-        return $user->hasPermissionTo(PermissionRepository::PERMISSION_MANAGE_ABOUT);
+        return $user->hasPermissionTo(PermissionRepository::PERMISSION_MANAGE_REGULATION);
     }
 
 }

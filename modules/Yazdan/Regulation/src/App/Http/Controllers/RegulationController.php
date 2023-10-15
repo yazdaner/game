@@ -33,6 +33,6 @@ class RegulationController extends Controller
     public function regulation()
     {
         $regulation = Regulation::first();
-        return view("Regulation::front.regulation",compact('regulation'));
+        return view("Regulation::front.index",compact('regulation'));
     }
 }

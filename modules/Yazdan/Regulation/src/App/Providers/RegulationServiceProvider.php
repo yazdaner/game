@@ -28,8 +28,8 @@ class RegulationServiceProvider extends ServiceProvider
         config()->set('sidebar.items.regulation', [
             'icon' => 'i-regulation',
             'url' => route('admin.regulation.edit'),
-            'title' => 'درباره ما',
-            'permission' => PermissionRepository::PERMISSION_MANAGE_ABOUT,
+            'title' => 'قوانین و مقررات',
+            'permission' => PermissionRepository::PERMISSION_MANAGE_REGULATION,
         ]);
 
     }

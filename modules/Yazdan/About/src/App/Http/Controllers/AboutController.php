@@ -33,6 +33,6 @@ class AboutController extends Controller
     public function about()
     {
         $about = About::first();
-        return view("About::front.about",compact('about'));
+        return view("About::front.index",compact('about'));
     }
 }

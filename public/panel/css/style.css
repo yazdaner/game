@@ -663,6 +663,11 @@ textarea {
     content: "\E033";
 }
 
+
+.sidebar__nav .i-regulation a::before {
+    content: "\E035";
+}
+
 .sidebar__nav .i-setting a::before {
     content: "\E0b8";
 }

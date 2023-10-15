@@ -65,6 +65,8 @@
                                 <li class="nav-item"><a href="{{route('about')}}" class="nav-link">درباره تاندورفیا</a></li>
 
                                 <li class="nav-item"><a href="{{route('faq')}}" class="nav-link">سوالات متداول</a></li>
+
+                                <li class="nav-item"><a href="{{route('regulation')}}" class="nav-link">قوانین و مقررات</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

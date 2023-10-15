@@ -4,7 +4,7 @@
         <footer class="footer-style-two">
           <div class="container">
             <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                   <a href="/" class="logo">
                     <img src="/assets/img/logo.png" alt="logo" />
@@ -45,20 +45,33 @@
                 </div>
               </div>
 
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div class="single-footer-widget pl-5">
-                  <h3>کاوش کنید</h3>
-
+                  <h3>لینک های اصلی</h3>
                   <ul class="footer-links-list">
                     <li><a href="/">صفحه اصلی</a></li>
                     <li><a href="{{route('about')}}">درباره ما</a></li>
                     <li><a href="{{route('blogs')}}">وبلاگ ما</a></li>
                     <li><a href="{{route('contact')}}">تماس با ما</a></li>
+                    <li><a href="{{route('coupons.index')}}">فروشگاه</a></li>
                   </ul>
                 </div>
               </div>
 
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div class="single-footer-widget pl-5">
+                  <h3>لینک های مفید</h3>
+                  <ul class="footer-links-list">
+                    <li><a href="{{route('games')}}">بازی ها</a></li>
+                    <li><a href="{{route('liderBoards')}}">لیدر برد فصلی</a></li>
+                    <li><a href="{{route('game.users.index')}}">ارسال رکورد</a></li>
+                    <li><a href="{{route('faq')}}">سوالات متداول</a></li>
+                    <li><a href="{{route('regulation')}}">قوانین و مقررات</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div class="single-footer-widget pl-3">
                   <h3>آدرس</h3>
 
