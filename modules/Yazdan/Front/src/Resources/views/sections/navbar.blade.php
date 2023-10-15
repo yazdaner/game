@@ -49,6 +49,8 @@
                                 <li class="nav-item"><a href="{{route('games')}}" class="nav-link">بازی ها</a></li>
 
                                 <li class="nav-item"><a href="{{route('liderBoards')}}" class="nav-link">لیدر برد فصلی</a></li>
+
+                                <li class="nav-item"><a href="{{route('game.users.index')}}" class="nav-link">ارسال رکورد</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

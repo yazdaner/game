@@ -49,7 +49,7 @@ class GameServiceProvider extends ServiceProvider
         config()->set('sidebarHome.items.game', [
             'icon' => 'i-users',
             'url' => route('game.users.index'),
-            'title' => 'بازی ها'
+            'title' => 'ارسال رکورد'
         ]);
     }
 }

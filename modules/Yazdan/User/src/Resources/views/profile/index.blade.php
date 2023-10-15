@@ -11,9 +11,10 @@
     <form action="{{route('users.profile')}}" method="POST">
         @csrf
         @method('patch')
+        <x-inputHome name="" type="text" label="شناسه کاربری" value="{{auth()->user()->key}}" class="text-left" disabled/>
         <x-inputHome name="username" type="text" label="نام کاربری" value="{{auth()->user()->username}}" class="text-left"/>
         <x-inputHome name="name" type="text" label="نام و نام خانوادگی" value="{{auth()->user()->name}}"/>
-        <x-inputHome name="email" type="text" label="ایمیل" value="{{auth()->user()->email}}" class="text-left" disabled/>
+        <x-inputHome name="" type="text" label="ایمیل" value="{{auth()->user()->email}}" class="text-left" disabled/>
         <x-inputHome name="mobile" type="text" label="شماره موبایل" value="{{auth()->user()->mobile}}" class="text-left"/>
 
 
