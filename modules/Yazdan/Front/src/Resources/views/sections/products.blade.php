@@ -1,7 +1,7 @@
 <!-- Start Products Area -->
 <section class="products-area ptb-100 mt-5">
     <div class="container">
-        <div class="section-title">
+        <div class="section-title mb-0 mb-md-5">
             <span class="sub-title">فروشگاه</span>
             <h2>خرید کوپن</h2>
         </div>
