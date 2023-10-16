@@ -8,9 +8,11 @@
     @include('Front::sections.CTA')
 
     @include('Front::sections.products')
+    
+    @include('Front::sections.coin')
 
     @include('Front::sections.blog')
-    
+
     @include('Front::sections.social')
 
 

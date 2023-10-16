@@ -66,7 +66,7 @@
                     <li><a href="{{route('liderBoards')}}">لیدر برد فصلی</a></li>
                     <li><a href="{{route('game.users.index')}}">ارسال رکورد</a></li>
                     <li><a href="{{route('faq')}}">سوالات متداول</a></li>
-                    <li><a href="{{route('regulation')}}">قوانین و مقررات</a></li>
+                    <li><a href="{{route('regulation')}}">شرایط و قوانین </a></li>
                   </ul>
                 </div>
               </div>

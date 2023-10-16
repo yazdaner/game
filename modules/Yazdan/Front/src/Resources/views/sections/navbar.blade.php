@@ -56,6 +56,17 @@
                         <li class="nav-item">
                             <a href="{{route('coupons.index')}}" class="nav-link">فروشگاه</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">فروشگاه <i class="flaticon-down-arrow"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="{{route('coupons.index')}}" class="nav-link">خرید کوپن</a></li>
+
+                                <li class="nav-item"><a href="{{route('user.coin.index')}}" class="nav-link">خرید سکه</a></li>
+                            </ul>
+                        </li>
+
+
                         <li class="nav-item">
                             <a href="{{route('blogs')}}" class="nav-link">مجله</a>
                         </li>
@@ -66,7 +77,7 @@
 
                                 <li class="nav-item"><a href="{{route('faq')}}" class="nav-link">سوالات متداول</a></li>
 
-                                <li class="nav-item"><a href="{{route('regulation')}}" class="nav-link">قوانین و مقررات</a></li>
+                                <li class="nav-item"><a href="{{route('regulation')}}" class="nav-link">شرایط و قوانین </a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
