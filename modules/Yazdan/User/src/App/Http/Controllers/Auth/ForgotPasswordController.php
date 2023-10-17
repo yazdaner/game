@@ -62,4 +62,19 @@ class ForgotPasswordController extends Controller
         return redirect(route('password.showResetForm'));
     }
 
+    public function resend(Request $request)
+    {
+        $user = UserRepository::getUserByEmail($request->email);
+        if(isset($user) && ! $user->hasVerifiedEmail() || ! isset($user) ){
+            return back()->withErrors(['email' => 'ایمیل ثبت نشده است']);
+        }
+        if(VerifyMailService::cacheHas($user->id)){
+            VerifyMailService::cacheDelete($user->id);
+        }
+        if(! VerifyMailService::cacheHas($user->id)){
+            $user->sendResetPasswordEmailCodeNotification();
+        }
+         return back()->with('resent', true);
+    }
+
 }
