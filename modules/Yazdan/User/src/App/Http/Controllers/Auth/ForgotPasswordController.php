@@ -33,21 +33,16 @@ class ForgotPasswordController extends Controller
     {
         // send Reset Password Code Email
         $this->validateEmail($request);
-
         $user = UserRepository::getUserByEmail($request->email);
-
         if(isset($user) && ! $user->hasVerifiedEmail() || ! isset($user) ){
             return back()->withErrors(['email' => 'ایمیل ثبت نشده است']);
         }
-
         if(! VerifyMailService::cacheHas($user->id)){
             $user->sendResetPasswordEmailCodeNotification();
         }
-
         // show Verify Code Reset Password Form
         $email = $user->email;
         return view('User::front.passwords.verifyResetPassword',compact('email'));
-
     }
 
     public function checkVerifyCodeResetPassword(ResetPasswordVerifyCodeRequest $request)
