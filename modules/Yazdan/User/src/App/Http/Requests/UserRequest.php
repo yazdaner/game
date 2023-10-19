@@ -27,6 +27,7 @@ class UserRequest extends FormRequest
             'media' => ['nullable','image'],
             'password' => ['required'],
             'status' => ['nullable',Rule::in(UserRepository::$statuses)],
+            'coin' => ['nullable'],
         ];
         if (request()->getMethod() == "PUT"){
             $rules["key"] = ['required','unique:users,key,'. request()->route('user')];
@@ -34,7 +35,7 @@ class UserRequest extends FormRequest
             $rules["mobile"] = ['nullable',new ValidMobile,'unique:users,mobile,'. request()->route('user')];
             $rules["username"] =  ['required','unique:users,username,'. request()->route('user')];
             $rules["password"] =  ['nullable'];
-
+            $rules["coin"] =  ['required'];
         }
         return $rules;
     }

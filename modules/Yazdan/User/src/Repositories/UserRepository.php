@@ -60,6 +60,7 @@ class UserRepository
             'mobile' => $value->mobile,
             'status' => $value->status ?? UserRepository::STATUS_ACTIVE,
             'avatar_id' => $value->avatar_id,
+            'coin' => $value->coin,
         ];
 
         if ($value->password) {
@@ -80,6 +81,7 @@ class UserRepository
             'status' => $value->status ?? UserRepository::STATUS_ACTIVE,
             'avatar_id' => $value->media_id ?? null,
             'password' => bcrypt($value->password),
+            'coin' => $value->coin ?? 0,
         ]);
     }
 

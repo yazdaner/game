@@ -29,6 +29,9 @@
                     <option value="{{$status}}">@lang($status)</option>
                 @endforeach
             </x-select>
+
+            <x-input type="number" name="coin" placeholder="سکه" />
+
             <button class="btn btn-yazdan">ایجاد کاربر</button>
         </form>
     </div>

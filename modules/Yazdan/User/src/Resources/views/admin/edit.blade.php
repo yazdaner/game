@@ -33,6 +33,8 @@
                     @endforeach
                 </x-select>
 
+                <x-input type="number" name="coin" placeholder="سکه" value="{{$user->coin}}"/>
+
                 <button class="btn btn-yazdan">ویراش کاربر</button>
             </form>
         </div>
