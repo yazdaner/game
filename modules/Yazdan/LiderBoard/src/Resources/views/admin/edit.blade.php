@@ -9,7 +9,7 @@
         <form action="{{route('admin.liderBoards.update',$liderBoard->id)}}" method="post" class="padding-30">
             @csrf
             @method('put')
-            <x-input value="{{$liderBoard->user->key}}" name="userKey" type="number" placeholder="شناسه کاربر" />
+            <x-input value="{{$liderBoard->user->key}}" name="userKey" type="number" placeholder="کد عضویت" />
 
             <x-input value="{{$liderBoard->score}}" name="score" type="number" placeholder="امتیاز" />
 

@@ -21,6 +21,7 @@ Route::prefix('admin-panel')->name('admin.')->middleware([
     Route::delete('users/{user}/remove/{role}', [UserController::class, 'removeRole'])->name('users.removeRole');
     Route::patch('users/{user}/manualVerify', [UserController::class, 'manualVerify'])->name('users.manualVerify');
 
+
 });
 
 

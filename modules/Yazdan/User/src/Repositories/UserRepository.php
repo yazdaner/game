@@ -53,11 +53,12 @@ class UserRepository
     public static function update($value, $userId)
     {
         $update = [
+            'key' => $value->key,
             'name' => $value->name,
             'email' => $value->email,
             'username' => $value->username,
             'mobile' => $value->mobile,
-            'status' => $value->status,
+            'status' => $value->status ?? UserRepository::STATUS_ACTIVE,
             'avatar_id' => $value->avatar_id,
         ];
 
@@ -66,6 +67,20 @@ class UserRepository
         }
 
         User::whereId($userId)->update($update);
+    }
+
+    public static function store($value)
+    {
+        User::create([
+            'key' => $value->key,
+            'name' => $value->name ?? null,
+            'email' => $value->email,
+            'username' => $value->username,
+            'mobile' => $value->mobile ?? null,
+            'status' => $value->status ?? UserRepository::STATUS_ACTIVE,
+            'avatar_id' => $value->media_id ?? null,
+            'password' => bcrypt($value->password),
+        ]);
     }
 
     public static function upload($request, $userId)

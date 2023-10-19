@@ -32,7 +32,7 @@ class LiderBoardRequest extends FormRequest
     public function attributes()
     {
         return [
-            "userKey" => "شناسه کاربر",
+            "userKey" => "کد عضویت",
             "score" => "امتیاز",
         ];
     }

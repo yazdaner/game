@@ -11,13 +11,17 @@
                 @csrf
                 @method('put')
 
-                <x-input type="text" name="name" placeholder="نام" value="{{$user->username}}" />
+                <x-input type="text" name="key" placeholder="کد عضویت" value="{{$user->key}}" />
+
+                <x-input type="text" name="name" placeholder="نام" value="{{$user->name}}" />
 
                 <x-input type="email" name="email" placeholder="ایمیل" value="{{$user->email}}" />
 
                 <x-input type="text" name="username" placeholder="نام کاربری" value="{{$user->username}}" />
 
                 <x-input type="text" name="mobile" placeholder="شماره موبایل" value="{{$user->mobile}}" />
+
+                <x-input type="text" name="password" placeholder="پسورد" />
 
                 <br>
 
