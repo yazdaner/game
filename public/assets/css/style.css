@@ -9482,3 +9482,7 @@ Sidebar Modal CSS
 {
     height: 280px !important;
 }
+
+.mt-6{
+    margin-top: 150px !important;
+}

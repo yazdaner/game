@@ -1,6 +1,8 @@
 @extends('User::front.master')
 @section('content')
-        <div class="col-lg-5 col-md-7 col-12 mx-auto mt-5">
+@include('Front::sections.navbar')
+
+        <div class="col-lg-5 col-md-7 col-12 mx-auto my-5 mt-6">
             <div class="login-form">
                 <h2 class="text-center">ورود کاربران</h2>
                 <form action="{{ route('login') }}" method="post">
@@ -34,4 +36,6 @@
 
             </div>
         </div>
+@include('Front::sections.footer')
+
 @endsection

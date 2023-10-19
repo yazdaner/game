@@ -1,6 +1,8 @@
 @extends('User::front.master')
 @section('content')
-<div class="col-lg-5 col-md-7 col-sm-9 col-12 mx-auto my-5">
+@include('Front::sections.navbar')
+
+<div class="col-lg-5 col-md-7 col-sm-9 col-12 mx-auto my-5 mt-6">
     <div class="login-form">
         <h2 class="text-center">ثبت نام کاربران</h2>
 
@@ -25,5 +27,6 @@
         </form>
     </div>
 </div>
+@include('Front::sections.footer')
 
 @endsection
