@@ -10,7 +10,7 @@ class LiderBoard extends Model
 {
     use HasFactory;
 
-    protected $table = 'liderBoards';
+    protected $table = 'liderboards';
     protected $fillable = [
         'user_id',
         'score'

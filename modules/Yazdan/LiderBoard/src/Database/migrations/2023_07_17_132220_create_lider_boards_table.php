@@ -13,7 +13,7 @@ class CreateLiderBoardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('liderBoards', function (Blueprint $table) {
+        Schema::create('liderboards', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('user_id')->nullable();
@@ -32,6 +32,6 @@ class CreateLiderBoardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('liderBoards');
+        Schema::dropIfExists('liderboards');
     }
 }
