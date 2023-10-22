@@ -698,6 +698,10 @@ textarea {
     content: "\E126";
 }
 
+.item-coupon:before {
+    content: "\E126";
+    font-size: 16px;
+}
 
 .i-users a::before {
     content: "\E136";

@@ -2,12 +2,13 @@
 
 namespace Yazdan\Coupon\App\Http\Controllers;
 
+use Yazdan\User\App\Models\User;
 use App\Http\Controllers\Controller;
-use Yazdan\Common\Responses\AjaxResponses;
-use Yazdan\Coupon\App\Http\Requests\CouponRequest;
 use Yazdan\Coupon\App\Models\Coupon;
-use Yazdan\Coupon\Repositories\CouponRepository;
+use Yazdan\Common\Responses\AjaxResponses;
 use Yazdan\Media\Services\MediaFileService;
+use Yazdan\Coupon\Repositories\CouponRepository;
+use Yazdan\Coupon\App\Http\Requests\CouponRequest;
 
 class CouponController extends Controller
 {

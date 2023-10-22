@@ -143,4 +143,11 @@ class UserController extends Controller
         newFeedbacks();
         return redirect()->route('admin.users.index');
     }
+
+
+    public function show(User $user)
+    {
+        $coupons = $user->coupons()->get();
+        return view('User::admin.show',compact('user','coupons'));
+    }
 }

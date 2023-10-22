@@ -78,6 +78,8 @@
                             <td class="confirmation_status"><span
                                     class="{{$user->verifyStyle}}">{{$user->verify}}</span></td>
                             <td>
+                                <a href="{{route('admin.users.show',$user->id)}}" class="item-eye mlg-10"
+                                    title="نمایش کوپن"></a>
                                 <a href="" onclick="deleteItem(event,'{{route('admin.users.destroy',$user->id)}}')"
                                     class="item-delete mlg-10" title="حذف"></a>
                                 <a href="{{route('admin.users.edit',$user->id)}}" class="item-edit mlg-10"
