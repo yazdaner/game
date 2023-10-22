@@ -26,7 +26,7 @@
   </head>
   <body>
     <div class="text-center">
-      <canvas id="canvas" width="360" height="640"></canvas>
+      <canvas id="canvas" width="540" height="960"></canvas>
     </div>
   </body>
   <script src="{{asset('./memberCard/js.js')}}"></script>
