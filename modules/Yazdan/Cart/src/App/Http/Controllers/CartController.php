@@ -2,14 +2,15 @@
 
 namespace Yazdan\Cart\App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Cart;
 use Illuminate\Http\Request;
-use Yazdan\Cart\App\Http\Requests\CartRequest;
-use Yazdan\Payment\App\Events\PaymentWasSuccessful;
+use App\Http\Controllers\Controller;
 use Yazdan\Payment\Gateways\Gateway;
-use Yazdan\Payment\Repositories\PaymentRepository;
 use Yazdan\Payment\Services\PaymentService;
+use Yazdan\Cart\App\Http\Requests\CartRequest;
+use Yazdan\Payment\Repositories\PaymentRepository;
+use Yazdan\Payment\App\Events\PaymentWasSuccessful;
+use Yazdan\Discount\Repositories\DiscountRepository;
 
 class CartController extends Controller
 {
@@ -107,6 +108,18 @@ class CartController extends Controller
         $amounts = [];
         $products = [];
         $code = session()->get('code');
+
+        // check code
+        if ($code) {
+            $repo = new DiscountRepository();
+            $discountFromCode = $repo->getValidCode($code);
+            if($discountFromCode == null){
+                session()->forget('code');
+                newFeedbacks('نا موفق', 'کد تخفیف نامعتبر میباشد', 'error');
+                return back();
+            }
+        }
+
         foreach ($items as $item) {
             [$amount, $discounts] = $item['model']->finalPrice($item['quantity'], $code, true);
             $amounts[] = $amount;

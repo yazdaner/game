@@ -100,4 +100,18 @@ class DiscountRepository
             });
             return $query->first();
     }
+    public static function getValidCode($code)
+    {
+        $query = Discount::query()
+            ->where("code", $code);
+            $query->where(function ($query) {
+                $query->where("expire_at", ">", now())
+                    ->orWhereNull("expire_at");
+            })
+            ->where(function ($query) {
+                $query->where("usage_limitation", ">", "0")
+                    ->orWhereNull("usage_limitation");
+            });
+            return $query->first();
+    }
 }

@@ -44,25 +44,27 @@
                         <li class="nav-item">
                             <a href="/" class="nav-link">خانه</a>
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">مسابقات <i class="flaticon-down-arrow"></i></a>
+                        <li class="nav-item"><a href="#" class="nav-link">مسابقات <i
+                                    class="flaticon-down-arrow"></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a href="{{route('games')}}" class="nav-link">بازی ها</a></li>
 
-                                <li class="nav-item"><a href="{{route('liderBoards')}}" class="nav-link">لیدر برد فصلی</a></li>
+                                <li class="nav-item"><a href="{{route('liderBoards')}}" class="nav-link">لیدر برد
+                                        فصلی</a></li>
 
-                                <li class="nav-item"><a href="{{route('game.users.index')}}" class="nav-link">ارسال رکورد</a></li>
+                                <li class="nav-item"><a href="{{route('game.users.index')}}" class="nav-link">ارسال
+                                        رکورد</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('coupons.index')}}" class="nav-link">فروشگاه</a>
                         </li>
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">فروشگاه <i class="flaticon-down-arrow"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="{{route('coupons.index')}}" class="nav-link">خرید کوپن</a></li>
+                                <li class="nav-item"><a href="{{route('coupons.index')}}" class="nav-link">خرید کوپن</a>
+                                </li>
 
-                                <li class="nav-item"><a href="{{route('user.coin.index')}}" class="nav-link">خرید سکه</a></li>
+                                <li class="nav-item"><a href="{{route('user.coin.index')}}" class="nav-link">خرید
+                                        سکه</a></li>
                             </ul>
                         </li>
 
@@ -73,11 +75,13 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">درباره ما <i class="flaticon-down-arrow"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="{{route('about')}}" class="nav-link">درباره تاندورفیا</a></li>
+                                <li class="nav-item"><a href="{{route('about')}}" class="nav-link">درباره تاندورفیا</a>
+                                </li>
 
                                 <li class="nav-item"><a href="{{route('faq')}}" class="nav-link">سوالات متداول</a></li>
 
-                                <li class="nav-item"><a href="{{route('regulation')}}" class="nav-link">شرایط و قوانین </a></li>
+                                <li class="nav-item"><a href="{{route('regulation')}}" class="nav-link">شرایط و قوانین
+                                    </a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
