@@ -70,9 +70,6 @@ class CartController extends Controller
         return back();
     }
 
-
-
-
     public function remove($rowId)
     {
         Cart::remove($rowId);
@@ -119,7 +116,6 @@ class CartController extends Controller
                 return back();
             }
         }
-
         foreach ($items as $item) {
             [$amount, $discounts] = $item['model']->finalPrice($item['quantity'], $code, true);
             $amounts[] = $amount;
