@@ -31,7 +31,7 @@ class SliderRequest extends FormRequest
         ];
 
         if (request()->method === 'PATCH') {
-            $rules['media'] = "nullable|file|image";
+            $rules['media'] = "nullable|image";
         }
         return $rules;
     }

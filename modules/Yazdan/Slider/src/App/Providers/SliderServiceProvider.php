@@ -18,6 +18,7 @@ class SliderServiceProvider extends ServiceProvider
             ->group(__DIR__ . '/../../Routes/slider_routes.php');
         $this->loadViewsFrom(__DIR__ . '/../../Resources/views/', 'Slider');
         $this->loadMigrationsFrom(__DIR__ . '/../../Database/migrations/');
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../../Resources/Lang/');
 
         Gate::policy(Slider::class, SliderPolicy::class);
     }
